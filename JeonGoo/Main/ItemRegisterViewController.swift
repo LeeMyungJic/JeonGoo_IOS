@@ -7,28 +7,24 @@
 
 import UIKit
 
-class ItemRegisterViewController: UIViewController, BackProtocol {
+class ItemRegisterViewController: UIViewController {
     
-    var isOpened = false
-    func deliveryData(_ data: Bool) {
-        self.isOpened = data
-        print("에드")
-        guard let third = tabBarController?.viewControllers?[0]
-        else {
-            return
-        }
-        tabBarController?.selectedViewController = third
-        isOpened = false
-    }
     override func viewWillAppear(_ animated: Bool) {
         
         guard let vc = self.storyboard?.instantiateViewController(identifier: "ad") as? adViewController else {
             return
         }
-        // second 뷰의 대리자는 나(first 뷰)야 !
-        //vc.delegate = self
-        
-        present(vc, animated: true, completion: nil)
+        present(vc, animated: true) {
+            guard let second = self.tabBarController?.viewControllers?[0] else {
+                return
+            }
+    
+            self.tabBarController?.selectedViewController = second
+        }
+    }
+    
+    func YesClick()
+    {
         
     }
     override func viewDidLoad() {

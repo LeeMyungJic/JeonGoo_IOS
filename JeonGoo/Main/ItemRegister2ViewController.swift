@@ -9,8 +9,10 @@ import UIKit
 
 class ItemRegister2ViewController: UIViewController {
 
-    weak var delegate: BackProtocol?
-    
+    @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var oldButton: UIButton!
+    var new = false
+    var old = false
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -19,11 +21,31 @@ class ItemRegister2ViewController: UIViewController {
     }
     
     @IBAction func Cancel(_ sender: Any) {
-        delegate?.deliveryData(true)
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func newClick(_ sender: Any) {
+        new = true
+        old = false
+        newButton.backgroundColor = #colorLiteral(red: 1, green: 0.6852490902, blue: 0.1444164813, alpha: 1)
+        newButton.setTitleColor(.white, for: .disabled)
+        newButton.isEnabled = false
+        
+        oldButton.backgroundColor = #colorLiteral(red: 0.6666144729, green: 0.6666962504, blue: 0.6665866375, alpha: 1)
+        oldButton.setTitleColor(.white, for: .disabled)
+        oldButton.isEnabled = true
+    }
+    @IBAction func oldClick(_ sender: Any) {
+        new = false
+        old = true
+        oldButton.backgroundColor = #colorLiteral(red: 1, green: 0.6852490902, blue: 0.1444164813, alpha: 1)
+        oldButton.setTitleColor(.white, for: .disabled)
+        oldButton.isEnabled = false
+        
+        newButton.backgroundColor = #colorLiteral(red: 0.6666144729, green: 0.6666962504, blue: 0.6665866375, alpha: 1)
+        newButton.setTitleColor(.white, for: .disabled)
+        newButton.isEnabled = true
+    }
     
-
     /*
     // MARK: - Navigation
 

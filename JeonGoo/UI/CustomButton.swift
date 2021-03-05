@@ -12,7 +12,7 @@ class CustomButton : UIButton{
     required init(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)!
         
-        let colorLiteral = #colorLiteral(red: 0.9530107379, green: 0.7626427412, blue: 0.06412496418, alpha: 1)
+        let colorLiteral = #colorLiteral(red: 1, green: 0.6852490902, blue: 0.1444164813, alpha: 1)
         self.layer.cornerRadius = 3
         self.layer.backgroundColor = colorLiteral.cgColor
         self.setTitleColor(.white, for: .normal)
