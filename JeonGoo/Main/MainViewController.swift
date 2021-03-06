@@ -32,6 +32,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             cell.grade.attributedText = attributedStr
         }
+        products[indexPath.row].grade = cell.grade.text!
+        
         cell.item.text = products[indexPath.row].name
         
         if products[indexPath.row].isReserved {
@@ -41,6 +43,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             cell.item.attributedText = attributedStr
         }
+        products[indexPath.row].name = cell.item.text!
+        
         cell.itemImage.image = resize(getImage: UIImage(named: image[indexPath.row])!)
         cell.price.text = "\(products[indexPath.row].price)원"
         cell.like.text = "\(products[indexPath.row].likes)"
@@ -54,11 +58,29 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         TableMain.delegate = self
         TableMain.dataSource = self
         
-        products.append(Product(name: "macbookAir", price: 900000, likes: 16, grade: "A등급", isReserved: false, isGenuine: true))
-        products.append(Product(name: "macbookPro", price: 3000000, likes: 8, grade: "B등급", isReserved: false, isGenuine: false))
-        products.append(Product(name: "iphone", price: 800000, likes: 26, grade: "new", isReserved: true, isGenuine: true))
+        products.append(Product(name: "macbookAir", price: 900000, likes: 16, count: 80, grade: "A등급", detail: "아주 좋아요", isReserved: false, isGenuine: true))
+        products.append(Product(name: "macbookPro", price: 3000000, likes: 8, count: 122, grade: "B등급", detail: "ram 8GB / 2016년 제조 / SSD 128GB", isReserved: false, isGenuine: false))
+        products.append(Product(name: "iphone", price: 800000, likes: 26, count: 66, grade: "new", detail: "이걸 왜 안 사지??", isReserved: true, isGenuine: true))
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier, "detail" == id {
+            if let controller = segue.destination as? DetailViewController {
+                if let indexPath = TableMain.indexPathForSelectedRow {
+                    controller.getName = products[indexPath.row].name
+                    controller.getGrade = products[indexPath.row].grade
+                    controller.getDetail = products[indexPath.row].detail
+                    controller.getLikes = "관심  \(products[indexPath.row].likes)"
+                    controller.getCount = "조회  \(products[indexPath.row].count)"
+                    controller.getPrice = "\(products[indexPath.row].price)원"
+                   
+                }
+            }
+        }
+    }
+    
+    
     
     func resize(getImage:UIImage) -> UIImage {
         

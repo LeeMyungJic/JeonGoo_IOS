@@ -8,6 +8,12 @@
 import UIKit
 
 class imageCell: UICollectionViewCell {
-    @IBOutlet weak var image: UIImageView!
+    var isPicked = false
+    var refuse : (() -> ()) = {}
     
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var removeButton: UIButton!
+    @IBAction func removeCell(_ sender: Any) {
+        refuse()
+    }
 }

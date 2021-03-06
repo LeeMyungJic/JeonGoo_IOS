@@ -11,7 +11,9 @@ struct Product {
     var name : String
     var price : Int
     var likes : Int
+    var count : Int
     var grade : String
+    var detail : String
     var isReserved : Bool
     var isGenuine : Bool
 }

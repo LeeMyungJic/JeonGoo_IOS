@@ -29,6 +29,7 @@
 		DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80A525F2141D004D6E82 /* CustomView.swift */; };
 		DACB80AE25F21D02004D6E82 /* imageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80AD25F21D02004D6E82 /* imageCell.swift */; };
 		DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80B825F22730004D6E82 /* DetailViewController.swift */; };
+		DACB80BF25F34EB1004D6E82 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80BE25F34EB1004D6E82 /* testViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		DACB80A525F2141D004D6E82 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		DACB80AD25F21D02004D6E82 /* imageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCell.swift; sourceTree = "<group>"; };
 		DACB80B825F22730004D6E82 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DACB80BE25F34EB1004D6E82 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				DACB801F25F0D82B004D6E82 /* Main.storyboard */,
 				DACB801D25F0D82B004D6E82 /* ViewController.swift */,
+				DACB80BE25F34EB1004D6E82 /* testViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				DACB807E25F0F823004D6E82 /* Product.swift in Sources */,
 				DACB806525F0DD68004D6E82 /* MainViewController.swift in Sources */,
 				DACB80AE25F21D02004D6E82 /* imageCell.swift in Sources */,
+				DACB80BF25F34EB1004D6E82 /* testViewController.swift in Sources */,
 				DACB809725F1119E004D6E82 /* ItemRegister3ViewController.swift in Sources */,
 				DACB807925F0EC51004D6E82 /* ItemsCell.swift in Sources */,
 			);
