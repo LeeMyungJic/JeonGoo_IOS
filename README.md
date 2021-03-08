@@ -4,12 +4,19 @@
 
 - #### 제품 상태 검증을 통한 전자기기 구매 플랫폼
 
-- #### 기술 스택
+- #### 사용 기술
 
   -  `Swift 5`,  `Xcode 12`
-
   - `Callback Closure`, `Delegate Pattern`, `MobileCoreServices`
+  
+- #### 수행 역할
 
+  - `Auto Layout`을 통한 UI 구현
+  - `NSMutableAttributedString`을 통한 가시성 증대
+  - `UIImagePickerController` 디바이스에서 촬영한 미디어들을 전송
+   - 촬영한 미디어들은 Horizontal CollectionView Cell에 나타냄
+   - 각 셀의 버튼을 클릭하여 미디어 삭제 가능
+  - 상품의 사진이 여러개 일 경우 `UIPageControl`와 `UISwipeGestureRecognizer`를 사용하여 보기 쉽게 표현
     
 
 ---
