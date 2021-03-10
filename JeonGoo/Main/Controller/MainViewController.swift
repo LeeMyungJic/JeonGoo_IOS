@@ -64,6 +64,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("홈")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier, "detail" == id {
             if let controller = segue.destination as? DetailViewController {

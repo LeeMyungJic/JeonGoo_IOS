@@ -80,9 +80,6 @@
                                                 <rect key="frame" x="0.0" y="40" width="294" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <state key="normal" title="회원가입"/>
-                                                <connections>
-                                                    <segue destination="Q87-c6-RCU" kind="show" id="xMv-0w-qzG"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -117,80 +114,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="14" y="89"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="4xf-kI-CSc">
-            <objects>
-                <viewController id="Q87-c6-RCU" customClass="testViewController" customModule="JeonGoo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xgA-0r-R3V">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpP-Ne-DWP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="787.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybZ-M0-OX8">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dr-me-pic">
-                                                <rect key="frame" x="30" y="1240" width="354" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LX-Vz-5Bo">
-                                                <rect key="frame" x="30" y="30" width="354" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="4LX-Vz-5Bo" secondAttribute="trailing" constant="30" id="76P-Uc-q7c"/>
-                                            <constraint firstAttribute="trailing" secondItem="1Dr-me-pic" secondAttribute="trailing" constant="30" id="PW2-1V-fes"/>
-                                            <constraint firstItem="4LX-Vz-5Bo" firstAttribute="top" secondItem="ybZ-M0-OX8" secondAttribute="top" constant="30" id="VnT-DO-MUE"/>
-                                            <constraint firstItem="1Dr-me-pic" firstAttribute="leading" secondItem="ybZ-M0-OX8" secondAttribute="leading" constant="30" id="WOP-bx-fXj"/>
-                                            <constraint firstItem="4LX-Vz-5Bo" firstAttribute="leading" secondItem="ybZ-M0-OX8" secondAttribute="leading" constant="30" id="geJ-me-hDB"/>
-                                            <constraint firstAttribute="height" constant="1300" id="s12-nD-xwy"/>
-                                            <constraint firstAttribute="bottom" secondItem="1Dr-me-pic" secondAttribute="bottom" constant="30" id="xnl-5r-LmE"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ybZ-M0-OX8" secondAttribute="trailing" id="4TY-nn-zaZ"/>
-                                    <constraint firstItem="ybZ-M0-OX8" firstAttribute="leading" secondItem="hpP-Ne-DWP" secondAttribute="leading" id="F5f-PO-2iA"/>
-                                    <constraint firstAttribute="bottom" secondItem="ybZ-M0-OX8" secondAttribute="bottom" id="G18-tO-FTP"/>
-                                    <constraint firstItem="ybZ-M0-OX8" firstAttribute="width" secondItem="hpP-Ne-DWP" secondAttribute="width" id="S66-yR-65J"/>
-                                    <constraint firstItem="ybZ-M0-OX8" firstAttribute="top" secondItem="hpP-Ne-DWP" secondAttribute="top" id="pVC-bk-CEc"/>
-                                </constraints>
-                            </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Luz-T3-1L2">
-                                <rect key="frame" x="10" y="787.5" width="394" height="20.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJT-v2-eHo">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="MD2-FS-gtb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="hpP-Ne-DWP" firstAttribute="top" secondItem="MD2-FS-gtb" secondAttribute="top" id="01n-6Y-kth"/>
-                            <constraint firstItem="MD2-FS-gtb" firstAttribute="bottom" secondItem="Luz-T3-1L2" secondAttribute="bottom" id="1X8-6o-6xH"/>
-                            <constraint firstItem="Luz-T3-1L2" firstAttribute="leading" secondItem="MD2-FS-gtb" secondAttribute="leading" constant="10" id="2UK-RZ-rbn"/>
-                            <constraint firstItem="hpP-Ne-DWP" firstAttribute="trailing" secondItem="MD2-FS-gtb" secondAttribute="trailing" id="V3w-Jd-KhD"/>
-                            <constraint firstItem="MD2-FS-gtb" firstAttribute="trailing" secondItem="Luz-T3-1L2" secondAttribute="trailing" constant="10" id="dTZ-1d-1S4"/>
-                            <constraint firstItem="Luz-T3-1L2" firstAttribute="top" secondItem="hpP-Ne-DWP" secondAttribute="bottom" id="h6l-Ck-98M"/>
-                            <constraint firstItem="hpP-Ne-DWP" firstAttribute="leading" secondItem="MD2-FS-gtb" secondAttribute="leading" id="uwC-vO-3AB"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="3KR-t6-g1G"/>
-                    <size key="freeformSize" width="414" height="896"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xTb-o4-3Jc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="831.88405797101461" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>

@@ -1,13 +1,13 @@
 //
-//  adViewController.swift
+//  WishListViewController.swift
 //  JeonGoo
 //
-//  Created by 이명직 on 2021/03/04.
+//  Created by 이명직 on 2021/03/10.
 //
 
 import UIKit
 
-class adViewController: UINavigationController {
+class WishListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +15,10 @@ class adViewController: UINavigationController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func back(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

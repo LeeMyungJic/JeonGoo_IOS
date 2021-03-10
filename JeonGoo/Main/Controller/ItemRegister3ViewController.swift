@@ -28,7 +28,7 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         let cell = TableMain.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! imageCell
         
         // 콜백 클로저로 셀 삭제
-        cell.refuse = { [unowned self] in
+        cell.delete = { [unowned self] in
            
             self.dataArray.remove(at: indexPath.row)
             self.TableMain.reloadData()
