@@ -36,7 +36,9 @@
 		DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80A525F2141D004D6E82 /* CustomView.swift */; };
 		DACB80AE25F21D02004D6E82 /* imageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80AD25F21D02004D6E82 /* imageCell.swift */; };
 		DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80B825F22730004D6E82 /* DetailViewController.swift */; };
-		DACB80BF25F34EB1004D6E82 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80BE25F34EB1004D6E82 /* testViewController.swift */; };
+		DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBC625FF466400C507BC /* JoinViewController.swift */; };
+		DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */; };
+		DAF3DBD425FF53F900C507BC /* Back.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBD325FF53F900C507BC /* Back.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +94,9 @@
 		DACB80A525F2141D004D6E82 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		DACB80AD25F21D02004D6E82 /* imageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCell.swift; sourceTree = "<group>"; };
 		DACB80B825F22730004D6E82 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		DACB80BE25F34EB1004D6E82 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
+		DAF3DBC625FF466400C507BC /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
+		DAF3DBD325FF53F900C507BC /* Back.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Back.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 				DACB802425F0D82C004D6E82 /* LaunchScreen.storyboard */,
 				DACB802725F0D82C004D6E82 /* Info.plist */,
 				DA8277EB25F74B56007520D5 /* Delegate.swift */,
+				DAF3DBD325FF53F900C507BC /* Back.swift */,
 			);
 			path = JeonGoo;
 			sourceTree = "<group>";
@@ -230,7 +235,8 @@
 			children = (
 				DACB801F25F0D82B004D6E82 /* Main.storyboard */,
 				DACB801D25F0D82B004D6E82 /* ViewController.swift */,
-				DACB80BE25F34EB1004D6E82 /* testViewController.swift */,
+				DAF3DBC625FF466400C507BC /* JoinViewController.swift */,
+				DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */,
 				DA8277E725F74113007520D5 /* adViewController.swift in Sources */,
 				DA55BE0925F89572007291B1 /* WishListViewController.swift in Sources */,
 				DACB804E25F0D83F004D6E82 /* CustomButton.swift in Sources */,
@@ -410,14 +417,15 @@
 				DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */,
 				DACB806A25F0DD7A004D6E82 /* ItemRegisterViewController.swift in Sources */,
 				DACB808625F1047D004D6E82 /* BackProtocol.swift in Sources */,
+				DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */,
 				DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */,
+				DAF3DBD425FF53F900C507BC /* Back.swift in Sources */,
 				DACB807E25F0F823004D6E82 /* Product.swift in Sources */,
 				DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */,
 				DA55BE1B25F8A98B007291B1 /* SaleListCell.swift in Sources */,
 				DA55BE0425F89564007291B1 /* BuyingListViewController.swift in Sources */,
 				DACB806525F0DD68004D6E82 /* MainViewController.swift in Sources */,
 				DACB80AE25F21D02004D6E82 /* imageCell.swift in Sources */,
-				DACB80BF25F34EB1004D6E82 /* testViewController.swift in Sources */,
 				DACB809725F1119E004D6E82 /* ItemRegister3ViewController.swift in Sources */,
 				DACB807925F0EC51004D6E82 /* ItemsCell.swift in Sources */,
 				DA55BE1325F8A69A007291B1 /* BuyingListCell.swift in Sources */,
