@@ -7,6 +7,9 @@
 
 import UIKit
 
+class BuyingListCell: UITableViewCell {
+    
+}
 class BuyingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4

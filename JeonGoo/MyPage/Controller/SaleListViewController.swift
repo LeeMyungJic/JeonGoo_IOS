@@ -6,6 +6,15 @@
 //
 
 import UIKit
+class SaleListCell: UITableViewCell {
+    
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var grade: UILabel!
+    @IBOutlet weak var price: UILabel!
+    
+    @IBOutlet weak var stateLabel: UILabel!
+}
 
 class SaleListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -13,7 +22,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = TableMain.dequeueReusableCell(withIdentifier: "BuyingListCell") as! BuyingListCell
+        let cell = TableMain.dequeueReusableCell(withIdentifier: "SaleListCell") as! SaleListCell
         
         return cell
     }
