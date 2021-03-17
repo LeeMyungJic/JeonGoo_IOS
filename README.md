@@ -1,4 +1,5 @@
 # 전구 (전자기기를 구매하다)
+
 💡 제품 상태 검증을 통한 전자기기 구매 플랫폼
 ---
 
@@ -6,7 +7,7 @@
 
 - #### 기술 스택
 
-  -  `Swift 5`,  `Xcode 12`
+  - `Swift 5`,  `Xcode 12`
 
   - `Callback Closure`, `Delegate Pattern`, `MobileCoreServices`
 
@@ -51,6 +52,7 @@
     ~~~
 
 - 각 상품을 클릭하면 해당하는 디테일뷰로 데이터(상품 정보, 설명 등)를 전달하고 화면전환
+
 - 클릭할 때마다 서버에 요청하여 해당 상품 정보를 가져오는 방식으로 바꿀까 생각중
 
 ---
@@ -113,6 +115,60 @@
           }
       ~~~
 
+---
+
+ ## 2021 03 16
+
+- #### 메인 페이지 (상품 검색기능 추가)
+
+  - 사용 프로토콜 
+
+    - ###### `UISearchBarDelegate`
+
+  - ViewDidLoad에 가져온 상품리스트와 필터링 리스트를 일치시킨다.
+
+  -  searchBarSearchButtonClicked()을 사용하여 검색된 단어가 있으면 필터링을 시작한다.
+
+  - 서버와 연동하면 이 부분(필터링)은 제거할 예정 -> 서버에 필터링 요청해서 받아오기
+
+  ~~~ swift
+  func setSearchBar(){
+              
+              searchBar.placeholder = "Search"
+              // 좌측에 이미지넣기
+  searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: UISearchBar.Icon.search, state: .normal)
+              
+              
+              if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+                  // 서치바 백그라운드 컬러 지정
+                  textfield.backgroundColor = UIColor.white
+                  // 플레이스홀더 색상 지정
+                  textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+                  // 서치바 텍스트 색상 지정
+                  textfield.textColor = UIColor.black
+              
+              }
+          }
+  ~~~
+
+  ~~~swift
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+          
+          dismissKeyboard()
+         
+          guard let searchStr = searchBar.text, searchStr.isEmpty == false else {
+              self.searchData = self.products
+              return
+          }
+          print("검색어 : \(searchStr)")
       
-
-
+          self.searchData = self.products.filter{
+              (product: Product) -> Bool in
+              product.name.contains(searchStr)
+              
+      }
+          DispatchQueue.main.async {
+              self.TableMain.reloadData()
+          }   
+      }
+  ~~~
