@@ -1,34 +1,43 @@
 //
-//  SaleListViewController.swift
+//  WishListViewController.swift
 //  JeonGoo
 //
 //  Created by 이명직 on 2021/03/10.
 //
 
 import UIKit
-class SaleListCell: UITableViewCell {
-    
+
+class WishListCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var status: UILabel!
     
-    @IBOutlet weak var stateLabel: UILabel!
 }
 
-class SaleListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WishListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return productViewModel.productsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = TableMain.dequeueReusableCell(withIdentifier: "SaleListCell") as! SaleListCell
+        let getProduct = productViewModel.model.getProducts(subURL: "")[indexPath.row]
+        
+        let cell = TableMain.dequeueReusableCell(withIdentifier: "WishListCell") as! WishListCell
+        cell.name.text = getProduct.name
+        cell.grade.text = getProduct.grade
+        cell.price.text = "\(getProduct.price)원"
+        cell.status.text = getProduct.status
         
         return cell
     }
     
 
     @IBOutlet weak var TableMain: UITableView!
+    let productViewModel = MyProductViewModel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

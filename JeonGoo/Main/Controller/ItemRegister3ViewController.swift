@@ -14,14 +14,15 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var cameraBtn: UIButton!
     
-    var dataArray = [String]()
     var imageData = [UIImage]()
+    var serialData = [UIImage]()
     var flagImageSave = false
+    
     let imagePicker = UIImagePickerController()
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count
+        return imageData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -30,9 +31,9 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         // 콜백 클로저로 셀 삭제
         cell.delete = { [unowned self] in
            
-            self.dataArray.remove(at: indexPath.row)
+            self.imageData.remove(at: indexPath.row)
             self.TableMain.reloadData()
-            self.countLabel.text = "\(dataArray.count) / 8"
+            self.countLabel.text = "\(imageData.count) / 8"
         }
         return cell
     }
@@ -73,11 +74,30 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func camera(_ sender: Any) {
-        //dataArray.append("\(dataArray.count)")
-        //countLabel.text = "\(dataArray.count) / 8"
-        //self.TableMain.reloadData()
-        
-        openCamera()
+        checkCount(mediaCount: imageData.count, maxCount: 8)
+    
+    }
+    
+    @IBAction func clickVideo(_ sender: Any) {
+        checkCount(mediaCount: imageData.count, maxCount: 8)
+    }
+    
+    @IBAction func clickSerial(_ sender: Any) {
+        checkCount(mediaCount: serialData.count, maxCount: 1)
+    }
+    
+    func checkCount(mediaCount: Int, maxCount: Int) {
+        if mediaCount == maxCount {
+            let msg = UIAlertController(title: "에러", message: "이미지는 최대 \(maxCount)장까지 첨부가능합니다", preferredStyle: .alert)
+            
+            
+            let YES = UIAlertAction(title: "확인", style: .default, handler: nil)
+            msg.addAction(YES)
+            self.present(msg, animated: true, completion: nil)
+        }
+        else {
+            openCamera()
+        }
     }
     
     func openCamera(){
