@@ -220,7 +220,6 @@
                 
                 productsData.append(MyProduct(image: image, name: name, price: price, like: like, grade: grade, status: status))
             }
-            //productsData = NSArray(array: data2)
         }
     }
     ~~~
