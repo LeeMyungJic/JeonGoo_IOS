@@ -220,6 +220,7 @@
                 
                 productsData.append(MyProduct(image: image, name: name, price: price, like: like, grade: grade, status: status))
             }
+            //productsData = NSArray(array: data2)
         }
     }
     ~~~
@@ -258,4 +259,52 @@
         }
     ~~~
 
+---
+
+## 2021 03 20
+
+- #### 상품등록 페이지 (촬영한 사진 및 동영상 가져오기)
+
+- 앨범, 카메라, 마이크 접근 권한이 필요하다. 
+
+![스크린샷 2021-03-21 오후 4.12.18](/Users/mingjic2/Desktop/스크린샷 2021-03-21 오후 4.12.18.png)
+
+- 사진은 최대 8장까지 등록이 가능 - 사진촬영이 끝날 때마다 컬렉션뷰에 추가해준다
+
+  ~~~ swift
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     
+  ...
+    
+  // imageData : 이미지를 담는 배열 ([UIImage]())  
+  imageData.append(captureImage)
+              DispatchQueue.main.async {
+                  // 촬영 후 사진 개수 카운트 증가
+                  self.countLabel.text = "\(self.imageData.count) / 8"
+                  // 셀에 적용
+                  self.TableMain.reloadData()
+              }
+  }
+  ~~~
+
+- 만약 촬영한 미디어를 저장하고 싶다면!
+
+  ~~~ swift
+  // 사진
+  // 플래그가 true일 경우 앨범에 저장
+  if flagImageSave { 
+    							let captureImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+                  UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
+              }
+  
+  // 동영상
+  // 플래그가 true일 경우 앨범에 저장
+  if flagImageSave {
+                  videoURL = (info[UIImagePickerController.InfoKey.mediaType] as! URL)
+                 
+                  UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, self, nil, nil)
+              }
+  ~~~
+
+- 동영상을 촬영해서 뷰에 추가시키고 싶다
+
