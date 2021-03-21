@@ -30,6 +30,17 @@ class WishListViewController: UIViewController, UITableViewDelegate, UITableView
         cell.price.text = "\(getProduct.price)원"
         cell.status.text = getProduct.status
         
+        let url = URL(string: getProduct.image)
+        var image : UIImage?
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                //image = UIImage(data: data!)
+                cell.productImage.image = UIImage(data: data!)
+                
+            }
+        }
+        
         return cell
     }
     

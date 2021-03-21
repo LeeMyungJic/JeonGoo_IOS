@@ -27,50 +27,10 @@ class MyProduct: NSObject {
 class Model: NSObject {
     func getProducts(subURL: String) -> [MyProduct] {
         var products = [MyProduct]()
-        products.append(MyProduct(image: "macbookPro", name: "macbookPro", price: 3000000, like: 32, grade: "A등급", status: "검수중"))
-        products.append(MyProduct(image: "macbookAir", name: "macbookAir", price: 1890000, like: 21, grade: "B등급", status: "판매중"))
-        products.append(MyProduct(image: "airpod", name: "airpod", price: 260000, like: 14, grade: "A등급", status: "검수중"))
-//        let task = URLSession.shared.dataTask(with: URL(string: NetworkController.baseURL + subURL)!) { (data, response, error) in
-//            print("연결!")
-//            if let dataJson = data {
-//                print(dataJson)
-//                do {
-//                    if let json = try JSONSerialization.jsonObject(with: dataJson, options: .allowFragments) as? [String: AnyObject]
-//                    {
-//
-//                        if let temp = json["data"] as? NSArray{
-//                            print(temp)
-//
-//                                for i in temp {
-//                                    var image: String?
-//                                    var name: String?
-//                                    var price: Int?
-//                                    var like: Int?
-//                                    var grade: String?
-//                                    var status : String?
-//
-//                                    if let temp = i as? NSDictionary {
-//
-//                                        image = temp["image"] as! String
-//                                        name = temp["name"] as! String
-//                                        price = temp["totalPrice"] as! Int
-//                                        like = temp["like"] as! Int
-//                                        grade = temp["grade"] as! String
-//                                        status = temp["status"] as! String
-//
-//                                    }
-//                                    products.append(MyProduct(image: image!, name: name!, price: price!, like: like!, grade: grade!, status: status!))
-//                                }
-//                            }
-//                        }
-//                    }
-//                catch {
-//                    print("JSON 파상 에러")
-//
-//                }
-//            }
-//        }
-//        task.resume()
+        products.append(MyProduct(image: "http://movie.phinf.naver.net/20171201_181/1512109983114kcQVl_JPEG/movie_image.jpg?type=m99_141_2", name: "macbookPro", price: 3000000, like: 32, grade: "A등급", status: "검수중"))
+        products.append(MyProduct(image: "http://movie2.phinf.naver.net/20170925_296/150631600340898aUX_JPEG/movie_image.jpg?type=m99_141_2", name: "macbookAir", price: 1890000, like: 21, grade: "B등급", status: "판매중"))
+        products.append(MyProduct(image: "http://movie2.phinf.naver.net/20170928_85/1506564710105ua5fS_PNG/movie_image.jpg?type=m99_141_2", name: "airpod", price: 260000, like: 14, grade: "A등급", status: "검수중"))
+
         
         return products
     }

@@ -42,32 +42,17 @@ searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
-        if searchData[indexPath.row].grade == "new" {
-            cell.grade.textColor = #colorLiteral(red: 0.9094272256, green: 0.2923271656, blue: 0.2339404225, alpha: 1)
-            cell.grade.text = "미개봉"
-        }
-        else {
-            cell.grade.text = searchData[indexPath.row].grade
-        }
+        cell.grade.text = searchData[indexPath.row].grade
         if searchData[indexPath.row].isGenuine {
             cell.grade.text! = cell.grade.text! + "  정품인증"
-            let attributedStr = NSMutableAttributedString(string: cell.grade.text!)
-            attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.1567805707, green: 0.5004235506, blue: 0.7245382667, alpha: 1), range: (cell.grade.text as! NSString).range(of: "정품인증"))
-
-            cell.grade.attributedText = attributedStr
+            cell.grade.attributedText = CustomLabel.init().setLabel(text: cell.grade.text!, code: 0).attributedText
         }
-        searchData[indexPath.row].grade = cell.grade.text!
-        
         cell.item.text = searchData[indexPath.row].name
         
         if searchData[indexPath.row].isReserved {
             cell.item.text! = "예약중  " + cell.item.text!
-            let attributedStr = NSMutableAttributedString(string: cell.item.text!)
-            attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0, green: 0.5935456157, blue: 0.04135202616, alpha: 1), range: (cell.item.text as! NSString).range(of: "예약중"))
-
-            cell.item.attributedText = attributedStr
+            cell.item.attributedText = CustomLabel.init().setLabel(text: cell.item.text!, code: 2).attributedText
         }
-        searchData[indexPath.row].name = cell.item.text!
         
         cell.itemImage.image = resize(getImage: UIImage(named: image[indexPath.row])!, size: 150)
         cell.price.text = "\(searchData[indexPath.row].price)원"

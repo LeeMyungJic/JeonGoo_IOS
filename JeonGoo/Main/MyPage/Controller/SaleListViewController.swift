@@ -25,14 +25,25 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let getProducts = productsModel.productsData[indexPath.row] as! MyProduct
+        let getProduct = productsModel.productsData[indexPath.row] as! MyProduct
         
         let cell = TableMain.dequeueReusableCell(withIdentifier: "SaleListCell") as! SaleListCell
         
-        cell.name.text = getProducts.name
-        cell.grade.text = getProducts.grade
-        cell.price.text = "\(getProducts.price)원"
-        cell.stateLabel.text = getProducts.status
+        cell.name.text = getProduct.name
+        cell.grade.text = getProduct.grade
+        cell.price.text = "\(getProduct.price)원"
+        cell.stateLabel.text = getProduct.status
+        
+        let url = URL(string: getProduct.image)
+        var image : UIImage?
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                //image = UIImage(data: data!)
+                cell.productImage.image = UIImage(data: data!)
+                
+            }
+        }
         
         return cell
     }

@@ -7,16 +7,22 @@
 
 import UIKit
 import MobileCoreServices
+import Kingfisher
 
 class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var TableMain: UICollectionView!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var cameraBtn: UIButton!
+    @IBOutlet weak var videoData: UIImageView!
+    @IBOutlet weak var videoCountLabel: UILabel!
     
+    var videoURL: URL!
     var imageData = [UIImage]()
     var serialData = [UIImage]()
+    
     var flagImageSave = false
+    var flagVideoSave = false
     
     let imagePicker = UIImagePickerController()
     
@@ -27,10 +33,11 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = TableMain.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! imageCell
+        cell.image.image = imageData[indexPath.row]
         
         // 콜백 클로저로 셀 삭제
         cell.delete = { [unowned self] in
-           
+            
             self.imageData.remove(at: indexPath.row)
             self.TableMain.reloadData()
             self.countLabel.text = "\(imageData.count) / 8"
@@ -38,18 +45,19 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         return cell
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = TableMain.collectionViewLayout as! UICollectionViewFlowLayout
+        imagePicker.sourceType = .camera
         
         layout.scrollDirection = .horizontal
-
+        
         imagePicker.delegate = self
         
         TableMain.delegate = self
         TableMain.dataSource = self
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -58,7 +66,7 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         
         
         let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
-           
+            
             self.YesClick()
         })
         msg.addAction(YES)
@@ -74,19 +82,35 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func camera(_ sender: Any) {
-        checkCount(mediaCount: imageData.count, maxCount: 8)
-    
+        if checkCount(mediaCount: imageData.count, maxCount: 8) {
+            openCamera()
+        }
+        
     }
     
     @IBAction func clickVideo(_ sender: Any) {
-        checkCount(mediaCount: imageData.count, maxCount: 8)
+        var cnt = 0
+        if flagVideoSave {
+            cnt = 1
+        }
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
+                    flagVideoSave = true
+                    
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = .camera
+                    // 미디어 타입을 kUTTypeMovie로 설정
+                    imagePicker.mediaTypes = [kUTTypeMovie as String]
+                    imagePicker.allowsEditing = false
+                    
+                    present(imagePicker, animated: true, completion: nil)
+                }
     }
     
     @IBAction func clickSerial(_ sender: Any) {
         checkCount(mediaCount: serialData.count, maxCount: 1)
     }
     
-    func checkCount(mediaCount: Int, maxCount: Int) {
+    func checkCount(mediaCount: Int, maxCount: Int) -> Bool {
         if mediaCount == maxCount {
             let msg = UIAlertController(title: "에러", message: "이미지는 최대 \(maxCount)장까지 첨부가능합니다", preferredStyle: .alert)
             
@@ -94,10 +118,10 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
             let YES = UIAlertAction(title: "확인", style: .default, handler: nil)
             msg.addAction(YES)
             self.present(msg, animated: true, completion: nil)
+            return false
+            
         }
-        else {
-            openCamera()
-        }
+        return true
     }
     
     func openCamera(){
@@ -125,14 +149,25 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         if mediaType.isEqual(to: kUTTypeImage as NSString as String){
             // 사진을 가져옴
             let captureImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-            
-            if flagImageSave { // flagImageSave가 true일 때
-                // 사진을 포토 라이브러리에 저장
-                UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
+            imageData.append(resize(getImage: captureImage, size: 70))
+            DispatchQueue.main.async {
+                self.countLabel.text = "\(self.imageData.count) / 8"
+                self.TableMain.reloadData()
             }
-            imageData.append(captureImage)
-            self.countLabel.text = "\(imageData.count) / 8"
-            self.TableMain.reloadData()
+        }
+        else if mediaType.isEqual(to: kUTTypeMovie as NSString as String){
+            if let url = info[.mediaURL] as? URL {
+                videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
+                UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, self, nil, nil)
+                DispatchQueue.main.async {
+                    self.videoCountLabel.text = "1 / 1"
+                    self.videoData.kf.setImage(with: self.videoURL!)
+
+                }
+               
+                
+            }
+            
         }
         // 현재의 뷰(이미지 피커) 제거
         self.dismiss(animated: true, completion: nil)
@@ -153,6 +188,23 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         self.present(alert, animated: true, completion: nil)
     }
     
+    func resize(getImage:UIImage, size:Double) -> UIImage {
+        
+        let wif = 70
+        var new_image : UIImage!
+        let size = CGSize(width:  size  , height: size )
+
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+
+        UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
+
+        getImage.draw(in: rect)
+
+        new_image = UIGraphicsGetImageFromCurrentImageContext()!
+
+        UIGraphicsEndImageContext()
+
+        return new_image
+    }
+    
 }
-
-

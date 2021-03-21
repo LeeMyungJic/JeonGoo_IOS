@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490AA3C420CCF6CB0F424BCB /* Pods_JeonGooTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387C9FDFFB4DE3804F32E2E6 /* Pods_JeonGooTests.framework */; };
+		B19005EF780CC99BD0226353 /* Pods_JeonGoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AE2A590AEE4093599C2B63 /* Pods_JeonGoo.framework */; };
 		DA55BDFC25F89553007291B1 /* SaleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BDFB25F89553007291B1 /* SaleListViewController.swift */; };
 		DA55BE0425F89564007291B1 /* BuyingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE0325F89564007291B1 /* BuyingListViewController.swift */; };
 		DA55BE0925F89572007291B1 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE0825F89572007291B1 /* WishListViewController.swift */; };
@@ -14,6 +16,7 @@
 		DA626F412601FC2B00B35794 /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA626F402601FC2B00B35794 /* Get.swift */; };
 		DA626F472602000000B35794 /* MyProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA626F462602000000B35794 /* MyProduct.swift */; };
 		DA626F4D260205C700B35794 /* MyProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA626F4C260205C700B35794 /* MyProductViewModel.swift */; };
+		DA626FB92604CF0900B35794 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA626FB82604CF0900B35794 /* CustomLabel.swift */; };
 		DA8277E725F74113007520D5 /* adViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8277E625F74112007520D5 /* adViewController.swift */; };
 		DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8277EB25F74B56007520D5 /* Delegate.swift */; };
 		DACB801A25F0D82B004D6E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801925F0D82B004D6E82 /* AppDelegate.swift */; };
@@ -39,6 +42,7 @@
 		DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80B825F22730004D6E82 /* DetailViewController.swift */; };
 		DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBC625FF466400C507BC /* JoinViewController.swift */; };
 		DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */; };
+		F2968F80AE36914304908103 /* Pods_JeonGoo_JeonGooUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66D1525DCF20B3EF2A78B4 /* Pods_JeonGoo_JeonGooUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B7412A0BED3B8AA1C0A6CA5 /* Pods-JeonGoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGoo.release.xcconfig"; path = "Target Support Files/Pods-JeonGoo/Pods-JeonGoo.release.xcconfig"; sourceTree = "<group>"; };
+		387C9FDFFB4DE3804F32E2E6 /* Pods_JeonGooTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JeonGooTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB0D475A4B7C8DA4C243F5B /* Pods-JeonGooTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGooTests.debug.xcconfig"; path = "Target Support Files/Pods-JeonGooTests/Pods-JeonGooTests.debug.xcconfig"; sourceTree = "<group>"; };
+		68AE2A590AEE4093599C2B63 /* Pods_JeonGoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JeonGoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C9B17F056460E8CE031BDC4 /* Pods-JeonGoo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGoo.debug.xcconfig"; path = "Target Support Files/Pods-JeonGoo/Pods-JeonGoo.debug.xcconfig"; sourceTree = "<group>"; };
+		8D66D1525DCF20B3EF2A78B4 /* Pods_JeonGoo_JeonGooUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JeonGoo_JeonGooUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB21EE05F79D42C0951C8CE2 /* Pods-JeonGoo-JeonGooUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGoo-JeonGooUITests.debug.xcconfig"; path = "Target Support Files/Pods-JeonGoo-JeonGooUITests/Pods-JeonGoo-JeonGooUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C029C26D0391ABD4DD966113 /* Pods-JeonGooTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGooTests.release.xcconfig"; path = "Target Support Files/Pods-JeonGooTests/Pods-JeonGooTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA55BDFB25F89553007291B1 /* SaleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleListViewController.swift; sourceTree = "<group>"; };
 		DA55BE0325F89564007291B1 /* BuyingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingListViewController.swift; sourceTree = "<group>"; };
 		DA55BE0825F89572007291B1 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +78,7 @@
 		DA626F402601FC2B00B35794 /* Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
 		DA626F462602000000B35794 /* MyProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProduct.swift; sourceTree = "<group>"; };
 		DA626F4C260205C700B35794 /* MyProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductViewModel.swift; sourceTree = "<group>"; };
+		DA626FB82604CF0900B35794 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		DA8277E625F74112007520D5 /* adViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adViewController.swift; sourceTree = "<group>"; };
 		DA8277EB25F74B56007520D5 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		DACB801625F0D82B004D6E82 /* JeonGoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeonGoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +110,7 @@
 		DACB80B825F22730004D6E82 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DAF3DBC625FF466400C507BC /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
+		E0A82B63287690E669E50CA8 /* Pods-JeonGoo-JeonGooUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGoo-JeonGooUITests.release.xcconfig"; path = "Target Support Files/Pods-JeonGoo-JeonGooUITests/Pods-JeonGoo-JeonGooUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B19005EF780CC99BD0226353 /* Pods_JeonGoo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490AA3C420CCF6CB0F424BCB /* Pods_JeonGooTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,12 +134,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2968F80AE36914304908103 /* Pods_JeonGoo_JeonGooUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05525286EB0052E4B81F9C31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C9B17F056460E8CE031BDC4 /* Pods-JeonGoo.debug.xcconfig */,
+				0B7412A0BED3B8AA1C0A6CA5 /* Pods-JeonGoo.release.xcconfig */,
+				BB21EE05F79D42C0951C8CE2 /* Pods-JeonGoo-JeonGooUITests.debug.xcconfig */,
+				E0A82B63287690E669E50CA8 /* Pods-JeonGoo-JeonGooUITests.release.xcconfig */,
+				5CB0D475A4B7C8DA4C243F5B /* Pods-JeonGooTests.debug.xcconfig */,
+				C029C26D0391ABD4DD966113 /* Pods-JeonGooTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		56F94F53880A5EC7DCD851FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68AE2A590AEE4093599C2B63 /* Pods_JeonGoo.framework */,
+				8D66D1525DCF20B3EF2A78B4 /* Pods_JeonGoo_JeonGooUITests.framework */,
+				387C9FDFFB4DE3804F32E2E6 /* Pods_JeonGooTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA55BDEF25F894DA007291B1 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +211,54 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DA626FBD2604CF7200B35794 /* AddPage */ = {
+			isa = PBXGroup;
+			children = (
+				DA626FC12604CFF900B35794 /* Cell */,
+				DA626FBF2604CF9B00B35794 /* Controller */,
+				DACB808525F1047D004D6E82 /* BackProtocol.swift */,
+			);
+			path = AddPage;
+			sourceTree = "<group>";
+		};
+		DA626FBE2604CF8D00B35794 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				DA626FC02604CFC500B35794 /* Controller */,
+				DACB80C525F4B674004D6E82 /* Cell */,
+				DACB80C425F4B669004D6E82 /* Model */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		DA626FBF2604CF9B00B35794 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA8277E625F74112007520D5 /* adViewController.swift */,
+				DACB806925F0DD7A004D6E82 /* ItemRegisterViewController.swift */,
+				DACB807325F0DFDE004D6E82 /* ItemRegister2ViewController.swift */,
+				DACB809625F1119D004D6E82 /* ItemRegister3ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA626FC02604CFC500B35794 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DACB806425F0DD68004D6E82 /* MainViewController.swift */,
+				DACB80B825F22730004D6E82 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA626FC12604CFF900B35794 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DACB80AD25F21D02004D6E82 /* imageCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DACB800D25F0D82B004D6E82 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +266,8 @@
 				DACB802F25F0D82D004D6E82 /* JeonGooTests */,
 				DACB803A25F0D82D004D6E82 /* JeonGooUITests */,
 				DACB801725F0D82B004D6E82 /* Products */,
+				05525286EB0052E4B81F9C31 /* Pods */,
+				56F94F53880A5EC7DCD851FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +321,7 @@
 			children = (
 				DACB804D25F0D83F004D6E82 /* CustomButton.swift */,
 				DACB80A525F2141D004D6E82 /* CustomView.swift */,
+				DA626FB82604CF0900B35794 /* CustomLabel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -237,10 +329,9 @@
 		DACB805525F0DAE7004D6E82 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA626FBE2604CF8D00B35794 /* MainPage */,
+				DA626FBD2604CF7200B35794 /* AddPage */,
 				DA55BDEF25F894DA007291B1 /* MyPage */,
-				DACB80C925F4B6CE004D6E82 /* Controller */,
-				DACB80C525F4B674004D6E82 /* Cell */,
-				DACB80C425F4B669004D6E82 /* Model */,
 				DACB805D25F0DB6C004D6E82 /* Pages.storyboard */,
 			);
 			path = Main;
@@ -269,23 +360,8 @@
 			isa = PBXGroup;
 			children = (
 				DACB807825F0EC51004D6E82 /* ItemsCell.swift */,
-				DACB80AD25F21D02004D6E82 /* imageCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		DACB80C925F4B6CE004D6E82 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				DA8277E625F74112007520D5 /* adViewController.swift */,
-				DACB806425F0DD68004D6E82 /* MainViewController.swift */,
-				DACB806925F0DD7A004D6E82 /* ItemRegisterViewController.swift */,
-				DACB807325F0DFDE004D6E82 /* ItemRegister2ViewController.swift */,
-				DACB808525F1047D004D6E82 /* BackProtocol.swift */,
-				DACB809625F1119D004D6E82 /* ItemRegister3ViewController.swift */,
-				DACB80B825F22730004D6E82 /* DetailViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,9 +371,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DACB804025F0D82D004D6E82 /* Build configuration list for PBXNativeTarget "JeonGoo" */;
 			buildPhases = (
+				E128907167208F90A40F78CD /* [CP] Check Pods Manifest.lock */,
 				DACB801225F0D82B004D6E82 /* Sources */,
 				DACB801325F0D82B004D6E82 /* Frameworks */,
 				DACB801425F0D82B004D6E82 /* Resources */,
+				401A677EDDAE596FC78BD03E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,6 +390,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DACB804325F0D82D004D6E82 /* Build configuration list for PBXNativeTarget "JeonGooTests" */;
 			buildPhases = (
+				8D4406FBC7D546E44F0E3E7E /* [CP] Check Pods Manifest.lock */,
 				DACB802825F0D82D004D6E82 /* Sources */,
 				DACB802925F0D82D004D6E82 /* Frameworks */,
 				DACB802A25F0D82D004D6E82 /* Resources */,
@@ -330,9 +409,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DACB804625F0D82D004D6E82 /* Build configuration list for PBXNativeTarget "JeonGooUITests" */;
 			buildPhases = (
+				EFF0741790709AC76E50E4C3 /* [CP] Check Pods Manifest.lock */,
 				DACB803325F0D82D004D6E82 /* Sources */,
 				DACB803425F0D82D004D6E82 /* Frameworks */,
 				DACB803525F0D82D004D6E82 /* Resources */,
+				CF9BAAB2592686DB069E03F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -414,12 +495,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		401A677EDDAE596FC78BD03E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JeonGoo/Pods-JeonGoo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JeonGoo/Pods-JeonGoo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JeonGoo/Pods-JeonGoo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D4406FBC7D546E44F0E3E7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JeonGooTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF9BAAB2592686DB069E03F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JeonGoo-JeonGooUITests/Pods-JeonGoo-JeonGooUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JeonGoo-JeonGooUITests/Pods-JeonGoo-JeonGooUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JeonGoo-JeonGooUITests/Pods-JeonGoo-JeonGooUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E128907167208F90A40F78CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JeonGoo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFF0741790709AC76E50E4C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JeonGoo-JeonGooUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DACB801225F0D82B004D6E82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */,
+				DA626FB92604CF0900B35794 /* CustomLabel.swift in Sources */,
 				DA8277E725F74113007520D5 /* adViewController.swift in Sources */,
 				DA55BE0925F89572007291B1 /* WishListViewController.swift in Sources */,
 				DACB804E25F0D83F004D6E82 /* CustomButton.swift in Sources */,
@@ -617,6 +802,7 @@
 		};
 		DACB804125F0D82D004D6E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C9B17F056460E8CE031BDC4 /* Pods-JeonGoo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -636,6 +822,7 @@
 		};
 		DACB804225F0D82D004D6E82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B7412A0BED3B8AA1C0A6CA5 /* Pods-JeonGoo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -655,6 +842,7 @@
 		};
 		DACB804425F0D82D004D6E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CB0D475A4B7C8DA4C243F5B /* Pods-JeonGooTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -677,6 +865,7 @@
 		};
 		DACB804525F0D82D004D6E82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C029C26D0391ABD4DD966113 /* Pods-JeonGooTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -699,6 +888,7 @@
 		};
 		DACB804725F0D82D004D6E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB21EE05F79D42C0951C8CE2 /* Pods-JeonGoo-JeonGooUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -719,6 +909,7 @@
 		};
 		DACB804825F0D82D004D6E82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0A82B63287690E669E50CA8 /* Pods-JeonGoo-JeonGooUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -9,20 +9,46 @@ import UIKit
 
 class ItemRegister2ViewController: UIViewController {
 
+    @IBOutlet weak var nextButton: CustomButton!
+    
     @IBOutlet weak var newButton: UIButton!
     @IBOutlet weak var oldButton: UIButton!
     var new = false
     var old = false
+    @IBOutlet weak var nameStr: UITextField!
+    @IBOutlet weak var functionStr: UITextField!
+    @IBOutlet weak var detailStr: UITextField!
+    @IBOutlet weak var priceStr: UITextField!
+    
+    @IBOutlet weak var errorStr: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
     
 
+        nextButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        //nextButton.isEnabled = false
         // Do any additional setup after loading the view.
     }
     
     @IBAction func Cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        
+        self.view.endEditing(true)
+        if nameStr.text != "" && functionStr.text != "" && detailStr.text != "" && priceStr.text != "" && (new || old){
+            self.nextButton.isEnabled = true
+            self.nextButton.backgroundColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
+            self.errorStr.text = ""
+        }
+        else {
+            self.nextButton.isEnabled = false
+            self.nextButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            self.errorStr.text = "모든 항목을 입력해 주세요!"
+        }
+    }
+    
     @IBAction func newClick(_ sender: Any) {
         new = true
         old = false
