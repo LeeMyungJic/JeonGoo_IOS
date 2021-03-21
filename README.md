@@ -9,7 +9,7 @@
 
   - `Swift 5`,  `Xcode 12`
 
-  - `Callback Closure`, `Delegate Pattern`, `MobileCoreServices`
+  - `Callback Closure`, `Delegate Pattern`, `MobileCoreServices`, `MVVM Pattern`
 
     
 
@@ -127,7 +127,7 @@
 
   - ViewDidLoad에 가져온 상품리스트와 필터링 리스트를 일치시킨다.
 
-  -  searchBarSearchButtonClicked()을 사용하여 검색된 단어가 있으면 필터링을 시작한다.
+  - searchBarSearchButtonClicked()을 사용하여 검색된 단어가 있으면 필터링을 시작한다.
 
   - 서버와 연동하면 이 부분(필터링)은 제거할 예정 -> 서버에 필터링 요청해서 받아오기
 
@@ -172,3 +172,90 @@
           }   
       }
   ~~~
+
+---
+
+ ## 2021 03 19
+
+- #### 마이 페이지 하위 뷰 (MVVM 패턴 적용 및 URL로 이미지 가져오기)
+
+  - 원래는 서버에서 가져와야 하지만 아직 서버구축이 안 되어 있으므로 임의로 데이터 추가
+
+  - Model 추가 - 사용할 데이터들을 가져온다
+
+    ~~~ swift
+    class Model: NSObject {
+        func getProducts(subURL: String) -> [MyProduct] {
+            var products = [MyProduct]()
+            products.append(MyProduct(image: "http://movie.phinf.naver.net/20171201_181/1512109983114kcQVl_JPEG/movie_image.jpg?type=m99_141_2", name: "macbookPro", price: 3000000, like: 32, grade: "A등급", status: "검수중"))
+            products.append(MyProduct(image: "http://movie2.phinf.naver.net/20170925_296/150631600340898aUX_JPEG/movie_image.jpg?type=m99_141_2", name: "macbookAir", price: 1890000, like: 21, grade: "B등급", status: "판매중"))
+            products.append(MyProduct(image: "http://movie2.phinf.naver.net/20170928_85/1506564710105ua5fS_PNG/movie_image.jpg?type=m99_141_2", name: "airpod", price: 260000, like: 14, grade: "A등급", status: "검수중"))
+    
+            
+            return products
+        }
+    }
+    ~~~
+
+  - ViewModel 추가 - Model에서 가져온 데이터들을 view에 적용시킬 수 있도록 준비
+
+  - subURL은 구매/판매/관심 3가지로 요청 URL이 3가지이다. 각각 맞는 데이터를 가져오기 위해 추가했다. 
+
+    ~~~ swift
+    class MyProductViewModel: NSObject {
+        let model:Model = Model()
+        var productsData = [MyProduct]()
+        
+        override init() {
+            let data1 = model.getProducts(subURL: "")
+            let data2 = NSMutableArray()
+            for i in 0..<data1.count {
+                let productData = data1
+                let name = productData[i].name
+                let image = productData[i].image
+                let price = productData[i].price
+                let like = productData[i].like
+                let grade = productData[i].grade
+                let status = productData[i].status
+                
+                productsData.append(MyProduct(image: image, name: name, price: price, like: like, grade: grade, status: status))
+            }
+        }
+    }
+    ~~~
+
+  - 이제 데이터를 셀에서 사용하면 된다
+
+    ~~~ swift
+    let productsModel = MyProductViewModel()
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return productsModel.productsData.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let getProduct = productsModel.productsData[indexPath.row] as! MyProduct
+            
+            let cell = TableMain.dequeueReusableCell(withIdentifier: "SaleListCell") as! SaleListCell
+            
+            cell.name.text = getProduct.name
+            cell.grade.text = getProduct.grade
+            cell.price.text = "\(getProduct.price)원"
+            cell.stateLabel.text = getProduct.status
+            
+            // URL로 이미지 가져오기 !
+            let url = URL(string: getProduct.image)
+            var image : UIImage?
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!)
+                DispatchQueue.main.async {
+                    cell.productImage.image = UIImage(data: data!)
+                    
+                }
+            }
+            
+            return cell
+        }
+    ~~~
+
+    
