@@ -16,6 +16,7 @@ class ItemsCell: UITableViewCell {
     @IBOutlet weak var like: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 
@@ -24,5 +25,6 @@ class ItemsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }

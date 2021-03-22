@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		DA626FB92604CF0900B35794 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA626FB82604CF0900B35794 /* CustomLabel.swift */; };
 		DA8277E725F74113007520D5 /* adViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8277E625F74112007520D5 /* adViewController.swift */; };
 		DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8277EB25F74B56007520D5 /* Delegate.swift */; };
+		DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203B92608731A00598357 /* CustomImageView.swift */; };
 		DACB801A25F0D82B004D6E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801925F0D82B004D6E82 /* AppDelegate.swift */; };
 		DACB801C25F0D82B004D6E82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801B25F0D82B004D6E82 /* SceneDelegate.swift */; };
 		DACB801E25F0D82B004D6E82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801D25F0D82B004D6E82 /* ViewController.swift */; };
@@ -81,6 +82,7 @@
 		DA626FB82604CF0900B35794 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		DA8277E625F74112007520D5 /* adViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adViewController.swift; sourceTree = "<group>"; };
 		DA8277EB25F74B56007520D5 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		DAB203B92608731A00598357 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DACB801625F0D82B004D6E82 /* JeonGoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeonGoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACB801925F0D82B004D6E82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DACB801B25F0D82B004D6E82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +153,6 @@
 				5CB0D475A4B7C8DA4C243F5B /* Pods-JeonGooTests.debug.xcconfig */,
 				C029C26D0391ABD4DD966113 /* Pods-JeonGooTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -322,6 +323,7 @@
 				DACB804D25F0D83F004D6E82 /* CustomButton.swift */,
 				DACB80A525F2141D004D6E82 /* CustomView.swift */,
 				DA626FB82604CF0900B35794 /* CustomLabel.swift */,
+				DAB203B92608731A00598357 /* CustomImageView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -620,6 +622,7 @@
 				DACB808625F1047D004D6E82 /* BackProtocol.swift in Sources */,
 				DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */,
 				DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */,
+				DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */,
 				DA626F472602000000B35794 /* MyProduct.swift in Sources */,
 				DACB807E25F0F823004D6E82 /* Product.swift in Sources */,
 				DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */,

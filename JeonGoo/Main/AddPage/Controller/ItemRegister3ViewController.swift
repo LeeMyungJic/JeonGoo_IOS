@@ -15,11 +15,15 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var cameraBtn: UIButton!
     @IBOutlet weak var videoData: UIImageView!
+    @IBOutlet weak var serialImage: UIImageView!
     @IBOutlet weak var videoCountLabel: UILabel!
     
     var videoURL: URL!
     var imageData = [UIImage]()
     var serialData = [UIImage]()
+    
+    var imageIsClick = false
+    var serialIsClick = false
     
     var flagImageSave = false
     var flagVideoSave = false
@@ -82,6 +86,7 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func camera(_ sender: Any) {
+        imageIsClick = true
         if checkCount(mediaCount: imageData.count, maxCount: 8) {
             openCamera()
         }
@@ -94,25 +99,26 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
             cnt = 1
         }
         if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
-                    flagVideoSave = true
-                    
-                    imagePicker.delegate = self
-                    imagePicker.sourceType = .camera
-                    // 미디어 타입을 kUTTypeMovie로 설정
-                    imagePicker.mediaTypes = [kUTTypeMovie as String]
-                    imagePicker.allowsEditing = false
-                    
-                    present(imagePicker, animated: true, completion: nil)
-                }
+            flagVideoSave = true
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            // 미디어 타입을 kUTTypeMovie로 설정
+            imagePicker.mediaTypes = [kUTTypeMovie as String]
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     @IBAction func clickSerial(_ sender: Any) {
         checkCount(mediaCount: serialData.count, maxCount: 1)
+        serialIsClick = true
     }
     
     func checkCount(mediaCount: Int, maxCount: Int) -> Bool {
         if mediaCount == maxCount {
-            let msg = UIAlertController(title: "에러", message: "이미지는 최대 \(maxCount)장까지 첨부가능합니다", preferredStyle: .alert)
+            let msg = UIAlertController(title: "에러", message: "최대 \(maxCount)장까지 첨부가능합니다", preferredStyle: .alert)
             
             
             let YES = UIAlertAction(title: "확인", style: .default, handler: nil)
@@ -149,11 +155,21 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         if mediaType.isEqual(to: kUTTypeImage as NSString as String){
             // 사진을 가져옴
             let captureImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-            imageData.append(resize(getImage: captureImage, size: 70))
-            DispatchQueue.main.async {
-                self.countLabel.text = "\(self.imageData.count) / 8"
-                self.TableMain.reloadData()
+            if imageIsClick {
+                imageData.append(resize(getImage: captureImage, size: 70))
+                DispatchQueue.main.async {
+                    self.countLabel.text = "\(self.imageData.count) / 8"
+                    self.TableMain.reloadData()
+                }
             }
+            else if serialIsClick {
+                DispatchQueue.main.async {
+                    self.countLabel.text = "1 / 1"
+                    self.serialImage.image = self.resize(getImage: captureImage, size: 70)
+                }
+            }
+            imageIsClick = false
+            serialIsClick = false
         }
         else if mediaType.isEqual(to: kUTTypeMovie as NSString as String){
             if let url = info[.mediaURL] as? URL {
@@ -162,9 +178,9 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
                 DispatchQueue.main.async {
                     self.videoCountLabel.text = "1 / 1"
                     self.videoData.kf.setImage(with: self.videoURL!)
-
+                    
                 }
-               
+                
                 
             }
             
@@ -177,6 +193,8 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     // 사진 촬영이나 선택을 취소했을 때 호출되는 델리게이트 메서드
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // 현재의 뷰(이미지 피커) 제거
+        imageIsClick = false
+        serialIsClick = false
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -193,17 +211,17 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         let wif = 70
         var new_image : UIImage!
         let size = CGSize(width:  size  , height: size )
-
+        
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-
+        
         UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
-
+        
         getImage.draw(in: rect)
-
+        
         new_image = UIGraphicsGetImageFromCurrentImageContext()!
-
+        
         UIGraphicsEndImageContext()
-
+        
         return new_image
     }
     

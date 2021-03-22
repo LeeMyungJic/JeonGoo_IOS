@@ -13,31 +13,21 @@ class CustomLabel{
         newLabel.text = text
         newLabel.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         
-        print("받은 스트링 : " + text)
         switch code {
-        case 0:
-            if text == "new" {
-                newLabel.text = "미개봉"
-                newLabel.textColor = #colorLiteral(red: 0.9094272256, green: 0.2923271656, blue: 0.2339404225, alpha: 1)
-            }
-            else {
-                newLabel.text = text
-            }
+        
         case 1:
             newLabel.textColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
-            let attributedStr = NSMutableAttributedString(string: text)
-            print("정품인증")
+            var attributedStr = NSMutableAttributedString(string: text)
             attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.1567805707, green: 0.5004235506, blue: 0.7245382667, alpha: 1), range: (text as! NSString).range(of: "정품인증"))
+            attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.9094272256, green: 0.2923271656, blue: 0.2339404225, alpha: 1), range: (text as! NSString).range(of: "미개봉"))
             newLabel.attributedText = attributedStr
         case 2:
-            print("예약중")
             let attributedStr = NSMutableAttributedString(string: text)
             attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0, green: 0.5935456157, blue: 0.04135202616, alpha: 1), range: (text as! NSString).range(of: "예약중"))
             newLabel.attributedText = attributedStr
         default:
             print(" ")
         }
-        print("수정 후 : " + newLabel.text!)
         return newLabel
     }
 }

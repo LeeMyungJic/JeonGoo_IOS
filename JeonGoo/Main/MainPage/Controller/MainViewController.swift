@@ -13,6 +13,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var searchBarStack: UIStackView!
     @IBOutlet weak var TableMain: UITableView!
     
+    
     var searchData : [Product]!
     var image = ["macbookAir", "macbookPro", "iphone"]
     var products = [Product]()
@@ -29,6 +30,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: UISearchBar.Icon.search, state: .normal)
             
             
+        
             if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
                 //서치바 백그라운드 컬러
                 textfield.backgroundColor = UIColor.white
@@ -39,14 +41,27 @@ searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: U
             
             }
         }
+   
+    @IBAction func cancel(_ sender: Any) {
+        self.searchData = self.products
+        DispatchQueue.main.async {
+            self.TableMain.reloadData()
+            self.searchBar.text = ""
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
+        let cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
         cell.grade.text = searchData[indexPath.row].grade
+        if cell.grade.text == "new" {
+            cell.grade.text = "미개봉"
+        }
         if searchData[indexPath.row].isGenuine {
             cell.grade.text! = cell.grade.text! + "  정품인증"
-            cell.grade.attributedText = CustomLabel.init().setLabel(text: cell.grade.text!, code: 0).attributedText
+            cell.grade.attributedText = CustomLabel.init().setLabel(text: cell.grade.text!, code: 1).attributedText
         }
+        
         cell.item.text = searchData[indexPath.row].name
         
         if searchData[indexPath.row].isReserved {
@@ -70,20 +85,20 @@ searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: U
        
         guard let searchStr = searchBar.text, searchStr.isEmpty == false else {
             self.searchData = self.products
+            DispatchQueue.main.async {
+                self.TableMain.reloadData()
+            }
             return
         }
         print("검색어 : \(searchStr)")
     
         self.searchData = self.products.filter{
             (product: Product) -> Bool in
-            product.name.contains(searchStr)
-            
+            product.name.lowercased().contains(searchStr.lowercased())
     }
         DispatchQueue.main.async {
             self.TableMain.reloadData()
         }
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -99,7 +114,8 @@ searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: U
 
         setSearchBar()
         //TableMain.tableHeaderView = searchBar
-        
+        self.TableMain.rowHeight = self.view.frame.height*0.1;
+
         TableMain.delegate = self
         TableMain.dataSource = self
         searchBar.delegate = self
