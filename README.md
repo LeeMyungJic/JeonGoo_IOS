@@ -308,3 +308,32 @@
 
 - 동영상을 촬영해서 뷰에 추가시키고 싶다
 
+---
+
+## 2021 03 22
+
+- #### 메인 페이지(상품 검색기능 수정, attributedText를 따로 클래스 파일로 분리)
+
+- 대소문자 구분 없이 검색
+
+  ~~~ swift
+  self.searchData = self.products.filter{
+              (product: Product) -> Bool in
+    					// 대소문자 구분 없이 검색이 가능하도록 수정
+              product.name.lowercased().contains(searchStr.lowercased())
+  }
+  ~~~
+
+- Cancel 버튼 추가
+
+  - 클릭하면 서치바 텍스트를 초기화시키고, 다시 모든 데이터를 출력한다
+
+  ~~~ swift
+  self.searchData = self.products
+          DispatchQueue.main.async {
+              self.TableMain.reloadData()
+              self.searchBar.text = ""
+  }
+  ~~~
+
+- attributedText를 따로 분리하였으나 뭔가 많이 잘못되었음을 느꼈다. 다시 수정해야겠다...
