@@ -114,6 +114,7 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     @IBAction func clickSerial(_ sender: Any) {
         checkCount(mediaCount: serialData.count, maxCount: 1)
         serialIsClick = true
+        openCamera()
     }
     
     func checkCount(mediaCount: Int, maxCount: Int) -> Bool {

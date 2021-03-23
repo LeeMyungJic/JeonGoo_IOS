@@ -47,16 +47,9 @@ class DetailViewController: UIViewController {
         price.text = priceStr
         
         
-        var attributedStr = NSMutableAttributedString(string: self.grade.text!)
-        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.1567805707, green: 0.5004235506, blue: 0.7245382667, alpha: 1), range: (self.grade.text as! NSString).range(of: "정품인증"))
-        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.9094272256, green: 0.2923271656, blue: 0.2339404225, alpha: 1), range: (self.grade.text as! NSString).range(of: "미개봉"))
-        grade.attributedText = attributedStr
+        grade.attributedText = CustomLabel.init().setLabel(text: self.grade.text!, code: 1).attributedText
         
-        
-        attributedStr = NSMutableAttributedString(string: self.name.text!)
-        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0, green: 0.5935456157, blue: 0.04135202616, alpha: 1), range: (self.name.text as! NSString).range(of: "예약중"))
-        name.attributedText = attributedStr
-        
+        name.attributedText = CustomLabel.init().setLabel(text: self.name.text!, code: 2).attributedText
         
         
         pageControl.numberOfPages = imageStr.count

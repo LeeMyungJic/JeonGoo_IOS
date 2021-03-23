@@ -13,7 +13,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var searchBarStack: UIStackView!
     @IBOutlet weak var TableMain: UITableView!
     
-    
     var searchData : [Product]!
     var image = ["macbookAir", "macbookPro", "iphone"]
     var products = [Product]()
@@ -27,7 +26,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             //서치바 만들기
             searchBar.placeholder = "Search"
             //왼쪽 서치아이콘 이미지 세팅하기
-searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: UISearchBar.Icon.search, state: .normal)
+searchBar.setImage(ImageResize(getImage: UIImage(named: "search")!, size: 20), for: UISearchBar.Icon.search, state: .normal)
             
             
         
@@ -61,6 +60,7 @@ searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: U
             cell.grade.text! = cell.grade.text! + "  정품인증"
             cell.grade.attributedText = CustomLabel.init().setLabel(text: cell.grade.text!, code: 1).attributedText
         }
+        searchData[indexPath.row].grade = cell.grade.text!
         
         cell.item.text = searchData[indexPath.row].name
         
@@ -68,8 +68,8 @@ searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: U
             cell.item.text! = "예약중  " + cell.item.text!
             cell.item.attributedText = CustomLabel.init().setLabel(text: cell.item.text!, code: 2).attributedText
         }
-        
-        cell.itemImage.image = resize(getImage: UIImage(named: image[indexPath.row])!, size: 150)
+        searchData[indexPath.row].name = cell.item.text!
+        cell.itemImage.image = ImageResize(getImage: UIImage(named: self.image[indexPath.row])!, size: 70)
         cell.price.text = "\(searchData[indexPath.row].price)원"
         cell.like.text = "\(searchData[indexPath.row].likes)"
         return cell
@@ -145,26 +145,6 @@ searchBar.setImage(resize(getImage: UIImage(named: "search")!, size: 20), for: U
         }
     }
     
-    
-    
-    func resize(getImage:UIImage, size:Double) -> UIImage {
-        
-        let wif = 70
-        var new_image : UIImage!
-        let size = CGSize(width:  size  , height: size )
-
-        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-
-        UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
-
-        getImage.draw(in: rect)
-
-        new_image = UIGraphicsGetImageFromCurrentImageContext()!
-
-        UIGraphicsEndImageContext()
-
-        return new_image
-    }
     
 
     /*

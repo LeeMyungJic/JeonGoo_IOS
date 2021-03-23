@@ -15,17 +15,22 @@ class ItemRegister2ViewController: UIViewController {
     @IBOutlet weak var oldButton: UIButton!
     var new = false
     var old = false
+
     @IBOutlet weak var nameStr: UITextField!
     @IBOutlet weak var functionStr: UITextField!
-    @IBOutlet weak var detailStr: UITextField!
+    
+    @IBOutlet weak var detailStr: UITextView!
     @IBOutlet weak var priceStr: UITextField!
     
     @IBOutlet weak var errorStr: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
 
-        nextButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        self.detailStr.layer.cornerRadius = 8
+        self.detailStr.layer.borderWidth = 1
+        self.detailStr.layer.borderColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
+        
+        nextButton.backgroundColor = #colorLiteral(red: 0.5332907438, green: 0.5333573818, blue: 0.5332680941, alpha: 1)
         //nextButton.isEnabled = false
         // Do any additional setup after loading the view.
     }

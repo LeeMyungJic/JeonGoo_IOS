@@ -40,11 +40,10 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
             let data = try? Data(contentsOf: url!)
             DispatchQueue.main.async {
                 //image = UIImage(data: data!)
-                cell.productImage.image = UIImage(data: data!)
+                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
                 
             }
         }
-        
         return cell
     }
     
