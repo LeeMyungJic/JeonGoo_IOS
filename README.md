@@ -337,3 +337,31 @@
   ~~~
 
 - attributedText를 따로 분리하였으나 뭔가 많이 잘못되었음을 느꼈다. 다시 수정해야겠다...
+
+---
+
+## 2021 03 23
+
+- #### 중복 코드 제거 (자주 쓰이는 ImageResize 함수를 따로 분리해서 사용), LaunchScreen 추가
+
+  ~~~ swift
+  func ImageResize(getImage:UIImage, size:Double) -> UIImage {
+      
+      let wif = 70
+      var new_image : UIImage!
+      let size = CGSize(width:  size  , height: size )
+      
+      let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+      
+      UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
+      getImage.draw(in: rect)
+      
+      new_image = UIGraphicsGetImageFromCurrentImageContext()!
+      UIGraphicsEndImageContext()
+      
+      return new_image
+  }
+  ~~~
+
+- #### 마에페이지 하위 뷰 CustomText 적용
+
