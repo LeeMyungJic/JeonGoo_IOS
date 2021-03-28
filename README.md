@@ -371,7 +371,7 @@
 
 - #### 뷰에 UnderLine 추가하는 함수 생성
 <img width="724" alt="스크린샷 2021-03-28 오후 6 24 55" src="https://user-images.githubusercontent.com/44960073/112747914-5de44d00-8ff3-11eb-9e4b-3b1099af925b.png">
-<img width="511" alt="스크린샷 2021-03-28 오후 6 14 22" src="https://user-images.githubusercontent.com/44960073/112747915-5fae1080-8ff3-11eb-80dc-9c7b64be1451.png">
+<img width="724" alt="스크린샷 2021-03-28 오후 6 14 22" src="https://user-images.githubusercontent.com/44960073/112747915-5fae1080-8ff3-11eb-80dc-9c7b64be1451.png">
 
 - y: target.frame.height - 10 부분이 아직 잘 이해가 안 간다. 그냥 target.frame.height로 했을 경우 라인이 안 보여서 수정. 
 
