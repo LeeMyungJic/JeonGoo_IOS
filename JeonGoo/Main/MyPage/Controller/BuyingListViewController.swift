@@ -8,6 +8,7 @@
 import UIKit
 
 class BuyingListCell: UITableViewCell {
+    
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
@@ -17,6 +18,7 @@ class BuyingListCell: UITableViewCell {
 }
 
 class BuyingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     
     let productsModel = MyProductViewModel()
     
@@ -35,6 +37,7 @@ class BuyingListViewController: UIViewController, UITableViewDataSource, UITable
         
         let url = URL(string: getProduct.image)
         var image : UIImage?
+        
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!)
             DispatchQueue.main.async {

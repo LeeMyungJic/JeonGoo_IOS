@@ -14,6 +14,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detail: UILabel!
     @IBOutlet weak var price: UILabel!
     
+    @IBOutlet weak var detailStackView: UIStackView!
+    @IBOutlet weak var priceStackView: UIStackView!
+    
     @IBOutlet weak var likeBtn: UIButton!
     
     var getName: String?
@@ -30,6 +33,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var count: UILabel!
     @IBOutlet weak var images: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +49,10 @@ class DetailViewController: UIViewController {
         likes.text = likesStr
         guard let priceStr = getPrice else {return}
         price.text = priceStr
+        
+        // 언더라인
+        self.detailStackView.addSubview(MakeUnderLineInStackView(target: detailStackView))
+        self.priceStackView.addSubview(MakeUnderLineInStackView(target: priceStackView))
         
         
         grade.attributedText = CustomLabel.init().setLabel(text: self.grade.text!, code: 1).attributedText
@@ -70,6 +78,7 @@ class DetailViewController: UIViewController {
         
         
     }
+    
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         if (sender.direction == .left && pageControl.currentPage != imageStr.count-1) {
             self.pageControl.currentPage += 1
@@ -80,6 +89,17 @@ class DetailViewController: UIViewController {
         }
         images.image = UIImage(named: imageStr[pageControl.currentPage])
     }
+    
+    func lineDraw(viewLi:UIView)
+       {
+               let border = CALayer()
+               let width = CGFloat(1.0)
+        border.borderColor = UIColor(red: 197/255, green: 197/255, blue: 197/255, alpha: 1.0).cgColor
+               border.frame = CGRect(x: 0, y: viewLi.frame.size.height - width, width:  viewLi.frame.size.width, height: viewLi.frame.size.height)
+               border.borderWidth = width
+               viewLi.layer.addSublayer(border)
+               viewLi.layer.masksToBounds = true
+       }
     
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

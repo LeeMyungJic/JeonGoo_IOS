@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchBarStack: UIStackView!
     @IBOutlet weak var TableMain: UITableView!
@@ -69,7 +69,7 @@ searchBar.setImage(ImageResize(getImage: UIImage(named: "search")!, size: 20), f
             cell.item.attributedText = CustomLabel.init().setLabel(text: cell.item.text!, code: 2).attributedText
         }
         searchData[indexPath.row].name = cell.item.text!
-        cell.itemImage.image = ImageResize(getImage: UIImage(named: self.image[indexPath.row])!, size: 70)
+        cell.itemImage.image = ImageResize(getImage: UIImage(named: image[indexPath.row])!, size: 70)
         cell.price.text = "\(searchData[indexPath.row].price)원"
         cell.like.text = "\(searchData[indexPath.row].likes)"
         return cell
@@ -90,6 +90,7 @@ searchBar.setImage(ImageResize(getImage: UIImage(named: "search")!, size: 20), f
             }
             return
         }
+        
         print("검색어 : \(searchStr)")
     
         self.searchData = self.products.filter{
@@ -114,8 +115,7 @@ searchBar.setImage(ImageResize(getImage: UIImage(named: "search")!, size: 20), f
 
         setSearchBar()
         //TableMain.tableHeaderView = searchBar
-        self.TableMain.rowHeight = self.view.frame.height*0.1;
-
+        
         TableMain.delegate = self
         TableMain.dataSource = self
         searchBar.delegate = self

@@ -22,6 +22,7 @@
 		DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203B92608731A00598357 /* CustomImageView.swift */; };
 		DAB203C72608913500598357 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203C62608913500598357 /* CustomText.swift */; };
 		DAB203D02609CBC300598357 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203CF2609CBC300598357 /* ImageResize.swift */; };
+		DAB203FD2610737300598357 /* MakeUnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203FC2610737300598357 /* MakeUnderLine.swift */; };
 		DACB801A25F0D82B004D6E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801925F0D82B004D6E82 /* AppDelegate.swift */; };
 		DACB801C25F0D82B004D6E82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801B25F0D82B004D6E82 /* SceneDelegate.swift */; };
 		DACB801E25F0D82B004D6E82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801D25F0D82B004D6E82 /* ViewController.swift */; };
@@ -87,6 +88,7 @@
 		DAB203B92608731A00598357 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DAB203C62608913500598357 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		DAB203CF2609CBC300598357 /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
+		DAB203FC2610737300598357 /* MakeUnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeUnderLine.swift; sourceTree = "<group>"; };
 		DACB801625F0D82B004D6E82 /* JeonGoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeonGoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACB801925F0D82B004D6E82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DACB801B25F0D82B004D6E82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				DA626FB82604CF0900B35794 /* CustomLabel.swift */,
 				DAB203B92608731A00598357 /* CustomImageView.swift */,
 				DAB203C62608913500598357 /* CustomText.swift */,
+				DAB203FC2610737300598357 /* MakeUnderLine.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				DACB806A25F0DD7A004D6E82 /* ItemRegisterViewController.swift in Sources */,
 				DAB203D02609CBC300598357 /* ImageResize.swift in Sources */,
 				DACB808625F1047D004D6E82 /* BackProtocol.swift in Sources */,
+				DAB203FD2610737300598357 /* MakeUnderLine.swift in Sources */,
 				DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */,
 				DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */,
 				DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */,
