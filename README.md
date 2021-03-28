@@ -365,3 +365,41 @@
 
 - #### 마에페이지 하위 뷰 CustomText 적용
 
+---
+
+## 2021 03 28
+
+- #### 뷰에 UnderLine 추가하는 함수 생성
+
+  ![스크린샷 2021-03-28 오후 6.24.55](/Users/mingjic2/Desktop/스크린샷 2021-03-28 오후 6.24.55.png)
+
+  ![스크린샷 2021-03-28 오후 6.14.22](/Users/mingjic2/Desktop/스크린샷 2021-03-28 오후 6.14.22.png)
+
+- y: target.frame.height - 10 부분이 아직 잘 이해가 안 간다. 그냥 target.frame.height로 했을 경우 라인이 안 보여서 수정. 
+
+- 한 화면을 view로 나눈 경우와 stackView로 나눈 경우가 있기 때문에 함수도 나눠버림
+
+- 뷰일 경우 맨 아래에 적용되기 때문에 나누고자 하는 부분의 위쪽에 추가하기
+
+- 스택뷰일 경우 스택은 위부터 쌓이기 때문에 나누고자 하는 부분의 아래에 추가하기
+
+- 다른 방법을 찾아봐야겠다...
+
+  ~~~ swift
+  // 뷰에 추가
+  func MakeUnderLineInView(target: UIView) -> UIView {
+      var lineView = UIView(frame: CGRect(x: 0, y: target.frame.height - 10, width: target.frame.size.width*0.93, height: 1.8))
+      lineView.backgroundColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
+      return lineView
+  }
+  
+  // 스택뷰에 추가
+  func MakeUnderLineInStackView(target: UIStackView) -> UIStackView {
+      var lineView = UIStackView(frame: CGRect(x: 0, y: -10, width: target.frame.size.width*0.93, height: 1.8))
+      lineView.backgroundColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
+      return lineView
+  }
+  
+  ~~~
+
+  
