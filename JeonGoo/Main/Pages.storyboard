@@ -145,25 +145,19 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IWj-hk-APk">
                                                 <rect key="frame" x="0.0" y="452.5" width="374" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cl-ya-ihJ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cl-ya-ihJ" customClass="RadioButton" customModule="JeonGoo" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="179.5" height="30"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="새상품">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="newClick:" destination="Qzk-9g-cqq" eventType="touchUpInside" id="zbh-fL-Gie"/>
-                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvF-6c-C8H">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvF-6c-C8H" customClass="RadioButton" customModule="JeonGoo" customModuleProvider="target">
                                                         <rect key="frame" x="189.5" y="0.0" width="184.5" height="30"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="중고">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="oldClick:" destination="Qzk-9g-cqq" eventType="touchUpInside" id="Xij-De-uHO"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -233,10 +227,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="ybU-6c-q5B"/>
                     <connections>
-                        <outlet property="NameStr" destination="IYd-n9-SXt" id="hKM-kz-oTt"/>
                         <outlet property="detailStr" destination="2dh-aW-o7T" id="3ys-RP-Zen"/>
                         <outlet property="errorStr" destination="Z6h-y7-SkG" id="GE4-oP-Cot"/>
                         <outlet property="functionStr" destination="2av-aH-R7O" id="hGk-mC-CBg"/>
+                        <outlet property="nameStr" destination="IYd-n9-SXt" id="FDb-U3-qJN"/>
                         <outlet property="newButton" destination="5cl-ya-ihJ" id="6Bq-ey-ZVV"/>
                         <outlet property="nextButton" destination="FsK-Xc-knb" id="Hso-ho-TwT"/>
                         <outlet property="oldButton" destination="hvF-6c-C8H" id="32H-31-7sU"/>
@@ -534,7 +528,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uae-6E-3hw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2652" y="-32"/>
+            <point key="canvasLocation" x="2507" y="-32"/>
         </scene>
         <!--내 정보-->
         <scene sceneID="7zR-fP-hgW">
@@ -1190,38 +1184,38 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemsCell" id="aCX-CJ-AQC" customClass="ItemsCell" customModule="JeonGoo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="297.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="298.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aCX-CJ-AQC" id="QEi-Vm-6dW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="297.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="298.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-2O-tyN">
-                                                    <rect key="frame" x="3" y="3" width="408" height="291.5"/>
+                                                    <rect key="frame" x="3" y="3" width="408" height="292.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gDF-yY-eXO" customClass="CustomImageView" customModule="JeonGoo" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="122.5" height="291.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="122.5" height="292.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="NUA-tA-LgI"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gzJ-b2-ce7">
-                                                            <rect key="frame" x="132.5" y="0.0" width="184" height="291.5"/>
+                                                            <rect key="frame" x="132.5" y="0.0" width="184" height="292.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-PL-2ri">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="96"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="96.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ow-g2-UOp">
-                                                                    <rect key="frame" x="0.0" y="101" width="184" height="93.5"/>
+                                                                    <rect key="frame" x="0.0" y="101.5" width="184" height="93.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <color key="textColor" red="0.9850322838985559" green="0.72225007637419636" blue="0.29228733931721096" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zk3-ve-QmQ">
-                                                                    <rect key="frame" x="0.0" y="199.5" width="184" height="92"/>
+                                                                    <rect key="frame" x="0.0" y="200" width="184" height="92.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -1233,13 +1227,13 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r7J-0R-Zht">
-                                                            <rect key="frame" x="326.5" y="0.0" width="81.5" height="291.5"/>
+                                                            <rect key="frame" x="326.5" y="0.0" width="81.5" height="292.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZw-r5-45Y">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="81.5" height="233"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="81.5" height="234"/>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jil-h3-SQ9">
-                                                                    <rect key="frame" x="0.0" y="233" width="81.5" height="58.5"/>
+                                                                    <rect key="frame" x="0.0" y="234" width="81.5" height="58.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tlC-ct-cCD">
                                                                             <rect key="frame" x="0.0" y="1.5" width="40" height="56"/>
@@ -1565,7 +1559,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qWo-kr-3v8"/>
+        <segue reference="VCe-x5-2dm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.uturn.backward" catalog="system" width="128" height="112"/>

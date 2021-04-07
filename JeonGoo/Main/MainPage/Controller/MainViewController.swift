@@ -8,14 +8,19 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    // MARK:- Component(Outlet)
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchBarStack: UIStackView!
     @IBOutlet weak var TableMain: UITableView!
     
+    // MARK: -
     var searchData : [Product]!
     var image = ["macbookAir", "macbookPro", "iphone"]
     var products = [Product]()
+    
+    // MARK: -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return searchData.count

@@ -143,10 +143,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZG-Qb-bnk" customClass="CustomView" customModule="JeonGoo" customModuleProvider="target">
-                                <rect key="frame" x="31" y="269" width="352" height="358"/>
+                                <rect key="frame" x="31" y="201.5" width="352" height="493"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Ot-9Z-dgc">
-                                        <rect key="frame" x="10" y="318" width="332" height="30"/>
+                                        <rect key="frame" x="10" y="453" width="332" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RnD-0b-cyN" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
@@ -171,26 +171,26 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TPP-9i-O0g">
-                                        <rect key="frame" x="10" y="58" width="332" height="106"/>
+                                        <rect key="frame" x="10" y="58" width="332" height="138.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mJm-ul-Bc6">
-                                                <rect key="frame" x="0.0" y="0.0" width="332" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="332" height="39.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTk-mU-vSh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="39.5"/>
                                                         <state key="normal" image="check1"/>
                                                         <connections>
                                                             <action selector="click1btn:" destination="clm-uW-gtg" eventType="touchUpInside" id="fA9-Cq-UE4"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(필수) 전구 이용약관 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkB-7d-GhD">
-                                                        <rect key="frame" x="43" y="0.0" width="229" height="28.5"/>
+                                                        <rect key="frame" x="43" y="0.0" width="229" height="39.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpH-js-5R5" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
-                                                        <rect key="frame" x="282" y="0.0" width="50" height="28.5"/>
+                                                        <rect key="frame" x="282" y="0.0" width="50" height="39.5"/>
                                                         <state key="normal" title="보기"/>
                                                     </button>
                                                 </subviews>
@@ -200,23 +200,23 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UAM-dK-EY6">
-                                                <rect key="frame" x="0.0" y="38.5" width="332" height="29"/>
+                                                <rect key="frame" x="0.0" y="49.5" width="332" height="39.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVo-ef-GOU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="39.5"/>
                                                         <state key="normal" image="check1"/>
                                                         <connections>
                                                             <action selector="click2btn:" destination="clm-uW-gtg" eventType="touchUpInside" id="GAx-qE-zAe"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(필수) 개인정보 처리 방침 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efy-Ky-q6m">
-                                                        <rect key="frame" x="43" y="0.0" width="229" height="29"/>
+                                                        <rect key="frame" x="43" y="0.0" width="229" height="39.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABH-mg-sNF" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
-                                                        <rect key="frame" x="282" y="0.0" width="50" height="29"/>
+                                                        <rect key="frame" x="282" y="0.0" width="50" height="39.5"/>
                                                         <state key="normal" title="보기"/>
                                                     </button>
                                                 </subviews>
@@ -226,23 +226,23 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ded-Cg-eOW">
-                                                <rect key="frame" x="0.0" y="77.5" width="332" height="28.5"/>
+                                                <rect key="frame" x="0.0" y="99" width="332" height="39.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCV-1z-Zko">
-                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="39.5"/>
                                                         <state key="normal" image="check1"/>
                                                         <connections>
                                                             <action selector="click3btn:" destination="clm-uW-gtg" eventType="touchUpInside" id="RkZ-tD-yF6"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(선택) 이메일, SMS 광고 수신 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQa-Y4-LZb">
-                                                        <rect key="frame" x="43" y="0.0" width="229" height="28.5"/>
+                                                        <rect key="frame" x="43" y="0.0" width="229" height="39.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOu-0I-RBb" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
-                                                        <rect key="frame" x="282" y="0.0" width="50" height="28.5"/>
+                                                        <rect key="frame" x="282" y="0.0" width="50" height="39.5"/>
                                                         <state key="normal" title="보기"/>
                                                     </button>
                                                 </subviews>
@@ -281,7 +281,7 @@
                         <viewLayoutGuide key="safeArea" id="c0f-vH-htx"/>
                         <color key="backgroundColor" red="0.99715822939999998" green="0.6914699674" blue="0.1448032856" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="TZG-Qb-bnk" firstAttribute="height" secondItem="gCO-Md-CQn" secondAttribute="height" multiplier="0.399554" id="BbI-q6-i6t"/>
+                            <constraint firstItem="TZG-Qb-bnk" firstAttribute="height" secondItem="gCO-Md-CQn" secondAttribute="height" multiplier="0.55" id="BbI-q6-i6t"/>
                             <constraint firstItem="TZG-Qb-bnk" firstAttribute="centerY" secondItem="gCO-Md-CQn" secondAttribute="centerY" id="RgF-ai-xIF"/>
                             <constraint firstItem="TZG-Qb-bnk" firstAttribute="centerX" secondItem="gCO-Md-CQn" secondAttribute="centerX" id="S4t-GD-tTy"/>
                             <constraint firstItem="TZG-Qb-bnk" firstAttribute="width" secondItem="gCO-Md-CQn" secondAttribute="width" multiplier="0.85" id="XqE-qP-VkG"/>
@@ -311,15 +311,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gf-ER-7bg" customClass="CustomView" customModule="JeonGoo" customModuleProvider="target">
-                                <rect key="frame" x="31" y="269" width="352" height="358"/>
+                                <rect key="frame" x="31" y="201.5" width="352" height="493"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qtw-8D-VkL">
-                                        <rect key="frame" x="10" y="30" width="332" height="233.5"/>
+                                        <rect key="frame" x="10" y="30" width="332" height="350.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYG-a3-VBX">
                                                 <rect key="frame" x="0.0" y="0.0" width="332" height="34"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWr-Ap-ft0">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWr-Ap-ft0">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="34"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -411,8 +411,82 @@
                                                     <constraint firstItem="7y7-f0-KIj" firstAttribute="width" secondItem="6bn-4y-Do1" secondAttribute="width" multiplier="0.22" id="V7q-7s-zU6"/>
                                                 </constraints>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZG-IE-0cy">
+                                                <rect key="frame" x="0.0" y="220" width="332" height="24"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWH-QM-eln">
+                                                        <rect key="frame" x="0.0" y="0.0" width="73" height="24"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-DS-s4t">
+                                                        <rect key="frame" x="73" y="0.0" width="259" height="24"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mf-BX-eTN" customClass="RadioButton" customModule="JeonGoo" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="127" height="24"/>
+                                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
+                                                                <state key="normal" title="남"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rl-NS-UE2" customClass="RadioButton" customModule="JeonGoo" customModuleProvider="target">
+                                                                <rect key="frame" x="137" y="0.0" width="122" height="24"/>
+                                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
+                                                                <state key="normal" title="여"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="3mf-BX-eTN" firstAttribute="width" secondItem="zqf-DS-s4t" secondAttribute="width" multiplier="0.49" id="UnS-sC-ic5"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="WWH-QM-eln" firstAttribute="width" secondItem="zZG-IE-0cy" secondAttribute="width" multiplier="0.22" id="Rmp-VH-xfT"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYk-LE-hHn">
+                                                <rect key="frame" x="0.0" y="254" width="332" height="73"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeU-bI-FKS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="n6v-mp-Ep4">
+                                                        <rect key="frame" x="73" y="0.0" width="259" height="73"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="a7u-dq-aw2">
+                                                                <rect key="frame" x="0.0" y="0.0" width="259" height="34"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WbD-UV-rv3">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="215" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d5-mf-ZbT" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
+                                                                        <rect key="frame" x="220" y="0.0" width="39" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <state key="normal" title="검색"/>
+                                                                    </button>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="6d5-mf-ZbT" firstAttribute="width" secondItem="a7u-dq-aw2" secondAttribute="width" multiplier="0.15" id="z2t-Fa-5u2"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cyx-PR-VMP">
+                                                                <rect key="frame" x="0.0" y="39" width="259" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="ZeU-bI-FKS" firstAttribute="width" secondItem="pYk-LE-hHn" secondAttribute="width" multiplier="0.22" id="JmL-rH-iHw"/>
+                                                </constraints>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모든 항목을 입력해 주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdN-od-Pcx">
-                                                <rect key="frame" x="0.0" y="220" width="332" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="337" width="332" height="13.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -420,7 +494,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CIj-Sb-FnW">
-                                        <rect key="frame" x="10" y="318" width="332" height="30"/>
+                                        <rect key="frame" x="10" y="453" width="332" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsd-bO-iyy" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
@@ -461,7 +535,7 @@
                             <constraint firstItem="2Gf-ER-7bg" firstAttribute="centerY" secondItem="b4o-iI-Lyi" secondAttribute="centerY" id="9JO-KX-Bij"/>
                             <constraint firstItem="2Gf-ER-7bg" firstAttribute="width" secondItem="b4o-iI-Lyi" secondAttribute="width" multiplier="0.85" id="Bvh-3e-U1V"/>
                             <constraint firstItem="2Gf-ER-7bg" firstAttribute="centerX" secondItem="b4o-iI-Lyi" secondAttribute="centerX" id="dMW-x2-7zh"/>
-                            <constraint firstItem="2Gf-ER-7bg" firstAttribute="height" secondItem="b4o-iI-Lyi" secondAttribute="height" multiplier="0.4" id="xSR-9c-mz9"/>
+                            <constraint firstItem="2Gf-ER-7bg" firstAttribute="height" secondItem="b4o-iI-Lyi" secondAttribute="height" multiplier="0.55" id="xSR-9c-mz9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1PU-Eo-Ep5"/>
@@ -469,10 +543,12 @@
                         <outlet property="completeBtn" destination="Qsd-bO-iyy" id="On2-4M-Sj5"/>
                         <outlet property="errorLabel" destination="sdN-od-Pcx" id="UKc-Rl-ZdR"/>
                         <outlet property="idStr" destination="Ldv-Xh-zxA" id="pQl-fi-gxk"/>
+                        <outlet property="manButton" destination="3mf-BX-eTN" id="yAf-Lp-IRy"/>
                         <outlet property="nameStr" destination="FtY-1D-Qoc" id="bMv-NN-RUw"/>
                         <outlet property="numberStr" destination="c2C-8E-cC9" id="fa8-iL-5Cg"/>
                         <outlet property="passChkStr" destination="ei1-pF-XGz" id="De3-oI-7ML"/>
                         <outlet property="passStr" destination="h7V-p3-haF" id="LzH-BE-LOb"/>
+                        <outlet property="womanButton" destination="6rl-NS-UE2" id="Qfj-JL-hGE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="let-N8-7MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

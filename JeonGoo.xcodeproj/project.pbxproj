@@ -19,6 +19,8 @@
 		DA626FB92604CF0900B35794 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA626FB82604CF0900B35794 /* CustomLabel.swift */; };
 		DA8277E725F74113007520D5 /* adViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8277E625F74112007520D5 /* adViewController.swift */; };
 		DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8277EB25F74B56007520D5 /* Delegate.swift */; };
+		DAA0DB21261D92F10042A50F /* setButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0DB20261D92F10042A50F /* setButton.swift */; };
+		DAA0DB26261D94F20042A50F /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0DB25261D94F20042A50F /* RadioButton.swift */; };
 		DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203B92608731A00598357 /* CustomImageView.swift */; };
 		DAB203C72608913500598357 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203C62608913500598357 /* CustomText.swift */; };
 		DAB203D02609CBC300598357 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203CF2609CBC300598357 /* ImageResize.swift */; };
@@ -85,6 +87,8 @@
 		DA626FB82604CF0900B35794 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		DA8277E625F74112007520D5 /* adViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adViewController.swift; sourceTree = "<group>"; };
 		DA8277EB25F74B56007520D5 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		DAA0DB20261D92F10042A50F /* setButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setButton.swift; sourceTree = "<group>"; };
+		DAA0DB25261D94F20042A50F /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		DAB203B92608731A00598357 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DAB203C62608913500598357 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		DAB203CF2609CBC300598357 /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 				DAB203B92608731A00598357 /* CustomImageView.swift */,
 				DAB203C62608913500598357 /* CustomText.swift */,
 				DAB203FC2610737300598357 /* MakeUnderLine.swift */,
+				DAA0DB20261D92F10042A50F /* setButton.swift */,
+				DAA0DB25261D94F20042A50F /* RadioButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -622,6 +628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA0DB26261D94F20042A50F /* RadioButton.swift in Sources */,
 				DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */,
 				DA626FB92604CF0900B35794 /* CustomLabel.swift in Sources */,
 				DA8277E725F74113007520D5 /* adViewController.swift in Sources */,
@@ -640,6 +647,7 @@
 				DAB203D02609CBC300598357 /* ImageResize.swift in Sources */,
 				DACB808625F1047D004D6E82 /* BackProtocol.swift in Sources */,
 				DAB203FD2610737300598357 /* MakeUnderLine.swift in Sources */,
+				DAA0DB21261D92F10042A50F /* setButton.swift in Sources */,
 				DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */,
 				DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */,
 				DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */,

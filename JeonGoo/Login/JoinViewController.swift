@@ -9,6 +9,7 @@ import UIKit
 
 class JoinViewController: UIViewController {
     
+// MARK: --
     @IBOutlet weak var idStr: UITextField!
     @IBOutlet weak var passStr: UITextField!
     @IBOutlet weak var passChkStr: UITextField!
@@ -16,30 +17,10 @@ class JoinViewController: UIViewController {
     @IBOutlet weak var numberStr: UITextField!
     @IBOutlet weak var completeBtn: CustomButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var manButton: RadioButton!
+    @IBOutlet weak var womanButton: RadioButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        completeBtn.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        completeBtn.isEnabled = false
-        // Do any additional setup after loading the view.
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        
-        self.view.endEditing(true)
-        if passChkStr.text != "" && passStr.text != "" && idStr.text != "" && nameStr.text != "" && numberStr.text != ""{
-            self.completeBtn.isEnabled = true
-            self.completeBtn.backgroundColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
-            self.errorLabel.text = ""
-        }
-        else {
-            self.completeBtn.isEnabled = false
-            self.completeBtn.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-            self.errorLabel.text = "모든 항목을 입력해 주세요!"
-        }
-    }
-    
+// MARK: --
     @IBAction func join(_ sender: Any) {
         if passStr.text == passChkStr.text {
             let msg = UIAlertController(title: "가입완료", message: "회원가입을 완료하였습니다", preferredStyle: .alert)
@@ -65,27 +46,39 @@ class JoinViewController: UIViewController {
         
     }
     
-    func YesClick(code: Int) {
-        if code == 0 {
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.popViewController(animated: true)
-        }
-        
-    }
-    
     @IBAction func cancel(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.navigationController?.popViewController(animated: true)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        
+        self.view.endEditing(true)
+        if passChkStr.text != "" && passStr.text != "" && idStr.text != "" && nameStr.text != "" && numberStr.text != ""{
+            self.completeBtn.isEnabled = true
+            self.completeBtn.backgroundColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
+            self.errorLabel.text = ""
+        }
+        else {
+            self.completeBtn.isEnabled = false
+            self.completeBtn.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            self.errorLabel.text = "모든 항목을 입력해 주세요!"
+        }
+    }
     
+    func YesClick(code: Int) {
+        if code == 0 {
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+// MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        womanButton?.alternateButton = [manButton!]
+        manButton?.alternateButton = [womanButton!]
+        setEnabledButton(completeBtn)
+    }
 }
