@@ -886,5 +886,40 @@
     - 버튼을 클릭하면 사진과 같이 텍스트 부분의 색이 변한다
 
       <img width="" alt="스크린샷 2021-04-08 오후 7 40 11" src="https://user-images.githubusercontent.com/44960073/114013442-7e898e00-98a2-11eb-967c-603ce8bc4fcf.png">
+      
+---
+
+## 2021 04 14
+
+- #### 상품 디테일 페이지
+
+  - 관심 버튼 클릭 시 팝업 보여주기 (버튼 없이 시간이 지나면 사라지도록 구현)
+
+    ~~~ swift
+    // 시간이 지나면 사라지도록
+    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
+                self.dismiss(animated: true, completion: nil)
+    }
+    pageControl.layer.zPosition = 999
+            self.view.bringSubviewToFront(self.backButton)
+    ~~~
+
+  - 뒤로가기 버튼 클릭이 안되는 이슈 해결, pageControll이 가려지는 현상 해결
+
+    ~~~ swift
+    // z포지션을 수정하여 맨 앞에 보이도록 수정
+    pageControl.layer.zPosition = 999
+    // 버튼을 메인 뷰로 빼고 맨 앞으로 가져옴
+    self.view.bringSubviewToFront(self.backButton)
+    ~~~
+
+- #### 회원가입 페이지 - self.dismiss 두 번 사용하는 것 수정
+
+  ~~~ swift
+  // 네비게이션 컨트롤러의 루트 뷰로 이동
+  self.navigationController?.popToRootViewController(animated: true)
+  ~~~
+
+  
 
   
