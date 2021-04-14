@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    // MARK: --
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var detail: UILabel!
@@ -19,6 +20,13 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var likeBtn: UIButton!
     
+    @IBOutlet weak var likes: UILabel!
+    @IBOutlet weak var count: UILabel!
+    @IBOutlet weak var images: UIImageView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var backButton: UIButton!
+    // MARK: --
     var getName: String?
     var getGrade: String?
     var getDetail: String?
@@ -29,13 +37,13 @@ class DetailViewController: UIViewController {
     var isLiked = false
     
     var imageStr = ["macbookPro", "macbookAir", "photo"]
-    @IBOutlet weak var likes: UILabel!
-    @IBOutlet weak var count: UILabel!
-    @IBOutlet weak var images: UIImageView!
-    @IBOutlet weak var pageControl: UIPageControl!
     
+    // MARK: --
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pageControl.layer.zPosition = 999
+        self.view.bringSubviewToFront(self.backButton)
         
         guard let nameStr = getName else {return}
         name.text = nameStr
@@ -91,16 +99,17 @@ class DetailViewController: UIViewController {
     }
     
     func lineDraw(viewLi:UIView)
-       {
-               let border = CALayer()
-               let width = CGFloat(1.0)
+    {
+        let border = CALayer()
+        let width = CGFloat(1.0)
         border.borderColor = UIColor(red: 197/255, green: 197/255, blue: 197/255, alpha: 1.0).cgColor
-               border.frame = CGRect(x: 0, y: viewLi.frame.size.height - width, width:  viewLi.frame.size.width, height: viewLi.frame.size.height)
-               border.borderWidth = width
-               viewLi.layer.addSublayer(border)
-               viewLi.layer.masksToBounds = true
-       }
+        border.frame = CGRect(x: 0, y: viewLi.frame.size.height - width, width:  viewLi.frame.size.width, height: viewLi.frame.size.height)
+        border.borderWidth = width
+        viewLi.layer.addSublayer(border)
+        viewLi.layer.masksToBounds = true
+    }
     
+    // MARK: --
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -109,16 +118,24 @@ class DetailViewController: UIViewController {
         images.image = UIImage(named: imageStr[pageControl.currentPage])
     }
     @IBAction func clickLike(_ sender: Any) {
+        
+        let popUp = self.storyboard?.instantiateViewController(identifier: "LikePopUp")
+        
+        popUp!.modalPresentationStyle = .overCurrentContext
+        popUp!.modalTransitionStyle = .crossDissolve
+        
+        let temp = popUp as! LikePopUp
+        
         if isLiked {
             isLiked = false
             likeBtn.setImage(UIImage(named: "like1"), for: .normal)
+            temp.getString = "관심목록 제거"
         }
         else {
             isLiked = true
             likeBtn.setImage(UIImage(named: "like2"), for: .normal)
+            temp.getString = "관심목록 추가"
         }
+        self.present(popUp!, animated: false, completion: nil)
     }
-    
-    
-    
 }

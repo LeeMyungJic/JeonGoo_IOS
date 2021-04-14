@@ -21,6 +21,7 @@
 		DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8277EB25F74B56007520D5 /* Delegate.swift */; };
 		DAA0DB21261D92F10042A50F /* setButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0DB20261D92F10042A50F /* setButton.swift */; };
 		DAA0DB26261D94F20042A50F /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0DB25261D94F20042A50F /* RadioButton.swift */; };
+		DAA0DC8F2626C88C0042A50F /* LikePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0DC8E2626C88C0042A50F /* LikePopUp.swift */; };
 		DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203B92608731A00598357 /* CustomImageView.swift */; };
 		DAB203C72608913500598357 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203C62608913500598357 /* CustomText.swift */; };
 		DAB203D02609CBC300598357 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203CF2609CBC300598357 /* ImageResize.swift */; };
@@ -89,6 +90,7 @@
 		DA8277EB25F74B56007520D5 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		DAA0DB20261D92F10042A50F /* setButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setButton.swift; sourceTree = "<group>"; };
 		DAA0DB25261D94F20042A50F /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		DAA0DC8E2626C88C0042A50F /* LikePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePopUp.swift; sourceTree = "<group>"; };
 		DAB203B92608731A00598357 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DAB203C62608913500598357 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		DAB203CF2609CBC300598357 /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				DA626FBD2604CF7200B35794 /* AddPage */,
 				DA55BDEF25F894DA007291B1 /* MyPage */,
 				DACB805D25F0DB6C004D6E82 /* Pages.storyboard */,
+				DAA0DC8E2626C88C0042A50F /* LikePopUp.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				DACB807E25F0F823004D6E82 /* Product.swift in Sources */,
 				DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */,
 				DA55BE0425F89564007291B1 /* BuyingListViewController.swift in Sources */,
+				DAA0DC8F2626C88C0042A50F /* LikePopUp.swift in Sources */,
 				DA626F4D260205C700B35794 /* MyProductViewModel.swift in Sources */,
 				DACB806525F0DD68004D6E82 /* MainViewController.swift in Sources */,
 				DA626F412601FC2B00B35794 /* Get.swift in Sources */,

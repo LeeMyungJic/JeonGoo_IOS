@@ -9,19 +9,14 @@ import UIKit
 
 class ItemRegisterViewController: UIViewController, DeliveryDataProtocol, UINavigationControllerDelegate {
     func deliveryData(_ data: String) {
-        print("데이터 가져옴")
         guard let second = self.tabBarController?.viewControllers?[0] else {
             return
         }
-
         self.tabBarController?.selectedViewController = second
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         
-
         guard let vc = self.storyboard?.instantiateViewController(identifier: "adViewController") as? adViewController else {
             return
         }

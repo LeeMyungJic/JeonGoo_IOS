@@ -9,6 +9,7 @@ import UIKit
 
 class ItemRegister2ViewController: UIViewController {
 
+    // MARK: --
     @IBOutlet weak var nextButton: CustomButton!
     
     @IBOutlet weak var newButton: RadioButton!
@@ -21,22 +22,21 @@ class ItemRegister2ViewController: UIViewController {
     @IBOutlet weak var priceStr: UITextField!
     
     @IBOutlet weak var errorStr: UILabel!
+    
+    // MARK: --
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.detailStr.layer.cornerRadius = 8
         self.detailStr.layer.borderWidth = 1
-        self.detailStr.layer.borderColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
+        self.detailStr.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         newButton?.alternateButton = [oldButton!]
         oldButton?.alternateButton = [newButton!]
         setEnabledButton(nextButton)
     }
     
-    @IBAction func Cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+    // MARK: --
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         
         self.view.endEditing(true)
@@ -51,5 +51,9 @@ class ItemRegister2ViewController: UIViewController {
             self.errorStr.text = "모든 항목을 입력해 주세요!"
         }
     }
-
+    
+    // MARK: --
+    @IBAction func Cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

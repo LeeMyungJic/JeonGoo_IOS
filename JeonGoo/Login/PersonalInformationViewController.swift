@@ -9,6 +9,7 @@ import UIKit
 
 class PersonalInformationViewController: UIViewController {
     
+    // MARK: --
     @IBOutlet weak var check1: UIButton!
     @IBOutlet weak var check2: UIButton!
     @IBOutlet weak var check3: UIButton!
@@ -19,13 +20,16 @@ class PersonalInformationViewController: UIViewController {
     
     @IBOutlet weak var nextBtn: CustomButton!
     
+    // MARK: --
     var isClick1 = false
     var isClick2 = false
     var isClick3 = false
     
+    
+    // MARK: --
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         nextBtn.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         nextBtn.isEnabled = false
         
@@ -43,8 +47,9 @@ class PersonalInformationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // MARK: --
     @IBAction func cancel(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func click1btn(_ sender: Any) {
@@ -96,14 +101,5 @@ class PersonalInformationViewController: UIViewController {
         }
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class JoinViewController: UIViewController {
     
-// MARK: --
+    // MARK: --
     @IBOutlet weak var idStr: UITextField!
     @IBOutlet weak var passStr: UITextField!
     @IBOutlet weak var passChkStr: UITextField!
@@ -20,7 +20,17 @@ class JoinViewController: UIViewController {
     @IBOutlet weak var manButton: RadioButton!
     @IBOutlet weak var womanButton: RadioButton!
     
-// MARK: --
+    
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        womanButton?.alternateButton = [manButton!]
+        manButton?.alternateButton = [womanButton!]
+        setEnabledButton(completeBtn)
+    }
+    
+    // MARK: --
     @IBAction func join(_ sender: Any) {
         if passStr.text == passChkStr.text {
             let msg = UIAlertController(title: "가입완료", message: "회원가입을 완료하였습니다", preferredStyle: .alert)
@@ -47,10 +57,11 @@ class JoinViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
+    
+    // MARK: --
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         
         self.view.endEditing(true)
@@ -68,17 +79,7 @@ class JoinViewController: UIViewController {
     
     func YesClick(code: Int) {
         if code == 0 {
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         }
-    }
-    
-// MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        womanButton?.alternateButton = [manButton!]
-        manButton?.alternateButton = [womanButton!]
-        setEnabledButton(completeBtn)
     }
 }

@@ -11,6 +11,7 @@ import Kingfisher
 
 class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // MARK: --
     @IBOutlet weak var TableMain: UICollectionView!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var cameraBtn: UIButton!
@@ -18,6 +19,7 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var serialImage: UIImageView!
     @IBOutlet weak var videoCountLabel: UILabel!
     
+    // MARK: --
     var videoURL: URL!
     var imageData = [UIImage]()
     var serialData = [UIImage]()
@@ -30,7 +32,7 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     
     let imagePicker = UIImagePickerController()
     
-    
+    // MARK: --
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageData.count
     }

@@ -12,7 +12,3 @@ func setEnabledButton(_ button: UIButton) {
     button.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
 }
 
-func setSelectButton(_ button: UIButton) {
-    button.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-}
-
