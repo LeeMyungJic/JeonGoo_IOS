@@ -483,6 +483,9 @@
                                                                         <rect key="frame" x="220" y="0.0" width="39" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                         <state key="normal" title="검색"/>
+                                                                        <connections>
+                                                                            <action selector="tappedSearchBtn:" destination="rDD-Pz-Og5" eventType="touchUpInside" id="T6m-fj-y7u"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -556,7 +559,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="1PU-Eo-Ep5"/>
                     <connections>
+                        <outlet property="addressStr" destination="WbD-UV-rv3" id="11F-yL-Kfd"/>
                         <outlet property="completeBtn" destination="Qsd-bO-iyy" id="On2-4M-Sj5"/>
+                        <outlet property="detailAddressStr" destination="Cyx-PR-VMP" id="MSh-PX-nLu"/>
                         <outlet property="errorLabel" destination="sdN-od-Pcx" id="UKc-Rl-ZdR"/>
                         <outlet property="idStr" destination="Ldv-Xh-zxA" id="pQl-fi-gxk"/>
                         <outlet property="manButton" destination="3mf-BX-eTN" id="yAf-Lp-IRy"/>

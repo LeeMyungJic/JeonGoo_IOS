@@ -8,6 +8,7 @@ target 'JeonGoo' do
   # Pods for JeonGoo
   pod 'Kingfisher'
   pod 'Alamofire'
+  pod 'SwiftyJSON'
 
   target 'JeonGooTests' do
     inherit! :search_paths
