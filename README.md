@@ -919,6 +919,45 @@
   // 네비게이션 컨트롤러의 루트 뷰로 이동
   self.navigationController?.popToRootViewController(animated: true)
   ~~~
+  
+  
+
+---
+
+## 2021 04 21
+
+- #### 로그인 페이지 - 로그인 기능 구현 (Alamofire)
+
+  ~~~ swift
+  import Alamofire
+  
+  func Post(param: [String:Any], subURL: String, success: (()->Void)? = nil, fail: ((String)->Void)? = nil) {
+      let url = NetworkController.baseURL + subURL
+      print("url : \(url)")
+      
+      let call = AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default)
+      
+      call.responseJSON { res in
+          let result = try! res.result.get()
+          guard let jsonObject = result as? NSDictionary else {
+              fail?("dasdsdas \(result)")
+              return
+          }
+          
+          let resultCode = jsonObject["statusCode"] as! Int
+          print("code : \(resultCode)")
+          if resultCode == 200{
+              success?()
+          }
+          else {
+              let msg = (jsonObject["error_msg"] as? String) ?? "에러"
+              fail?(msg)
+          }
+      }
+  }
+  ~~~
+
+  
 
   
 
