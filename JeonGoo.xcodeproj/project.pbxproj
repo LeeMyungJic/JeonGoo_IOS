@@ -22,6 +22,8 @@
 		DAA0DB21261D92F10042A50F /* setButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0DB20261D92F10042A50F /* setButton.swift */; };
 		DAA0DB26261D94F20042A50F /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0DB25261D94F20042A50F /* RadioButton.swift */; };
 		DAA0DC8F2626C88C0042A50F /* LikePopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA0DC8E2626C88C0042A50F /* LikePopUp.swift */; };
+		DAA0DC992626D93E0042A50F /* NanumGothicCoding.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAA0DC972626D93E0042A50F /* NanumGothicCoding.ttf */; };
+		DAA0DC9A2626D93E0042A50F /* NanumSquare_acR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAA0DC982626D93E0042A50F /* NanumSquare_acR.ttf */; };
 		DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203B92608731A00598357 /* CustomImageView.swift */; };
 		DAB203C72608913500598357 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203C62608913500598357 /* CustomText.swift */; };
 		DAB203D02609CBC300598357 /* ImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB203CF2609CBC300598357 /* ImageResize.swift */; };
@@ -47,6 +49,7 @@
 		DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80A525F2141D004D6E82 /* CustomView.swift */; };
 		DACB80AE25F21D02004D6E82 /* imageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80AD25F21D02004D6E82 /* imageCell.swift */; };
 		DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80B825F22730004D6E82 /* DetailViewController.swift */; };
+		DAD2FF45262EBD19004A0B8C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD2FF44262EBD19004A0B8C /* Post.swift */; };
 		DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBC625FF466400C507BC /* JoinViewController.swift */; };
 		DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */; };
 		F2968F80AE36914304908103 /* Pods_JeonGoo_JeonGooUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66D1525DCF20B3EF2A78B4 /* Pods_JeonGoo_JeonGooUITests.framework */; };
@@ -91,6 +94,9 @@
 		DAA0DB20261D92F10042A50F /* setButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setButton.swift; sourceTree = "<group>"; };
 		DAA0DB25261D94F20042A50F /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		DAA0DC8E2626C88C0042A50F /* LikePopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePopUp.swift; sourceTree = "<group>"; };
+		DAA0DC972626D93E0042A50F /* NanumGothicCoding.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumGothicCoding.ttf; path = ../../../../../Downloads/NanumFontSetup_TTF_ALL/NanumGothicCoding.ttf; sourceTree = "<group>"; };
+		DAA0DC982626D93E0042A50F /* NanumSquare_acR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquare_acR.ttf; path = ../../../../../Downloads/NanumFontSetup_TTF_ALL/NanumSquare_acR.ttf; sourceTree = "<group>"; };
+		DAA0DC9F2626DB370042A50F /* NanumSquareB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumSquareB.ttf; path = ../../../../../Library/Fonts/NanumSquareB.ttf; sourceTree = "<group>"; };
 		DAB203B92608731A00598357 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DAB203C62608913500598357 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		DAB203CF2609CBC300598357 /* ImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResize.swift; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 		DACB80A525F2141D004D6E82 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		DACB80AD25F21D02004D6E82 /* imageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCell.swift; sourceTree = "<group>"; };
 		DACB80B825F22730004D6E82 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DAD2FF44262EBD19004A0B8C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../../../../../Desktop/xcode/TakeMeHome/TakeMeHome/Network/Post.swift; sourceTree = "<group>"; };
 		DAF3DBC625FF466400C507BC /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		E0A82B63287690E669E50CA8 /* Pods-JeonGoo-JeonGooUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGoo-JeonGooUITests.release.xcconfig"; path = "Target Support Files/Pods-JeonGoo-JeonGooUITests/Pods-JeonGoo-JeonGooUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +209,7 @@
 		DA626F372601F88200B35794 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DAD2FF44262EBD19004A0B8C /* Post.swift */,
 				DA626F382601F8A200B35794 /* NetworkController.swift */,
 				DA626F402601FC2B00B35794 /* Get.swift */,
 			);
@@ -258,6 +266,7 @@
 		DA626FC02604CFC500B35794 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DAA0DC8E2626C88C0042A50F /* LikePopUp.swift */,
 				DACB806425F0DD68004D6E82 /* MainViewController.swift */,
 				DACB80B825F22730004D6E82 /* DetailViewController.swift */,
 			);
@@ -270,6 +279,16 @@
 				DACB80AD25F21D02004D6E82 /* imageCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		DAA0DC962626D8EE0042A50F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DAA0DC9F2626DB370042A50F /* NanumSquareB.ttf */,
+				DAA0DC972626D93E0042A50F /* NanumGothicCoding.ttf */,
+				DAA0DC982626D93E0042A50F /* NanumSquare_acR.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		DAB203CB2609CB9A00598357 /* Function */ = {
@@ -305,6 +324,7 @@
 		DACB801825F0D82B004D6E82 /* JeonGoo */ = {
 			isa = PBXGroup;
 			children = (
+				DAA0DC962626D8EE0042A50F /* Font */,
 				DAB203CB2609CB9A00598357 /* Function */,
 				DA626F372601F88200B35794 /* Network */,
 				DACB805625F0DAEF004D6E82 /* Login */,
@@ -358,9 +378,8 @@
 			children = (
 				DA626FBE2604CF8D00B35794 /* MainPage */,
 				DA626FBD2604CF7200B35794 /* AddPage */,
-				DA55BDEF25F894DA007291B1 /* MyPage */,
 				DACB805D25F0DB6C004D6E82 /* Pages.storyboard */,
-				DAA0DC8E2626C88C0042A50F /* LikePopUp.swift */,
+				DA55BDEF25F894DA007291B1 /* MyPage */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -500,6 +519,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAA0DC9A2626D93E0042A50F /* NanumSquare_acR.ttf in Resources */,
+				DAA0DC992626D93E0042A50F /* NanumGothicCoding.ttf in Resources */,
 				DACB802625F0D82C004D6E82 /* LaunchScreen.storyboard in Resources */,
 				DACB802325F0D82C004D6E82 /* Assets.xcassets in Resources */,
 				DACB802125F0D82B004D6E82 /* Main.storyboard in Resources */,
@@ -646,6 +667,7 @@
 				DA55BDFC25F89553007291B1 /* SaleListViewController.swift in Sources */,
 				DACB801C25F0D82B004D6E82 /* SceneDelegate.swift in Sources */,
 				DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */,
+				DAD2FF45262EBD19004A0B8C /* Post.swift in Sources */,
 				DACB806A25F0DD7A004D6E82 /* ItemRegisterViewController.swift in Sources */,
 				DAB203D02609CBC300598357 /* ImageResize.swift in Sources */,
 				DACB808625F1047D004D6E82 /* BackProtocol.swift in Sources */,

@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NanumSquareB.ttf</string>
+		<string>NanumSquare_acR.ttf</string>
+		<string>NanumGothicCoding.ttf</string>
+	</array>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>마이크 접근 허용</string>
 	<key>NSPhotoLibraryUsageDescription</key>

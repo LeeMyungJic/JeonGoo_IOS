@@ -8,22 +8,45 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var idLabel: UITextField!
+    @IBOutlet weak var passLabel: UITextField!
+    @IBOutlet weak var loginBtn: CustomButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-    @IBAction func Login(_ sender: Any) {
     
+    @IBAction func Login(_ sender: Any) {
+        
+        let id = self.idLabel.text
+        let pass = self.passLabel.text
+        
+        if id == "" || pass == "" {
+        }
+        else {
+            let param: [String:Any] = [
+                "email": id,
+                "password": pass
+            ]
+            
+            Post(
+                param: param, subURL: "/users/signin", success: {
+                    self.nextVC()
+                }, fail: { msg in
+                })
+        }
+    }
+    
+    func nextVC() {
         let storyboard = UIStoryboard.init(name: "Pages", bundle: nil)
         
         let popUp = storyboard.instantiateViewController(identifier: "Pages")
         popUp.modalPresentationStyle = .overCurrentContext
         popUp.modalTransitionStyle = .crossDissolve
         
-        present(popUp, animated: true, completion: nil)
+        self.present(popUp, animated: true, completion: nil)
     }
-    
 }
 

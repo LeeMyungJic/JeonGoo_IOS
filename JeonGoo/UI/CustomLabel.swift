@@ -11,10 +11,8 @@ class CustomLabel{
     func setLabel(text: String, code: Int) -> UILabel {
         var newLabel = UILabel()
         newLabel.text = text
-        newLabel.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
-        
+
         switch code {
-        
         case 1:
             newLabel.textColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
             var attributedStr = NSMutableAttributedString(string: text)
@@ -28,6 +26,8 @@ class CustomLabel{
         default:
             print(" ")
         }
+        newLabel.font = UIFont(name: "NanumSquareB", size: 14)
+        
         return newLabel
     }
 }
