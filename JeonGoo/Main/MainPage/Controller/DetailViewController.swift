@@ -27,6 +27,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var backButton: UIButton!
     // MARK: --
+    var getId: Int?
+    
     var getName: String?
     var getGrade: String?
     var getDetail: String?
@@ -85,6 +87,10 @@ class DetailViewController: UIViewController {
         images.addGestureRecognizer(right)
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(getId)
     }
     
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {

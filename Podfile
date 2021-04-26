@@ -9,6 +9,11 @@ target 'JeonGoo' do
   pod 'Kingfisher'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'Moya'
+  pod 'Moya/Core'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'SwiftKeychainWrapper'
 
   target 'JeonGooTests' do
     inherit! :search_paths

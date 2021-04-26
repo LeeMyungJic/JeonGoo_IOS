@@ -14,6 +14,7 @@ class ItemsCell: UITableViewCell {
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var like: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -8,6 +8,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Moya
+
 
 class JoinViewController: UIViewController {
     
@@ -25,6 +27,7 @@ class JoinViewController: UIViewController {
     @IBOutlet weak var detailAddressStr: UITextField!
     
     var gender = "nil"
+    var userProvider = MoyaProvider<UserService>()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -37,11 +40,9 @@ class JoinViewController: UIViewController {
     
     // MARK: --
     @IBAction func join(_ sender: Any) {
-        
         var msgalert = UIAlertController()
         
         let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
-            
             self.YesClick(code:0)
         })
         
@@ -52,28 +53,33 @@ class JoinViewController: UIViewController {
             else {
                 gender = "FEMALE"
             }
-            let param : [String:Any] = [
-                "addressDto": [
-                    "city": self.addressStr.text,
-                    "detailed": self.detailAddressStr.text
-                  ],
-                "email": self.idStr.text,
-                  "gender": gender,
-                "name": self.nameStr.text,
-                "password": self.passStr.text,
-                "phoneNumber": self.numberStr.text
-            ]
-            
-            Post(param: param, subURL: "/users/signup", success: {
-                msgalert = UIAlertController(title: "가입완료", message: "회원가입을 완료하였습니다", preferredStyle: .alert)
-                msgalert.addAction(YES)
-                self.present(msgalert, animated: true, completion: nil)
+            userProvider.request(.signup(email: self.idStr.text ?? "", password: self.passStr.text ?? "", name: self.nameStr.text ?? "", number: self.numberStr.text ?? "", gender: self.gender, address: self.addressStr.text ?? "", detailAddress: self.detailAddressStr.text ?? "")) { [weak self] result in
+                guard let self = self else { return }
                 
-            }, fail: { (msg) in
-                msgalert = UIAlertController(title: "가입실패", message: "회원가입 실패", preferredStyle: .alert)
-                msgalert.addAction(YES)
-                self.present(msgalert, animated: true, completion: nil)
-            })
+                var code = 0
+                
+                switch result {
+                case .success(let response):
+                    do {
+                        let data = try response.mapJSON() as! [String:Any]
+                        code = response.statusCode
+                        
+                    } catch {
+                    }
+                case .failure:
+                    print("error")
+                }
+                if code == 200 || code == 201{
+                    msgalert = UIAlertController(title: "가입완료", message: "회원가입을 완료하였습니다", preferredStyle: .alert)
+                    msgalert.addAction(YES)
+                    self.present(msgalert, animated: true, completion: nil)
+                }
+                else {
+                    msgalert = UIAlertController(title: "가입실패", message: "회원가입 실패", preferredStyle: .alert)
+                    msgalert.addAction(YES)
+                    self.present(msgalert, animated: true, completion: nil)
+                }
+            }
         }
         else {
             let msg = UIAlertController(title: "에러", message: "비밀번호가 일치하지 않습니다!", preferredStyle: .alert)
@@ -85,8 +91,6 @@ class JoinViewController: UIViewController {
             msg.addAction(YES)
             self.present(msg, animated: true, completion: nil)
         }
-        
-        
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -96,7 +100,7 @@ class JoinViewController: UIViewController {
     @IBAction func tappedSearchBtn(_ sender: Any) {
         let keyword = addressStr.text
         let headers: HTTPHeaders = [
-            "Authorization": "KakaoAK ??"
+            "Authorization": "KakaoAK d05457ec212e64c5f266ca54ee2728db"
         ]
         
         let parameters: [String: Any] = [
@@ -121,7 +125,7 @@ class JoinViewController: UIViewController {
                     if let detailsPlace = JSON(value)["documents"].array{
                         for item in detailsPlace{
                             let placeName = item["address_name"].string ?? ""
-                            self.detailAddressStr.text = placeName
+                            self.addressStr.text = placeName
                         }
                     }
                 case .failure(let error):
@@ -146,9 +150,11 @@ class JoinViewController: UIViewController {
         }
     }
     
+    
     func YesClick(code: Int) {
         if code == 0 {
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
 }
+

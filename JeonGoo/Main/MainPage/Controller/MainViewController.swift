@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -16,9 +17,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var TableMain: UITableView!
     
     // MARK: -
-    var searchData : [Product]!
-    var image = ["macbookAir", "macbookPro", "iphone"]
-    var products = [Product]()
+    var searchData : [getProduct]!
+    var getProducts = [getProduct]()
+    var productsProvider = MoyaProvider<ProductService>()
     
     // MARK: --
     override func viewDidLoad() {
@@ -30,18 +31,72 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         TableMain.dataSource = self
         searchBar.delegate = self
         
-        products.append(Product(name: "macbookAir", price: 900000, likes: 16, count: 80, grade: "A등급", detail: "아주 좋아요", isReserved: false, isGenuine: true))
-        products.append(Product(name: "macbookPro", price: 3000000, likes: 8, count: 122, grade: "B등급", detail: "ram 8GB / 2016년 제조 / SSD 128GB", isReserved: false, isGenuine: false))
-        products.append(Product(name: "iphone", price: 800000, likes: 26, count: 66, grade: "new", detail: "이걸 왜 안 사지??", isReserved: true, isGenuine: true))
-        
-        self.searchData = self.products
+        self.searchData = self.getProducts
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
     }
     
     // MARK: -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return searchData.count
+    }
+    
+    func getData() {
+        getProducts = [getProduct]()
+        productsProvider.request(.findAll) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    if response.statusCode == 200 || response.statusCode == 201 {
+                        do {
+                            if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
+                            {
+                                print(json)
+                                if let temp = json["data"] as? NSArray {
+                                    print(temp)
+                                    
+                                    for i in temp {
+                                        var id = 0
+                                        var name = ""
+                                        var price = 0
+                                        var useStatus = ""
+                                        var productGrade = ""
+                                        if let temp = i as? NSDictionary {
+                                            id = temp["id"] as! Int
+                                            name = temp["name"] as! String
+                                            let priceTemp = temp["price"] as! [String:Any]
+                                            price = priceTemp["value"] as! Int
+                                            useStatus = temp["useStatus"] as! String
+                                            productGrade = temp["productGrade"] as! String
+                                        }
+                                        self?.getProducts.append(getProduct(id: id, name: name, price: price, productGrade: .HIGH, useStatus: .USED))
+                                    }
+                                    self?.searchData = self?.getProducts
+                                    DispatchQueue.main.async {
+                                        self?.TableMain.reloadData()
+                                    }
+                                }
+                            }
+                        }
+                        catch {
+                            
+                        }
+                    }
+                    
+                } catch {
+                }
+            case .failure:
+                print("error")
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("클릭 ID : \(searchData[indexPath.row].id)")
     }
     
     func setSearchBar(){
@@ -66,26 +121,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
-        cell.grade.text = searchData[indexPath.row].grade
-        if cell.grade.text == "new" {
-            cell.grade.text = "미개봉"
-        }
-        if searchData[indexPath.row].isGenuine {
-            cell.grade.text! = cell.grade.text! + "  정품인증"
-            cell.grade.attributedText = CustomLabel.init().setLabel(text: cell.grade.text!, code: 1).attributedText
-        }
-        searchData[indexPath.row].grade = cell.grade.text!
+        cell.grade.text = "\(searchData[indexPath.row].productGrade)"
+        cell.grade.text = "\(searchData[indexPath.row].productGrade.rawValue)"
+        
         
         cell.item.text = searchData[indexPath.row].name
-        
-        if searchData[indexPath.row].isReserved {
-            cell.item.text! = "예약중  " + cell.item.text!
-            cell.item.attributedText = CustomLabel.init().setLabel(text: cell.item.text!, code: 2).attributedText
-        }
-        searchData[indexPath.row].name = cell.item.text!
-        cell.itemImage.image = ImageResize(getImage: UIImage(named: image[indexPath.row])!, size: 70)
         cell.price.text = "\(searchData[indexPath.row].price)원"
-        cell.like.text = "\(searchData[indexPath.row].likes)"
+        // cell.itemImage.image = ImageResize(getImage: UIImage(named: image[indexPath.row])!, size: 70)
+        
         return cell
     }
     
@@ -98,7 +141,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         dismissKeyboard()
         
         guard let searchStr = searchBar.text, searchStr.isEmpty == false else {
-            self.searchData = self.products
+            self.searchData = self.getProducts
             DispatchQueue.main.async {
                 self.TableMain.reloadData()
             }
@@ -107,8 +150,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         print("검색어 : \(searchStr)")
         
-        self.searchData = self.products.filter{
-            (product: Product) -> Bool in
+        self.searchData = self.getProducts.filter{
+            (product: getProduct) -> Bool in
             product.name.lowercased().contains(searchStr.lowercased())
         }
         DispatchQueue.main.async {
@@ -127,10 +170,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let controller = segue.destination as? DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
                     controller.getName = searchData[indexPath.row].name
-                    controller.getGrade = searchData[indexPath.row].grade
-                    controller.getDetail = searchData[indexPath.row].detail
-                    controller.getLikes = "관심  \(searchData[indexPath.row].likes)"
-                    controller.getCount = "조회  \(searchData[indexPath.row].count)"
+                    controller.getGrade = "\(searchData[indexPath.row].productGrade.rawValue)"
+                    controller.getDetail = searchData[indexPath.row].description
+                    // controller.getLikes = "관심  \(searchData[indexPath.row].likes)"
+                    //controller.getCount = "조회  \(searchData[indexPath.row].count)"
                     controller.getPrice = "\(searchData[indexPath.row].price)원"
                     
                 }
@@ -140,10 +183,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: --
     @IBAction func cancel(_ sender: Any) {
-        self.searchData = self.products
+        self.searchData = self.getProducts
         DispatchQueue.main.async {
             self.TableMain.reloadData()
             self.searchBar.text = ""
         }
     }
+}
+
+private struct responseData : Codable {
+    let promise_option : [[String]]
 }
