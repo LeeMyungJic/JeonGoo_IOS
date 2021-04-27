@@ -822,7 +822,7 @@
                                             <outlet property="price" destination="vam-Tv-SjM" id="x1f-rW-qmZ"/>
                                             <outlet property="productImage" destination="feJ-SV-en2" id="1Ba-2E-GKM"/>
                                             <outlet property="status" destination="tD3-i8-8ng" id="UNA-nS-uu1"/>
-                                            <segue destination="Oe4-BF-SxN" kind="show" id="8Ob-FX-0AZ"/>
+                                            <segue destination="Oe4-BF-SxN" kind="show" identifier="detail" id="8Ob-FX-0AZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -969,7 +969,7 @@
                                             <outlet property="price" destination="N0m-jJ-ANC" id="TKc-AX-jnP"/>
                                             <outlet property="productImage" destination="i4L-UV-SUg" id="MDL-Ne-NMS"/>
                                             <outlet property="status" destination="u88-4x-cz2" id="rDs-e1-6WX"/>
-                                            <segue destination="Oe4-BF-SxN" kind="show" id="qWo-kr-3v8"/>
+                                            <segue destination="Oe4-BF-SxN" kind="show" identifier="detail" id="qWo-kr-3v8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1110,7 +1110,7 @@
                                             <outlet property="price" destination="f52-3a-cSz" id="al8-AI-Gfh"/>
                                             <outlet property="productImage" destination="y3y-yp-dr2" id="Owf-KM-GPH"/>
                                             <outlet property="stateLabel" destination="Yfm-6U-TqX" id="sKI-df-9hF"/>
-                                            <segue destination="Oe4-BF-SxN" kind="show" id="VCe-x5-2dm"/>
+                                            <segue destination="Oe4-BF-SxN" kind="show" identifier="detail" id="VCe-x5-2dm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1303,7 +1303,7 @@
         <!--Detail View Controller-->
         <scene sceneID="UWl-mT-5u6">
             <objects>
-                <viewController id="Oe4-BF-SxN" customClass="DetailViewController" customModule="JeonGoo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="Oe4-BF-SxN" customClass="DetailViewController" customModule="JeonGoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZeV-t9-IIh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1601,7 +1601,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="44H-da-JOb"/>
+        <segue reference="VCe-x5-2dm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.uturn.backward" catalog="system" width="128" height="112"/>

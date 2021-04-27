@@ -57,7 +57,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                             {
                                 print(json)
                                 if let temp = json["data"] as? NSArray {
-                                    print(temp)
                                     
                                     for i in temp {
                                         var id = 0
@@ -95,18 +94,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("클릭 ID : \(searchData[indexPath.row].id)")
-    }
-    
     func setSearchBar(){
         
-        //서치바 만들기
         searchBar.placeholder = "Search"
         //왼쪽 서치아이콘 이미지 세팅하기
         searchBar.setImage(ImageResize(getImage: UIImage(named: "search")!, size: 20), for: UISearchBar.Icon.search, state: .normal)
-        
-        
         
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             //서치바 백그라운드 컬러
@@ -169,12 +161,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let id = segue.identifier, "detail" == id {
             if let controller = segue.destination as? DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
-                    controller.getName = searchData[indexPath.row].name
-                    controller.getGrade = "\(searchData[indexPath.row].productGrade.rawValue)"
-                    controller.getDetail = searchData[indexPath.row].description
-                    // controller.getLikes = "관심  \(searchData[indexPath.row].likes)"
-                    //controller.getCount = "조회  \(searchData[indexPath.row].count)"
-                    controller.getPrice = "\(searchData[indexPath.row].price)원"
+                    controller.getId = searchData[indexPath.row].id
                     
                 }
             }

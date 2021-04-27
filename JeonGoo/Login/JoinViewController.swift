@@ -43,7 +43,7 @@ class JoinViewController: UIViewController {
         var msgalert = UIAlertController()
         
         let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
-            self.YesClick(code:0)
+            self.navigationController?.popToRootViewController(animated: true)
         })
         
         if passStr.text == passChkStr.text {
@@ -56,38 +56,37 @@ class JoinViewController: UIViewController {
             userProvider.request(.signup(email: self.idStr.text ?? "", password: self.passStr.text ?? "", name: self.nameStr.text ?? "", number: self.numberStr.text ?? "", gender: self.gender, address: self.addressStr.text ?? "", detailAddress: self.detailAddressStr.text ?? "")) { [weak self] result in
                 guard let self = self else { return }
                 
-                var code = 0
-                
                 switch result {
                 case .success(let response):
                     do {
-                        let data = try response.mapJSON() as! [String:Any]
-                        code = response.statusCode
-                        
+                        if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
+                        {
+                            if json["statusCode"] as? Int == 200 || json["statusCode"] as? Int == 201{
+                                msgalert = UIAlertController(title: "가입완료", message: "회원가입을 완료하였습니다", preferredStyle: .alert)
+                                msgalert.addAction(YES)
+                                self.present(msgalert, animated: true)
+                            }
+                            else {
+                                msgalert = UIAlertController(title: "가입실패", message: "서버가 불안정합니다. 잠시 후에 다시 시도하세요", preferredStyle: .alert)
+                                msgalert.addAction(UIAlertAction(title: "확인", style: .default))
+                                self.present(msgalert, animated: true, completion: nil)
+                            }
+                        }
                     } catch {
                     }
                 case .failure:
-                    print("error")
-                }
-                if code == 200 || code == 201{
-                    msgalert = UIAlertController(title: "가입완료", message: "회원가입을 완료하였습니다", preferredStyle: .alert)
-                    msgalert.addAction(YES)
-                    self.present(msgalert, animated: true, completion: nil)
-                }
-                else {
-                    msgalert = UIAlertController(title: "가입실패", message: "회원가입 실패", preferredStyle: .alert)
-                    msgalert.addAction(YES)
-                    self.present(msgalert, animated: true, completion: nil)
+                    let msg = UIAlertController(title: "가입실패", message: "네트워크 상태를 확인하세요", preferredStyle: .alert)
+                    
+                    let YES = UIAlertAction(title: "확인", style: .default)
+                    msg.addAction(YES)
+                    self.present(msg, animated: true, completion: nil)
                 }
             }
         }
         else {
-            let msg = UIAlertController(title: "에러", message: "비밀번호가 일치하지 않습니다!", preferredStyle: .alert)
+            let msg = UIAlertController(title: "가입실패", message: "비밀번호가 일치하지 않습니다", preferredStyle: .alert)
             
-            let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
-                
-                self.YesClick(code:1)
-            })
+            let YES = UIAlertAction(title: "확인", style: .default)
             msg.addAction(YES)
             self.present(msg, animated: true, completion: nil)
         }
@@ -98,7 +97,6 @@ class JoinViewController: UIViewController {
     }
     
     @IBAction func tappedSearchBtn(_ sender: Any) {
-        let keyword = addressStr.text
         let headers: HTTPHeaders = [
             "Authorization": "KakaoAK d05457ec212e64c5f266ca54ee2728db"
         ]
@@ -152,9 +150,9 @@ class JoinViewController: UIViewController {
     
     
     func YesClick(code: Int) {
-        if code == 0 {
-            self.navigationController?.popToRootViewController(animated: true)
-        }
+        
+        self.navigationController?.popToRootViewController(animated: true)
+        
     }
 }
 

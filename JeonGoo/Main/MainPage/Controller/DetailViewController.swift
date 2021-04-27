@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 class DetailViewController: UIViewController {
     
@@ -36,6 +37,7 @@ class DetailViewController: UIViewController {
     var getLikes: String?
     var getPrice: String?
     
+    var productProvider = MoyaProvider<ProductService>()
     var isLiked = false
     
     var imageStr = ["macbookPro", "macbookAir", "photo"]
@@ -86,11 +88,10 @@ class DetailViewController: UIViewController {
         images.addGestureRecognizer(left)
         images.addGestureRecognizer(right)
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(getId)
+        getProductDetail()
     }
     
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
@@ -104,15 +105,53 @@ class DetailViewController: UIViewController {
         images.image = UIImage(named: imageStr[pageControl.currentPage])
     }
     
-    func lineDraw(viewLi:UIView)
-    {
-        let border = CALayer()
-        let width = CGFloat(1.0)
-        border.borderColor = UIColor(red: 197/255, green: 197/255, blue: 197/255, alpha: 1.0).cgColor
-        border.frame = CGRect(x: 0, y: viewLi.frame.size.height - width, width:  viewLi.frame.size.width, height: viewLi.frame.size.height)
-        border.borderWidth = width
-        viewLi.layer.addSublayer(border)
-        viewLi.layer.masksToBounds = true
+    func getProductDetail() {
+        productProvider.request(.findById(productId: getId!)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    if response.statusCode == 200 || response.statusCode == 201 {
+                        do {
+                            if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
+                            {
+                                print(json)
+                                if let temp = json["data"] as? NSDictionary {
+                                    
+                                    var id = 0
+                                    var name = ""
+                                    var price = 0
+                                    var useStatus = ""
+                                    var productGrade = ""
+                                    var description = ""
+                                    
+                                    id = temp["id"] as! Int
+                                    name = temp["name"] as! String
+                                    let priceTemp = temp["price"] as! [String:Any]
+                                    price = priceTemp["value"] as! Int
+                                    useStatus = temp["useStatus"] as! String
+                                    productGrade = temp["productGrade"] as! String
+                                    description = temp["description"] as! String
+                                    
+                                    DispatchQueue.main.async {
+                                        self?.name.text = name
+                                        self?.price.text = "\(price)원"
+                                        self?.detail.text = description
+                                        self?.grade.text = productGrade
+                                    }
+                                }
+                            }
+                        }
+                        catch {
+                            
+                        }
+                    }
+                    
+                } catch {
+                }
+            case .failure:
+                print("error")
+            }
+        }
     }
     
     // MARK: --

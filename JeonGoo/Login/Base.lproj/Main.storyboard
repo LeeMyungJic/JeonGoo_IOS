@@ -76,7 +76,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EX2-zF-ita">
                                                         <rect key="frame" x="54" y="0.0" width="240" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquare_acR" family="NanumSquare_ac" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>

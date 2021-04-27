@@ -5,6 +5,7 @@ import SwiftKeychainWrapper
 public enum ProductService {
     case findAll
     case findById(productId: Int)
+    case findByUserId(UserId: Int)
 }
 
 extension ProductService: TargetType {
@@ -22,14 +23,18 @@ extension ProductService: TargetType {
         case .findAll:
             return "/products"
         case let .findById(productId):
-            return "/products\(productId)"
+            return "/products/\(productId)"
+        case let .findByUserId(userId):
+            return "/products/users/\(userId)"
         }
+        
     }
     
     public var method: Moya.Method {
         switch self {
         case .findAll,
-             .findById:
+             .findById,
+             .findByUserId:
             return .get
             
         }
@@ -44,7 +49,9 @@ extension ProductService: TargetType {
         case .findAll:
             return .requestPlain
         case .findById(productId: let productId):
-            return .requestCompositeParameters(bodyParameters: .init(), bodyEncoding: JSONEncoding.default, urlParameters: ["id":productId])
+            return .requestPlain
+        case .findByUserId(UserId: let userId):
+            return .requestPlain
         }
     }
     

@@ -16,6 +16,8 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var buying: UIButton!
     @IBOutlet weak var like: UIButton!
     
+    public static var userId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

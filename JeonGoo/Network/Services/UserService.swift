@@ -8,7 +8,6 @@
 import Moya
 import SwiftKeychainWrapper
 
-
 public enum UserService {
     case signin(email: String, password: String)
     case signup(email: String, password: String, name: String, number: String, gender: String, address: String, detailAddress: String)

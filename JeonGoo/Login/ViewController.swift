@@ -32,21 +32,32 @@ class ViewController: UIViewController {
         userProvider.request(.signin(email: self.idLabel.text ?? "", password: self.passLabel.text ?? "")) { [weak self] result in
             guard let self = self else { return }
             
-            var code = 0
+            var msgalert = UIAlertController()
             
             switch result {
               case .success(let response):
                 do {
-                    code = response.statusCode
+                    if response.statusCode == 200 {
+                        if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
+                        {
+                            if json["statusCode"] as? Int == 200 {
+                                self.nextVC()
+                            }
+                            else {
+                                msgalert = UIAlertController(title: "로그인 실패", message: "아이디 혹은 비밀번호를 확인하세요", preferredStyle: .alert)
+                                msgalert.addAction(UIAlertAction(title: "확인", style: .default))
+                                self.present(msgalert, animated: true, completion: nil)
+                            }
+                        }
+                    }
                     
                 } catch {
                 }
               case .failure:
-                print("error")
+                msgalert = UIAlertController(title: "서버연결 실패", message: "네트워크 상태를 확인하세요", preferredStyle: .alert)
+                msgalert.addAction(UIAlertAction(title: "확인", style: .default))
+                self.present(msgalert, animated: true, completion: nil)
               }
-            if code == 200 {
-                self.nextVC()
-            }
             
             
         }
