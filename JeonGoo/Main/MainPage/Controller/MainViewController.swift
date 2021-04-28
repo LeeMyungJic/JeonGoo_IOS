@@ -55,7 +55,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         do {
                             if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
                             {
-                                print(json)
                                 if let temp = json["data"] as? NSArray {
                                     
                                     for i in temp {
@@ -139,8 +138,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             return
         }
-        
-        print("검색어 : \(searchStr)")
         
         self.searchData = self.getProducts.filter{
             (product: getProduct) -> Bool in

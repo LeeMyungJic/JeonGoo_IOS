@@ -29,6 +29,8 @@ class JoinViewController: UIViewController {
     var gender = "nil"
     var userProvider = MoyaProvider<UserService>()
     
+    fileprivate let userViewModel = UserViewModel()
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +39,26 @@ class JoinViewController: UIViewController {
         manButton?.alternateButton = [womanButton!]
         setEnabledButton(completeBtn)
     }
-    
-    // MARK: --
-    @IBAction func join(_ sender: Any) {
-        var msgalert = UIAlertController()
+    fileprivate func showPostErrorAlert() {
+        showAlertController(withTitle: "가입 실패", message: "서버가 불안정합니다.", completion: nil)
+    }
+    fileprivate func showDuplicatedErrorAlert() {
+        showAlertController(withTitle: "가입 실패", message: "이미 아이디가 존재합니다.", completion: nil)
+    }
+    fileprivate func showSuccessAlert() {
+        let msgalert = UIAlertController(title: "회원가입 성공", message: "회원가입을 축하합니다!", preferredStyle: .alert)
         
         let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
             self.navigationController?.popToRootViewController(animated: true)
         })
+        msgalert.addAction(YES)
+        present(msgalert, animated: true, completion: nil)
+    }
+    fileprivate func showIncorrectErrorAlert() {
+        showAlertController(withTitle: "가입 실패", message: "비밀번호가 일치하지 않습니다.", completion: nil)
+    }
+    // MARK: --
+    @IBAction func join(_ sender: Any) {
         
         if passStr.text == passChkStr.text {
             if manButton.isSelected {
@@ -53,43 +67,19 @@ class JoinViewController: UIViewController {
             else {
                 gender = "FEMALE"
             }
-            userProvider.request(.signup(email: self.idStr.text ?? "", password: self.passStr.text ?? "", name: self.nameStr.text ?? "", number: self.numberStr.text ?? "", gender: self.gender, address: self.addressStr.text ?? "", detailAddress: self.detailAddressStr.text ?? "")) { [weak self] result in
-                guard let self = self else { return }
-                
-                switch result {
-                case .success(let response):
-                    do {
-                        if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
-                        {
-                            if json["statusCode"] as? Int == 200 || json["statusCode"] as? Int == 201{
-                                msgalert = UIAlertController(title: "가입완료", message: "회원가입을 완료하였습니다", preferredStyle: .alert)
-                                msgalert.addAction(YES)
-                                self.present(msgalert, animated: true)
-                            }
-                            else {
-                                msgalert = UIAlertController(title: "가입실패", message: "서버가 불안정합니다. 잠시 후에 다시 시도하세요", preferredStyle: .alert)
-                                msgalert.addAction(UIAlertAction(title: "확인", style: .default))
-                                self.present(msgalert, animated: true, completion: nil)
-                            }
-                        }
-                    } catch {
-                    }
-                case .failure:
-                    let msg = UIAlertController(title: "가입실패", message: "네트워크 상태를 확인하세요", preferredStyle: .alert)
-                    
-                    let YES = UIAlertAction(title: "확인", style: .default)
-                    msg.addAction(YES)
-                    self.present(msg, animated: true, completion: nil)
+            userViewModel.signUpPost(email: self.idStr.text!, password: self.passStr.text!, name: self.nameStr.text!, number: self.numberStr.text!, gender: self.gender, address: self.addressStr.text!, detailAddress: self.detailAddressStr.text!) { state in
+                switch state {
+                case .success: self.showSuccessAlert()
+                case .failure: self.showDuplicatedErrorAlert()
+                case .serverError: self.showPostErrorAlert()
                 }
+                
             }
         }
         else {
-            let msg = UIAlertController(title: "가입실패", message: "비밀번호가 일치하지 않습니다", preferredStyle: .alert)
-            
-            let YES = UIAlertAction(title: "확인", style: .default)
-            msg.addAction(YES)
-            self.present(msg, animated: true, completion: nil)
+            self.showIncorrectErrorAlert()
         }
+            
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -136,7 +126,8 @@ class JoinViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         
         self.view.endEditing(true)
-        if passChkStr.text != "" && passStr.text != "" && idStr.text != "" && nameStr.text != "" && numberStr.text != "" && addressStr.text != "" && detailAddressStr.text != ""{
+        
+        if passChkStr.text != "" && passStr.text != "" && idStr.text != "" && nameStr.text != "" && numberStr.text != "" && addressStr.text != "" && detailAddressStr.text != "" && (manButton.isSelected || womanButton.isSelected){
             self.completeBtn.isEnabled = true
             self.completeBtn.backgroundColor = #colorLiteral(red: 1, green: 0.674518168, blue: 0, alpha: 1)
             self.errorLabel.text = ""
@@ -146,13 +137,6 @@ class JoinViewController: UIViewController {
             self.completeBtn.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
             self.errorLabel.text = "모든 항목을 입력해 주세요!"
         }
-    }
-    
-    
-    func YesClick(code: Int) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
-        
     }
 }
 

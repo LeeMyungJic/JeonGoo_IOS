@@ -30,6 +30,11 @@
 		DAB66D96263694CC0061959C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66D95263694CC0061959C /* UserService.swift */; };
 		DAB66DB4263696260061959C /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66DB3263696260061959C /* KeychainStorage.swift */; };
 		DAB66DCA2636AB050061959C /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66DC92636AB050061959C /* ProductService.swift */; };
+		DAB66E162639532B0061959C /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66E152639532B0061959C /* UserViewModel.swift */; };
+		DAB66E21263953920061959C /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66E20263953920061959C /* UserDataService.swift */; };
+		DAB66E26263953DE0061959C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66E25263953DE0061959C /* Post.swift */; };
+		DAB66E2B263954860061959C /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66E2A263954860061959C /* ViewModelState.swift */; };
+		DAB66E34263954C30061959C /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66E33263954C30061959C /* UIViewController+Alert.swift */; };
 		DACB801A25F0D82B004D6E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801925F0D82B004D6E82 /* AppDelegate.swift */; };
 		DACB801C25F0D82B004D6E82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801B25F0D82B004D6E82 /* SceneDelegate.swift */; };
 		DACB801E25F0D82B004D6E82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801D25F0D82B004D6E82 /* ViewController.swift */; };
@@ -105,6 +110,11 @@
 		DAB66D95263694CC0061959C /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DAB66DB3263696260061959C /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		DAB66DC92636AB050061959C /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		DAB66E152639532B0061959C /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		DAB66E20263953920061959C /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		DAB66E25263953DE0061959C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DAB66E2A263954860061959C /* ViewModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelState.swift; sourceTree = "<group>"; };
+		DAB66E33263954C30061959C /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		DACB801625F0D82B004D6E82 /* JeonGoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeonGoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACB801925F0D82B004D6E82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DACB801B25F0D82B004D6E82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,8 +223,11 @@
 		DA626F372601F88200B35794 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DAB66E32263954AB0061959C /* Helper */,
 				DAB66D94263694BC0061959C /* Services */,
 				DA626F382601F8A200B35794 /* NetworkController.swift */,
+				DAB66E25263953DE0061959C /* Post.swift */,
+				DAB66E2A263954860061959C /* ViewModelState.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -307,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				DAB66D95263694CC0061959C /* UserService.swift */,
+				DAB66E20263953920061959C /* UserDataService.swift */,
 				DAB66DC92636AB050061959C /* ProductService.swift */,
 			);
 			path = Services;
@@ -333,6 +347,22 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DAB66E14263953150061959C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DAB66E152639532B0061959C /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DAB66E32263954AB0061959C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DAB66E33263954C30061959C /* UIViewController+Alert.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		DACB800D25F0D82B004D6E82 = {
@@ -425,6 +455,7 @@
 		DACB805625F0DAEF004D6E82 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				DAB66E14263953150061959C /* ViewModel */,
 				DACB801F25F0D82B004D6E82 /* Main.storyboard */,
 				DACB801D25F0D82B004D6E82 /* ViewController.swift */,
 				DAF3DBC625FF466400C507BC /* JoinViewController.swift */,
@@ -697,6 +728,7 @@
 				DA55BE0925F89572007291B1 /* WishListViewController.swift in Sources */,
 				DACB804E25F0D83F004D6E82 /* CustomButton.swift in Sources */,
 				DACB801E25F0D82B004D6E82 /* ViewController.swift in Sources */,
+				DAB66E2B263954860061959C /* ViewModelState.swift in Sources */,
 				DAB66DCA2636AB050061959C /* ProductService.swift in Sources */,
 				DA626F392601F8A200B35794 /* NetworkController.swift in Sources */,
 				DACB806F25F0DD88004D6E82 /* MyPageViewController.swift in Sources */,
@@ -708,14 +740,18 @@
 				DACB801C25F0D82B004D6E82 /* SceneDelegate.swift in Sources */,
 				DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */,
 				DACB806A25F0DD7A004D6E82 /* ItemRegisterViewController.swift in Sources */,
+				DAB66E162639532B0061959C /* UserViewModel.swift in Sources */,
+				DAB66E26263953DE0061959C /* Post.swift in Sources */,
 				DAB66DB4263696260061959C /* KeychainStorage.swift in Sources */,
 				DAB203D02609CBC300598357 /* ImageResize.swift in Sources */,
 				DACB808625F1047D004D6E82 /* BackProtocol.swift in Sources */,
 				DAB203FD2610737300598357 /* MakeUnderLine.swift in Sources */,
 				DAA0DB21261D92F10042A50F /* setButton.swift in Sources */,
 				DAB66D96263694CC0061959C /* UserService.swift in Sources */,
+				DAB66E34263954C30061959C /* UIViewController+Alert.swift in Sources */,
 				DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */,
 				DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */,
+				DAB66E21263953920061959C /* UserDataService.swift in Sources */,
 				DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */,
 				DA626F472602000000B35794 /* MyProduct.swift in Sources */,
 				DACB807E25F0F823004D6E82 /* Product.swift in Sources */,

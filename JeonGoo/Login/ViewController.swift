@@ -8,10 +8,6 @@
 import UIKit
 
 import Moya
-import RxSwift
-import RxCocoa
-import SwiftKeychainWrapper
-import SwiftyJSON
 
 class ViewController: UIViewController {
     
@@ -19,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var passLabel: UITextField!
     @IBOutlet weak var loginBtn: CustomButton!
     
-    private let userProvider = MoyaProvider<UserService>()
+    fileprivate let userViewModel = UserViewModel()
     
     
     override func viewDidLoad() {
@@ -28,56 +24,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Login(_ sender: Any) {
-        
-        userProvider.request(.signin(email: self.idLabel.text ?? "", password: self.passLabel.text ?? "")) { [weak self] result in
-            guard let self = self else { return }
-            
-            var msgalert = UIAlertController()
-            
-            switch result {
-              case .success(let response):
-                do {
-                    if response.statusCode == 200 {
-                        if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
-                        {
-                            if json["statusCode"] as? Int == 200 {
-                                self.nextVC()
-                            }
-                            else {
-                                msgalert = UIAlertController(title: "로그인 실패", message: "아이디 혹은 비밀번호를 확인하세요", preferredStyle: .alert)
-                                msgalert.addAction(UIAlertAction(title: "확인", style: .default))
-                                self.present(msgalert, animated: true, completion: nil)
-                            }
-                        }
-                    }
-                    
-                } catch {
-                }
-              case .failure:
-                msgalert = UIAlertController(title: "서버연결 실패", message: "네트워크 상태를 확인하세요", preferredStyle: .alert)
-                msgalert.addAction(UIAlertAction(title: "확인", style: .default))
-                self.present(msgalert, animated: true, completion: nil)
-              }
-            
+        userViewModel.signInPost(email: self.idLabel.text!, pass: passLabel.text!) { state in
+            print("state : \(state)")
+            switch state {
+            case .success: self.nextVC()
+            case .failure: self.showIncoreectErrorAlert()
+            case .serverError: self.showPostErrorAlert()
+            }
             
         }
-//        let id = self.idLabel.text
-//        let pass = self.passLabel.text
-//
-//        if id == "" || pass == "" {
-//        }
-//        else {
-//            let param: [String:Any] = [
-//                "email": id,
-//                "password": pass
-//            ]
-//
-//            Post(
-//                param: param, subURL: "/users/signin", success: {
-//                    self.nextVC()
-//                }, fail: { msg in
-//                })
-//        }
     }
     
     func nextVC() {
@@ -88,6 +43,13 @@ class ViewController: UIViewController {
         popUp.modalTransitionStyle = .crossDissolve
         
         self.present(popUp, animated: true, completion: nil)
+    }
+    
+    fileprivate func showPostErrorAlert() {
+        showAlertController(withTitle: "로그인 실패", message: "서버가 불안정합니다. 잠시후에 시도해주세요", completion: nil)
+    }
+    fileprivate func showIncoreectErrorAlert() {
+        showAlertController(withTitle: "로그인 실패", message: "아이디와 패스워드를 확인하세요", completion: nil)
     }
 }
 
