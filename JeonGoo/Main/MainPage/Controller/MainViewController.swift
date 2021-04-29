@@ -19,7 +19,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: -
     var searchData : [getProduct]!
     var getProducts = [getProduct]()
-    var productsProvider = MoyaProvider<ProductService>()
+    var productViewModel = ProductViewModel()
     
     // MARK: --
     override func viewDidLoad() {
@@ -47,49 +47,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func getData() {
         getProducts = [getProduct]()
-        productsProvider.request(.findAll) { [weak self] result in
-            switch result {
-            case .success(let response):
-                do {
-                    if response.statusCode == 200 || response.statusCode == 201 {
-                        do {
-                            if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
-                            {
-                                if let temp = json["data"] as? NSArray {
-                                    
-                                    for i in temp {
-                                        var id = 0
-                                        var name = ""
-                                        var price = 0
-                                        var useStatus = ""
-                                        var productGrade = ""
-                                        if let temp = i as? NSDictionary {
-                                            id = temp["id"] as! Int
-                                            name = temp["name"] as! String
-                                            let priceTemp = temp["price"] as! [String:Any]
-                                            price = priceTemp["value"] as! Int
-                                            useStatus = temp["useStatus"] as! String
-                                            productGrade = temp["productGrade"] as! String
-                                        }
-                                        self?.getProducts.append(getProduct(id: id, name: name, price: price, productGrade: .HIGH, useStatus: .USED))
-                                    }
-                                    self?.searchData = self?.getProducts
-                                    DispatchQueue.main.async {
-                                        self?.TableMain.reloadData()
-                                    }
-                                }
-                            }
-                        }
-                        catch {
-                            
-                        }
-                    }
-                    
-                } catch {
-                }
-            case .failure:
-                print("error")
-            }
+        productViewModel.findAll() { state in
+            
+            self.getProducts = self.productViewModel.Products
+            self.searchData = self.getProducts
+            self.TableMain.reloadData()
         }
     }
     

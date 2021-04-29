@@ -15,6 +15,7 @@ class UserViewModel {
                 return
             }
             self.post = post
+            MyPageViewController.userId = post?.data!
             let statusCode = post?.statusCode
             if statusCode == 200 || statusCode == 201 {
                 completion(.success)

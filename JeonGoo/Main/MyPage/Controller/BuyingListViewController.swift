@@ -20,32 +20,31 @@ class BuyingListCell: UITableViewCell {
 class BuyingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    let productsModel = MyProductViewModel()
+    let productsModel = ProductViewModel()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productsModel.productsData.count
+        return productsModel.Products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let getProduct = productsModel.model.getProducts(subURL: "")[indexPath.row]
         let cell = TableMain.dequeueReusableCell(withIdentifier: "BuyingListCell") as! BuyingListCell
         
-        cell.name.text = getProduct.name
-        cell.grade.text = getProduct.grade
-        cell.price.text = "\(getProduct.price)원"
-        cell.status.text = getProduct.status
-        
-        let url = URL(string: getProduct.image)
-        var image : UIImage?
-        
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                //image = UIImage(data: data!)
-                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
-                
-            }
-        }
+//        cell.name.text = getProduct.name
+//        cell.grade.text = getProduct.grade
+//        cell.price.text = "\(getProduct.price)원"
+//        cell.status.text = getProduct.status
+//        
+//        let url = URL(string: getProduct.image)
+//        var image : UIImage?
+//        
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: url!)
+//            DispatchQueue.main.async {
+//                //image = UIImage(data: data!)
+//                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
+//                
+//            }
+//        }
         
         return cell
     }

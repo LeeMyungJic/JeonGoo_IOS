@@ -18,34 +18,33 @@ class WishListCell: UITableViewCell {
 
 class WishListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productViewModel.productsData.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let getProduct = productViewModel.model.getProducts(subURL: "")[indexPath.row]
+      
         
         let cell = TableMain.dequeueReusableCell(withIdentifier: "WishListCell") as! WishListCell
-        cell.name.text = getProduct.name
-        cell.grade.text = getProduct.grade
-        cell.price.text = "\(getProduct.price)원"
-        cell.status.text = getProduct.status
-        
-        let url = URL(string: getProduct.image)
-        var image : UIImage?
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
-                
-            }
-        }
+//        cell.name.text = getProduct.name
+//        cell.grade.text = getProduct.grade
+//        cell.price.text = "\(getProduct.price)원"
+//        cell.status.text = getProduct.status
+//
+//        let url = URL(string: getProduct.image)
+//        var image : UIImage?
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: url!)
+//            DispatchQueue.main.async {
+//                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
+//
+//            }
+//        }
         
         return cell
     }
     
 
     @IBOutlet weak var TableMain: UITableView!
-    let productViewModel = MyProductViewModel()
     
     
     override func viewDidLoad() {
