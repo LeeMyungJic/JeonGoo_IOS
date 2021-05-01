@@ -30,14 +30,7 @@ class DetailViewController: UIViewController {
     // MARK: --
     var getId: Int?
     
-    var getName: String?
-    var getGrade: String?
-    var getDetail: String?
-    var getCount: String?
-    var getLikes: String?
-    var getPrice: String?
-    
-    var productProvider = MoyaProvider<ProductService>()
+    var productViewModel = ProductViewModel()
     var isLiked = false
     
     var imageStr = ["macbookPro", "macbookAir", "photo"]
@@ -48,19 +41,6 @@ class DetailViewController: UIViewController {
         
         pageControl.layer.zPosition = 999
         self.view.bringSubviewToFront(self.backButton)
-        
-        guard let nameStr = getName else {return}
-        name.text = nameStr
-        guard let gradeStr = getGrade else {return}
-        grade.text = gradeStr
-        guard let detailStr = getDetail else {return}
-        detail.text = detailStr
-        guard let countStr = getCount else {return}
-        count.text = countStr
-        guard let likesStr = getLikes else {return}
-        likes.text = likesStr
-        guard let priceStr = getPrice else {return}
-        price.text = priceStr
         
         // 언더라인
         self.detailStackView.addSubview(MakeUnderLineInStackView(target: detailStackView))
@@ -106,51 +86,16 @@ class DetailViewController: UIViewController {
     }
     
     func getProductDetail() {
-        productProvider.request(.findById(productId: getId!)) { [weak self] result in
-            switch result {
-            case .success(let response):
-                do {
-                    if response.statusCode == 200 || response.statusCode == 201 {
-                        do {
-                            if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
-                            {
-                                print(json)
-                                if let temp = json["data"] as? NSDictionary {
-                                    
-                                    var id = 0
-                                    var name = ""
-                                    var price = 0
-                                    var useStatus = ""
-                                    var productGrade = ""
-                                    var description = ""
-                                    
-                                    id = temp["id"] as! Int
-                                    name = temp["name"] as! String
-                                    let priceTemp = temp["price"] as! [String:Any]
-                                    price = priceTemp["value"] as! Int
-                                    useStatus = temp["useStatus"] as! String
-                                    productGrade = temp["productGrade"] as! String
-                                    description = temp["description"] as! String
-                                    
-                                    DispatchQueue.main.async {
-                                        self?.name.text = name
-                                        self?.price.text = "\(price)원"
-                                        self?.detail.text = description
-                                        self?.grade.text = productGrade
-                                    }
-                                }
-                            }
-                        }
-                        catch {
-                            
-                        }
-                    }
-                    
-                } catch {
-                }
-            case .failure:
-                print("error")
+        productViewModel.findByProductId(id: self.getId!) { state in
+            let getItem = self.productViewModel.Product
+            DispatchQueue.main.async {
+                self.name.text = getItem?.name
+                self.price.text = "\(getItem!.price)원"
+                self.detail.text = getItem?.productDescription
+                self.grade.text = getItem?.productGrade.stringValue
+                
             }
+            
         }
     }
     

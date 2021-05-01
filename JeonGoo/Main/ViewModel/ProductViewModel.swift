@@ -12,6 +12,7 @@ class ProductViewModel {
     
     
     var Products = [getProduct]()
+    var Product: getProduct?
     var message: String?
     
     func findAll(completion: @escaping ((ViewModelState) -> Void)) {
@@ -34,6 +35,18 @@ class ProductViewModel {
                 return
             }
             self.Products = productData
+            completion(.success)
+        }
+    }
+    
+    func findByProductId(id: Int, completion: @escaping ((ViewModelState) -> Void)) {
+        service.requestProductsByProductId(id: id) { (productData, error) in
+            if let error = error {
+                self.message = error.localizedDescription
+                completion(.failure)
+                return
+            }
+            self.Product = productData
             completion(.success)
         }
     }

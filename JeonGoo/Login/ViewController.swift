@@ -34,6 +34,13 @@ class ViewController: UIViewController {
         }
     }
     
+    func tt() {
+        let productModel = ProductViewModel()
+        productModel.findAll() { state in
+            
+        }
+    }
+    
     func nextVC() {
         let storyboard = UIStoryboard.init(name: "Pages", bundle: nil)
         

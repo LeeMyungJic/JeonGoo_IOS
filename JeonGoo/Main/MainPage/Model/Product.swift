@@ -35,38 +35,16 @@ class getProduct: NSObject {
     var id: Int
     var name: String
     var price: Int
+    var productDescription: String
     var productGrade : Grade
     var useStatus : Status
-    init(id: Int, name: String, price: Int, productGrade: Grade, useStatus: Status) {
+
+    init(id: Int, name: String, price: Int, productGrade: Grade, useStatus: Status, productDescription: String) {
         self.id = id
         self.name = name
         self.price = price
         self.productGrade = productGrade
         self.useStatus = useStatus
-    }
-}
-
-class ProductModel: NSObject {
-    func getProductsData() {
-//        print("ProDuctModel !!")
-//        let subUrl = "/products"
-//        var gg: NSDictionary = [
-//            "dd" : "dd"
-//        ]
-//
-//        Get(subURL: subUrl, success: { getValue in
-////            let temp = getValue["data"] as! NSArray
-////            for i in temp {
-////                if let tt = i as? NSDictionary {
-////                    print("description : \(tt["description"] as! String)")
-////                }
-////            }
-//            gg = getValue
-//            return getValue
-//
-//        }, fail: {
-//
-//          return gg
-//        })
+        self.productDescription = productDescription
     }
 }

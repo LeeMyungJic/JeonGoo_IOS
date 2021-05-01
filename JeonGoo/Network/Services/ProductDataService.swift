@@ -10,6 +10,8 @@ import Moya
 
 class ProductDataService {
     var getProducts = [getProduct]()
+    var getProductData: getProduct = getProduct(id: -1, name: "NULL", price: -1, productGrade: .HIGH, useStatus: .USED, productDescription: "NULL")
+    
     fileprivate let provider = MoyaProvider<ProductService>(endpointClosure: { (target: ProductService) -> Endpoint in
         let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
         switch target {
@@ -25,33 +27,29 @@ class ProductDataService {
             case .success(let response):
                 do {
                     self.getProducts = [getProduct]()
+                    
                     if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
                     {
+                        
                         if let temp = json["data"] as? NSArray {
-                            
                             for i in temp {
-                                var id = 0
-                                var name = ""
-                                var price = 0
-                                var useStatus = ""
-                                var productGrade = ""
-                                if let temp = i as? NSDictionary {
-                                    id = temp["id"] as! Int
-                                    name = temp["name"] as! String
-                                    let priceTemp = temp["price"] as! [String:Any]
-                                    price = priceTemp["value"] as! Int
-                                    useStatus = temp["useStatus"] as! String
-                                    productGrade = temp["productGrade"] as! String
+                                let getItem = i as! [String:Any]
+                                let getProductDetailDto = getItem["productDetailDto"] as! [String:Any]
+                                let id = getProductDetailDto["id"] as! Int
+                                let name = getProductDetailDto["name"] as! String
+                                let price = getProductDetailDto["price"] as! Int
+                                let useStatus = getProductDetailDto["useStatus"] as! String
+                                let productGrade = getProductDetailDto["productGrade"] as! String
+                                let productDescription = getProductDetailDto["description"] as! String
                                 
-                                }
-                                self.getProducts.append(getProduct(id: id, name: name, price: price, productGrade: .HIGH, useStatus: .USED))
+                                self.getProducts.append(getProduct(id: id, name: name, price: price, productGrade: .HIGH, useStatus: .USED, productDescription: productDescription))
                             }
                         }
                     }
-                
+                    
                     completion(self.getProducts, nil)
                 }
-            catch (let error) {
+                catch (let error) {
                     completion([], error)
                 }
             case .failure(let error):
@@ -59,6 +57,8 @@ class ProductDataService {
             }
         }
     }
+    
+    
     
     func requestProductsByUserId(id: Int, completion: @escaping (([getProduct], Error?) -> Void)) {
         provider.request(.findByUserId(UserId: id)) { result in
@@ -69,34 +69,60 @@ class ProductDataService {
                     if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
                     {
                         if let temp = json["data"] as? NSArray {
-                            
                             for i in temp {
-                                var id = 0
-                                var name = ""
-                                var price = 0
-                                var useStatus = ""
-                                var productGrade = ""
-                                if let temp = i as? NSDictionary {
-                                    id = temp["id"] as! Int
-                                    name = temp["name"] as! String
-                                    let priceTemp = temp["price"] as! [String:Any]
-                                    price = priceTemp["value"] as! Int
-                                    useStatus = temp["useStatus"] as! String
-                                    productGrade = temp["productGrade"] as! String
+                                let getItem = i as! [String:Any]
+                                let getProductDetailDto = getItem["productDetailDto"] as! [String:Any]
+                                let id = getProductDetailDto["id"] as! Int
+                                let name = getProductDetailDto["name"] as! String
+                                let price = getProductDetailDto["price"] as! Int
+                                let useStatus = getProductDetailDto["useStatus"] as! String
+                                let productGrade = getProductDetailDto["productGrade"] as! String
+                                let productDescription = getProductDetailDto["productDescription"] as? String ?? "NULL"
                                 
-                                }
-                                self.getProducts.append(getProduct(id: id, name: name, price: price, productGrade: .HIGH, useStatus: .USED))
+                                self.getProducts.append(getProduct(id: id, name: name, price: price, productGrade: .HIGH, useStatus: .USED, productDescription: productDescription))
                             }
                         }
                     }
-                
+                    
                     completion(self.getProducts, nil)
                 }
-            catch (let error) {
+                catch (let error) {
                     completion([], error)
                 }
             case .failure(let error):
                 completion([], error)
+            }
+        }
+    }
+    
+    func requestProductsByProductId(id: Int, completion: @escaping ((getProduct, Error?) -> Void)) {
+        provider.request(.findById(productId: id)) { result in
+            
+            
+            switch result {
+            case .success(let response):
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: AnyObject]
+                    {
+                        if let temp = json["data"] as? [String:Any] {
+                            let getProductDetailDto = temp["productDetailDto"] as! [String:Any]
+                            self.getProductData.id = getProductDetailDto["id"] as! Int
+                            self.getProductData.name = getProductDetailDto["name"] as! String
+                            self.getProductData.price = getProductDetailDto["price"] as! Int
+                            self.getProductData.productDescription = getProductDetailDto["description"] as! String
+//                            self.getProductData.useStatus = Status(rawValue: getProductDetailDto["useStatus"] as! String)!
+//                            self.getProductData.productGrade = Grade(rawValue: getProductDetailDto["productGrade"] as! String)!
+                            
+                        }
+                    }
+                    
+                    completion(self.getProductData, nil)
+                }
+                catch (let error) {
+                    completion(self.getProductData, error)
+                }
+            case .failure(let error):
+                completion(self.getProductData, error)
             }
         }
     }
