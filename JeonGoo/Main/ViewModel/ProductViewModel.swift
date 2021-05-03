@@ -11,8 +11,8 @@ class ProductViewModel {
     fileprivate let service = ProductDataService()
     
     
-    var Products = [getProduct]()
-    var Product: getProduct?
+    var Products = [productData]()
+    var Product: productData?
     var message: String?
     
     func findAll(completion: @escaping ((ViewModelState) -> Void)) {

@@ -89,10 +89,10 @@ class DetailViewController: UIViewController {
         productViewModel.findByProductId(id: self.getId!) { state in
             let getItem = self.productViewModel.Product
             DispatchQueue.main.async {
-                self.name.text = getItem?.name
-                self.price.text = "\(getItem!.price)원"
-                self.detail.text = getItem?.productDescription
-                self.grade.text = getItem?.productGrade.stringValue
+                self.name.text = getItem?.productDetailDto.name
+                self.price.text = "\(getItem!.productDetailDto.price)원"
+                self.detail.text = getItem?.productDetailDto.description
+                self.grade.text = getItem?.productDetailDto.productGrade
                 
             }
             

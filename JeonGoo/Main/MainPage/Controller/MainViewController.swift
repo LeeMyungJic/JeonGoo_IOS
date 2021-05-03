@@ -17,8 +17,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var TableMain: UITableView!
     
     // MARK: -
-    var searchData : [getProduct]!
-    var getProducts = [getProduct]()
+    var searchData : [productData]!
+    var getProducts = [productData]()
     var productViewModel = ProductViewModel()
     
     // MARK: --
@@ -46,7 +46,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func getData() {
-        getProducts = [getProduct]()
+        getProducts = [productData]()
         productViewModel.findAll() { state in
             
             self.getProducts = self.productViewModel.Products
@@ -74,12 +74,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
-        cell.grade.text = "\(searchData[indexPath.row].productGrade)"
-        cell.grade.text = "\(searchData[indexPath.row].productGrade.rawValue)"
+        cell.grade.text = "\(searchData[indexPath.row].productDetailDto.productGrade)"
+        cell.grade.text = "\(searchData[indexPath.row].productDetailDto.productGrade)"
         
         
-        cell.item.text = searchData[indexPath.row].name
-        cell.price.text = "\(searchData[indexPath.row].price)원"
+        cell.item.text = searchData[indexPath.row].productDetailDto.name
+        cell.price.text = "\(searchData[indexPath.row].productDetailDto.price)원"
         // cell.itemImage.image = ImageResize(getImage: UIImage(named: image[indexPath.row])!, size: 70)
         
         return cell
@@ -102,8 +102,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         self.searchData = self.getProducts.filter{
-            (product: getProduct) -> Bool in
-            product.name.lowercased().contains(searchStr.lowercased())
+            (product: productData) -> Bool in
+            product.productDetailDto.name.lowercased().contains(searchStr.lowercased())
         }
         DispatchQueue.main.async {
             self.TableMain.reloadData()
@@ -120,7 +120,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let id = segue.identifier, "detail" == id {
             if let controller = segue.destination as? DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
-                    controller.getId = searchData[indexPath.row].id
+                    controller.getId = searchData[indexPath.row].productDetailDto.id
                     
                 }
             }

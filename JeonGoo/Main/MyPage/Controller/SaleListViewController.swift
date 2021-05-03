@@ -20,7 +20,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     
     let productViewModel = ProductViewModel()
     
-    var getProducts = [getProduct]()
+    var getProducts = [productData]()
     var userId : Int?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,10 +30,10 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "SaleListCell") as! SaleListCell
         
-        cell.name.text = getProducts[indexPath.row].name
-        cell.grade.text = getProducts[indexPath.row].productGrade.stringValue
-        cell.price.text = "\(getProducts[indexPath.row].price)원"
-        cell.stateLabel.text = getProducts[indexPath.row].useStatus.stringValue
+        cell.name.text = getProducts[indexPath.row].productDetailDto.name
+        cell.grade.text = getProducts[indexPath.row].productDetailDto.productGrade
+        cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
+        cell.stateLabel.text = getProducts[indexPath.row].productDetailDto.useStatus
         
 //        let url = URL(string: getProduct.image)
 //        var image : UIImage?
@@ -60,7 +60,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func getData() {
-        getProducts = [getProduct]()
+        getProducts = [productData]()
         productViewModel.findByUserId(id: MyPageViewController.userId!) { state in
             
             self.getProducts = self.productViewModel.Products
@@ -72,8 +72,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
         if let id = segue.identifier, "detail" == id {
             if let controller = segue.destination as? DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
-                    controller.getId = getProducts[indexPath.row].id
-                    
+                    controller.getId = getProducts[indexPath.row].productDetailDto.id
                 }
             }
         }

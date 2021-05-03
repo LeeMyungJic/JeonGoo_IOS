@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginBtn: CustomButton!
     
     fileprivate let userViewModel = UserViewModel()
+    fileprivate let productViewModel = ProductViewModel()
     
     
     override func viewDidLoad() {
@@ -30,13 +31,6 @@ class ViewController: UIViewController {
             case .failure: self.showIncoreectErrorAlert()
             case .serverError: self.showPostErrorAlert()
             }
-            
-        }
-    }
-    
-    func tt() {
-        let productModel = ProductViewModel()
-        productModel.findAll() { state in
             
         }
     }
