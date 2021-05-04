@@ -23,6 +23,8 @@ class ItemRegister2ViewController: UIViewController {
     
     @IBOutlet weak var errorStr: UILabel!
     
+    
+    let productViewModel = ProductViewModel()
     // MARK: --
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,5 +57,14 @@ class ItemRegister2ViewController: UIViewController {
     // MARK: --
     @IBAction func Cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func next(_ sender: Any) {
+        var productStatus = "USED"
+        if newButton.isSelected {
+            productStatus = "DISUSED"
+        }
+        productViewModel.registerProduct(description: self.detailStr.text, name: self.nameStr.text!, price: self.priceStr.text!, serialNumber: "29", useStatus: productStatus) { state in
+            print(state)
+        }
     }
 }

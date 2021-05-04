@@ -53,7 +53,6 @@
 		DACB806F25F0DD88004D6E82 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB806E25F0DD88004D6E82 /* MyPageViewController.swift */; };
 		DACB807425F0DFDE004D6E82 /* ItemRegister2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB807325F0DFDE004D6E82 /* ItemRegister2ViewController.swift */; };
 		DACB807925F0EC51004D6E82 /* ItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB807825F0EC51004D6E82 /* ItemsCell.swift */; };
-		DACB807E25F0F823004D6E82 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB807D25F0F823004D6E82 /* Product.swift */; };
 		DACB808625F1047D004D6E82 /* BackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB808525F1047D004D6E82 /* BackProtocol.swift */; };
 		DACB809725F1119E004D6E82 /* ItemRegister3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB809625F1119D004D6E82 /* ItemRegister3ViewController.swift */; };
 		DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80A525F2141D004D6E82 /* CustomView.swift */; };
@@ -141,7 +140,6 @@
 		DACB806E25F0DD88004D6E82 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		DACB807325F0DFDE004D6E82 /* ItemRegister2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRegister2ViewController.swift; sourceTree = "<group>"; };
 		DACB807825F0EC51004D6E82 /* ItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCell.swift; sourceTree = "<group>"; };
-		DACB807D25F0F823004D6E82 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		DACB808525F1047D004D6E82 /* BackProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackProtocol.swift; sourceTree = "<group>"; };
 		DACB809625F1119D004D6E82 /* ItemRegister3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRegister3ViewController.swift; sourceTree = "<group>"; };
 		DACB80A525F2141D004D6E82 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 			children = (
 				DA626FC02604CFC500B35794 /* Controller */,
 				DACB80C525F4B674004D6E82 /* Cell */,
-				DACB80C425F4B669004D6E82 /* Model */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -460,14 +457,6 @@
 				DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		DACB80C425F4B669004D6E82 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DACB807D25F0F823004D6E82 /* Product.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		DACB80C525F4B674004D6E82 /* Cell */ = {
@@ -755,7 +744,6 @@
 				DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */,
 				DAB66E21263953920061959C /* UserDataService.swift in Sources */,
 				DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */,
-				DACB807E25F0F823004D6E82 /* Product.swift in Sources */,
 				DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */,
 				DA55BE0425F89564007291B1 /* BuyingListViewController.swift in Sources */,
 				DAA0DC8F2626C88C0042A50F /* LikePopUp.swift in Sources */,

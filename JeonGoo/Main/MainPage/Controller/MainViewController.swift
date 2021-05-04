@@ -74,10 +74,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
-        cell.grade.text = "\(searchData[indexPath.row].productDetailDto.productGrade)"
-        cell.grade.text = "\(searchData[indexPath.row].productDetailDto.productGrade)"
-        
-        
+        cell.grade.text = setGrade(value: searchData[indexPath.row].productDetailDto.productGrade)
         cell.item.text = searchData[indexPath.row].productDetailDto.name
         cell.price.text = "\(searchData[indexPath.row].productDetailDto.price)원"
         // cell.itemImage.image = ImageResize(getImage: UIImage(named: image[indexPath.row])!, size: 70)

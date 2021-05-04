@@ -10,7 +10,7 @@ import Foundation
 struct productData: Codable {
     let userShowResponse: userInfo
     let productDetailDto: productInfo
-    
+
     struct userInfo: Codable {
         let name: String
         let phoneNumber: String
@@ -23,6 +23,23 @@ struct productData: Codable {
         let useStatus: String
         let productGrade: String
         let salesStatus: String
-        
+    }
+}
+func setGrade(value: String) -> String {
+    switch value {
+    case "HIGH":
+        return "A등급"
+    case "INTERMEDIATE_HIGH":
+        return "B등급"
+    case "INTERMEDIATE":
+        return "C등급"
+    case "INTERMEDIATE_LOW":
+        return "D등급"
+    case "LOW":
+        return "E등급"
+    case "NONE":
+        return "검수중"
+    default:
+        return "Null"
     }
 }

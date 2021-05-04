@@ -92,7 +92,7 @@ class DetailViewController: UIViewController {
                 self.name.text = getItem?.productDetailDto.name
                 self.price.text = "\(getItem!.productDetailDto.price)원"
                 self.detail.text = getItem?.productDetailDto.description
-                self.grade.text = getItem?.productDetailDto.productGrade
+                self.grade.text = setGrade(value: getItem?.productDetailDto.productGrade ?? "Null")
                 
             }
             

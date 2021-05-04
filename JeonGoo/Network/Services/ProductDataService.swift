@@ -10,7 +10,7 @@ import Moya
 
 class ProductDataService {
     var getProducts = [productData]()
-    var getProduct = productData(userShowResponse: productData.userInfo(name: "Null", phoneNumber: "Null"), productDetailDto: productData.productInfo(id: -1, name: "Null", description: "Null", price: -1, useStatus: "Null", productGrade: "Null", salesStatus: "Null"))
+    var getProduct = productData(userShowResponse: productData.userInfo(name: "Null", phoneNumber: "Null"), productDetailDto: productData.productInfo.init(id: -1, name: "Null", description: "Null", price: -1, useStatus: "Null", productGrade: "Null", salesStatus: "Null"))
     
     fileprivate let provider = MoyaProvider<ProductService>(endpointClosure: { (target: ProductService) -> Endpoint in
         let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
@@ -79,6 +79,24 @@ class ProductDataService {
                 }
             case .failure(let error):
                 completion(self.getProduct, error)
+            }
+        }
+    }
+    
+    func requestProductRegister(description: String, name: String, price: String, serialNumber: String, useStatus: String, completion: @escaping ((Post?, Error?) -> Void)) {
+        provider.request(.productRegistration(description: description, name: name, price: price, serialNumber: serialNumber, useStatus: useStatus)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let post = try decoder.decode(Post.self, from: response.data)
+                    completion(post, nil)
+                }
+                catch (let error) {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
             }
         }
     }

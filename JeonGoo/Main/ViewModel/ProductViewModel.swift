@@ -50,4 +50,15 @@ class ProductViewModel {
             completion(.success)
         }
     }
+    
+    func registerProduct(description: String, name: String, price: String, serialNumber: String, useStatus: String, completion: @escaping ((ViewModelState) -> Void)) {
+    service.requestProductRegister(description: description, name: name, price: price, serialNumber: serialNumber, useStatus: useStatus) { (productData, error) in
+        if let error = error {
+            self.message = error.localizedDescription
+            completion(.failure)
+            return
+        }
+        completion(.success)
+    }
+}
 }

@@ -31,7 +31,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = TableMain.dequeueReusableCell(withIdentifier: "SaleListCell") as! SaleListCell
         
         cell.name.text = getProducts[indexPath.row].productDetailDto.name
-        cell.grade.text = getProducts[indexPath.row].productDetailDto.productGrade
+        cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
         cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
         cell.stateLabel.text = getProducts[indexPath.row].productDetailDto.useStatus
         
