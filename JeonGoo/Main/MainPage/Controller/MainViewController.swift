@@ -133,7 +133,3 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 }
-
-private struct responseData : Codable {
-    let promise_option : [[String]]
-}

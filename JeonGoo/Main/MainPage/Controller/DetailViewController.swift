@@ -11,6 +11,7 @@ import Moya
 class DetailViewController: UIViewController {
     
     // MARK: --
+    @IBOutlet weak var id: UIButton!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var detail: UILabel!
@@ -32,6 +33,8 @@ class DetailViewController: UIViewController {
     
     var productViewModel = ProductViewModel()
     var isLiked = false
+    var likeValue: Int = 0
+    var viewValue: Int = 0
     
     var imageStr = ["macbookPro", "macbookAir", "photo"]
     
@@ -93,6 +96,7 @@ class DetailViewController: UIViewController {
                 self.price.text = "\(getItem!.productDetailDto.price)원"
                 self.detail.text = getItem?.productDetailDto.description
                 self.grade.text = setGrade(value: getItem?.productDetailDto.productGrade ?? "Null")
+                self.id.setTitle(" \(getItem!.userShowResponse.name)", for: .normal)
                 
             }
             
@@ -120,11 +124,15 @@ class DetailViewController: UIViewController {
             isLiked = false
             likeBtn.setImage(UIImage(named: "like1"), for: .normal)
             temp.getString = "관심목록 제거"
+            self.likeValue -= 1
+            self.likes.text = "관심 \(self.likeValue)"
         }
         else {
             isLiked = true
             likeBtn.setImage(UIImage(named: "like2"), for: .normal)
             temp.getString = "관심목록 추가"
+            self.likeValue += 1
+            self.likes.text = "관심 \(self.likeValue)"
         }
         self.present(popUp!, animated: false, completion: nil)
     }

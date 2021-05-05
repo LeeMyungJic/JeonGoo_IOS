@@ -11,6 +11,8 @@ import SwiftKeychainWrapper
 public enum UserService {
     case signin(email: String, password: String)
     case signup(email: String, password: String, name: String, number: String, gender: String, address: String, detailAddress: String)
+    case findUser(id: Int)
+    case modifyInfo(email: String, password: String, name: String, number: String, gender: String, address: String, detailAddress: String)
 }
 
 extension UserService: TargetType {
@@ -29,6 +31,10 @@ extension UserService: TargetType {
             return "/users/signin"
         case .signup:
             return "/users/signup"
+        case let .findUser(userId):
+            return "/users/\(userId)"
+        case let .modifyInfo:
+            return "/users/\(MyPageViewController.userId!)"
         }
     }
     
@@ -36,7 +42,10 @@ extension UserService: TargetType {
         switch self {
         case .signin, .signup:
             return .post
-            
+        case .findUser:
+            return .get
+        case .modifyInfo:
+            return .put
         }
     }
     
@@ -50,6 +59,10 @@ extension UserService: TargetType {
             return .requestCompositeParameters(bodyParameters: ["email": email, "password": password], bodyEncoding: JSONEncoding.default, urlParameters: .init())
         case .signup(email: let email, password: let password, name: let name, number: let number, gender: let gender, address : let address, detailAddress : let detailAddress):
             return .requestCompositeParameters(bodyParameters: ["addressDto" : ["city" : address, "detailed" : detailAddress], "email" : email, "gender" : gender, "name" : name, "password" : password, "phoneNumber" : number], bodyEncoding: JSONEncoding.default, urlParameters: .init())
+        case .findUser(id: let userId):
+            return .requestPlain
+        case .modifyInfo(email: let email, password: let password, name: let name, number: let number, gender: let gender, address : let address, detailAddress : let detailAddress):
+            return .requestPlain
         }
     }
     

@@ -10,6 +10,8 @@ import Moya
 
 class UserDataService {
     
+    var userTemp = User(addressDto: User.adress(city: "Null", detailed: "Null"), email: "Null", gender: "Null", id: -1, name: "Null", password: "Null", phoneNumber: "Null")
+    
     fileprivate let provider = MoyaProvider<UserService>(endpointClosure: { (target: UserService) -> Endpoint in
         let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
         switch target {
@@ -52,6 +54,43 @@ class UserDataService {
             case .failure(let error):
                 completion(nil, error)
             }
+        }
+    }
+    
+    func getUserInfo(userId: Int, completion: @escaping ((User, Error?) -> Void)) {
+        provider.request(.findUser(id: userId)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let user = try decoder.decode(ResponseType<User>.self, from: response.data)
+                    completion(user.data!, nil)
+                }
+                catch (let error) {
+                    completion(self.userTemp, error)
+                }
+            case .failure(let error):
+                completion(self.userTemp, error)
+            }
+        }
+    }
+    
+    func changeUserInfo(email: String, password: String, name: String, number: String, gender: String, address: String, detailAddress: String, completion: @escaping ((Get?, Error?) -> Void)) {
+        provider.request(.modifyInfo(email: email, password: password, name: name, number: number, gender: gender, address: address, detailAddress: detailAddress)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let get = try decoder.decode(Get.self, from: response.data)
+                    completion(get, nil)
+                }
+                catch (let error) {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+            
         }
     }
 }
