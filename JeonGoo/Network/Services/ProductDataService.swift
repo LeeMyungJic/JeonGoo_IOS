@@ -100,4 +100,22 @@ class ProductDataService {
             }
         }
     }
+    
+    func requestRemoveProduct(completion: @escaping((Get?, Error?) -> Void)) {
+        provider.request(.removeProduct) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let get = try decoder.decode(Get.self, from: response.data)
+                    completion(get, nil)
+                }
+                catch (let error) {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
 }

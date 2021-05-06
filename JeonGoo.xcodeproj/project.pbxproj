@@ -211,6 +211,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DA0901F92643CE6200D46378 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DACB805D25F0DB6C004D6E82 /* Pages.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DA0AA31C263A8C9B00D6C206 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,11 +455,11 @@
 		DACB805525F0DAE7004D6E82 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DA0901F92643CE6200D46378 /* View */,
 				DAB66DCF2636AF800061959C /* Model */,
 				DA0AA31C263A8C9B00D6C206 /* ViewModel */,
 				DA626FBE2604CF8D00B35794 /* MainPage */,
 				DA626FBD2604CF7200B35794 /* AddPage */,
-				DACB805D25F0DB6C004D6E82 /* Pages.storyboard */,
 				DA55BDEF25F894DA007291B1 /* MyPage */,
 			);
 			path = Main;

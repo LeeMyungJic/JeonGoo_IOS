@@ -9,15 +9,21 @@ import UIKit
 import Moya
 class SaleListCell: UITableViewCell {
     
+    var delete : (() -> ()) = {}
+    
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var deleteBtn: CustomButton!
+    @IBAction func didTapDelete(_ sender: Any) {
+        delete()
+    }
 }
 
 class SaleListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    static var selectedId = 0
     let productViewModel = ProductViewModel()
     
     var getProducts = [productData]()
@@ -33,7 +39,18 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
         cell.name.text = getProducts[indexPath.row].productDetailDto.name
         cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
         cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
-        cell.stateLabel.text = getProducts[indexPath.row].productDetailDto.useStatus
+        cell.delete = { [unowned self] in
+            SaleListViewController.selectedId = self.getProducts[indexPath.row].productDetailDto.id
+            self.productViewModel.removeProduct { state in
+                switch state {
+                case .success: self.showSuccessAlert()
+                case .failure: self.showPostErrorAlert()
+                case .serverError: self.showPostErrorAlert()
+                }
+            }
+            self.getProducts.remove(at: indexPath.row)
+            self.TableMain.reloadData()
+        }
         
 //        let url = URL(string: getProduct.image)
 //        var image : UIImage?
@@ -48,7 +65,27 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    @IBOutlet weak var TableMain: UITableView!
+    func getData() {
+        getProducts = [productData]()
+        productViewModel.findByUserId(id: MyPageViewController.userId!) { state in
+            
+            self.getProducts = self.productViewModel.Products
+            self.TableMain.reloadData()
+        }
+    }
+    
+    fileprivate func showPostErrorAlert() {
+        showAlertController(withTitle: "삭제 실패", message: "서버가 불안정합니다.", completion: nil)
+    }
+    
+    fileprivate func showSuccessAlert() {
+        let msgalert = UIAlertController(title: "삭제 성공", message: "상품을 삭제하였습니다", preferredStyle: .alert)
+        
+        let YES = UIAlertAction(title: "확인", style: .default)
+        msgalert.addAction(YES)
+        present(msgalert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,15 +94,6 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     override func viewWillAppear(_ animated: Bool) {
         getData()
-    }
-    
-    func getData() {
-        getProducts = [productData]()
-        productViewModel.findByUserId(id: MyPageViewController.userId!) { state in
-            
-            self.getProducts = self.productViewModel.Products
-            self.TableMain.reloadData()
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +105,8 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
     }
+    
+    @IBOutlet weak var TableMain: UITableView!
     
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

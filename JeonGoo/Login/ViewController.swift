@@ -16,8 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginBtn: CustomButton!
     
     fileprivate let userViewModel = UserViewModel()
-    fileprivate let productViewModel = ProductViewModel()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

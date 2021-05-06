@@ -14,6 +14,7 @@ class ProductViewModel {
     var Products = [productData]()
     var Product: productData?
     var message: String?
+    var get: Get?
     
     func findAll(completion: @escaping ((ViewModelState) -> Void)) {
         service.requestProducts { (productData, error) in
@@ -52,13 +53,34 @@ class ProductViewModel {
     }
     
     func registerProduct(description: String, name: String, price: String, serialNumber: String, useStatus: String, completion: @escaping ((ViewModelState) -> Void)) {
-    service.requestProductRegister(description: description, name: name, price: price, serialNumber: serialNumber, useStatus: useStatus) { (productData, error) in
-        if let error = error {
-            self.message = error.localizedDescription
-            completion(.failure)
-            return
+        service.requestProductRegister(description: description, name: name, price: price, serialNumber: serialNumber, useStatus: useStatus) { (productData, error) in
+            if let error = error {
+                self.message = error.localizedDescription
+                completion(.failure)
+                return
+            }
+            completion(.success)
         }
-        completion(.success)
     }
-}
+    
+    func removeProduct(completion: @escaping ((ViewModelState) -> Void)) {
+        service.requestRemoveProduct { (get, error) in
+            if let error = error {
+                let message = error.localizedDescription
+                self.message = message
+                completion(.serverError)
+                return
+            }
+            self.get = get
+           
+            let statusCode = get?.statusCode
+            if statusCode == 200 || statusCode == 201 {
+                completion(.success)
+            }
+            else {
+                completion(.failure)
+            }
+            
+        }
+    }
 }

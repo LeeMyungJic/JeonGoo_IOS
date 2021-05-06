@@ -7,6 +7,7 @@ public enum ProductService {
     case findById(productId: Int)
     case findByUserId(UserId: Int)
     case productRegistration(description: String, name: String, price: String, serialNumber: String, useStatus: String)
+    case removeProduct
 }
 
 extension ProductService: TargetType {
@@ -29,6 +30,8 @@ extension ProductService: TargetType {
             return "/products/users/\(userId)"
         case let .productRegistration(userId):
             return "/products/users/\(MyPageViewController.userId!)"
+        case let .removeProduct:
+            return "/products/\(SaleListViewController.selectedId)"
         }
     }
     
@@ -40,6 +43,8 @@ extension ProductService: TargetType {
             return .get
         case .productRegistration:
             return .post
+        case .removeProduct:
+            return .delete
         }
     }
     
@@ -57,6 +62,8 @@ extension ProductService: TargetType {
             return .requestPlain
         case .productRegistration(description: let description, name: let name, price: let price, serialNumber: let serialNumber, useStatus: let useStatus):
             return .requestCompositeParameters(bodyParameters: ["fileInfoRequest": ["imageFiles" : [nil]], "productBasicInfoRequest":["description": description, "name": name, "price":price, "serialNumber":serialNumber, "useStatus":useStatus]], bodyEncoding: JSONEncoding.default, urlParameters: .init())
+        case .removeProduct:
+            return .requestPlain
         }
     }
     
