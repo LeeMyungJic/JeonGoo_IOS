@@ -9,7 +9,7 @@
 
   - `Swift 5`,  `Xcode 12`
 
-  - `Callback Closure`, `Delegate Pattern`, `MobileCoreServices`, `MVVM Pattern`
+  - `RxSwift`, `Observer Pattern`, `MVVM Pattern`
 
     
 
