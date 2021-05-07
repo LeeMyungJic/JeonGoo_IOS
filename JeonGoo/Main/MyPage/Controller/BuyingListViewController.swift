@@ -20,33 +20,44 @@ class BuyingListCell: UITableViewCell {
 class BuyingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    let productsModel = ProductViewModel()
+    let productViewModel = ProductViewModel()
+    var getProducts = [productData]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productsModel.Products.count
+        return getProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "BuyingListCell") as! BuyingListCell
         
-//        cell.name.text = getProduct.name
-//        cell.grade.text = getProduct.grade
-//        cell.price.text = "\(getProduct.price)원"
-//        cell.status.text = getProduct.status
-//        
+        cell.name.text = getProducts[indexPath.row].productDetailDto.name
+        cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+        cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
+        
 //        let url = URL(string: getProduct.image)
 //        var image : UIImage?
-//        
+//
 //        DispatchQueue.global().async {
 //            let data = try? Data(contentsOf: url!)
 //            DispatchQueue.main.async {
 //                //image = UIImage(data: data!)
 //                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
-//                
+//
 //            }
 //        }
         
         return cell
+    }
+    
+    func getProduct() {
+        productViewModel.findPurchasedProductByUserId{ state in
+            self.getProducts = self.productViewModel.Products
+            self.TableMain.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getProduct()
     }
     
 

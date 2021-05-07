@@ -118,4 +118,58 @@ class ProductDataService {
             }
         }
     }
+    
+    func requestPurchaseProduct(completion: @escaping((Post?, Error?) -> Void)) {
+        provider.request(.purchaseProduct) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let post = try decoder.decode(Post.self, from: response.data)
+                    completion(post, nil)
+                }
+                catch (let error) {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func requestFindPurchasedProductByUserId(completion: @escaping(([productData], Error?) -> Void)) {
+        provider.request(.findPurchaseProductByUserId) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let result = try! JSONDecoder().decode(ResponseArrayType<productData>.self, from: response.data)
+                    //self.getProducts = result.data!
+                    completion(self.getProducts, nil)
+                }
+                catch (let error) {
+                    completion([], error)
+                }
+            case .failure(let error):
+                completion([], error)
+            }
+        }
+    }
+    
+    func requestFindSellProductByUserId(completion: @escaping(([productData], Error?) -> Void)) {
+        provider.request(.findSellProductByUserId) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let result = try! JSONDecoder().decode(ResponseArrayType<productData>.self, from: response.data)
+                    self.getProducts = result.data!
+                    completion(self.getProducts, nil)
+                }
+                catch (let error) {
+                    completion([], error)
+                }
+            case .failure(let error):
+                completion([], error)
+            }
+        }
+    }
 }

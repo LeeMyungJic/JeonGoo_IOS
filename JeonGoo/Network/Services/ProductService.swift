@@ -8,6 +8,9 @@ public enum ProductService {
     case findByUserId(UserId: Int)
     case productRegistration(description: String, name: String, price: String, serialNumber: String, useStatus: String)
     case removeProduct
+    case purchaseProduct
+    case findPurchaseProductByUserId
+    case findSellProductByUserId
 }
 
 extension ProductService: TargetType {
@@ -32,6 +35,12 @@ extension ProductService: TargetType {
             return "/products/users/\(MyPageViewController.userId!)"
         case let .removeProduct:
             return "/products/\(SaleListViewController.selectedId)"
+        case let .purchaseProduct:
+            return "/products/\(DetailViewController.productId)/purchase/\(MyPageViewController.userId!)"
+        case let .findPurchaseProductByUserId:
+            return "/purchased/products/users/\(MyPageViewController.userId!)/purchased"
+        case let .findSellProductByUserId:
+            return "/purchased/products/users/\(MyPageViewController.userId!)/sell"
         }
     }
     
@@ -39,9 +48,11 @@ extension ProductService: TargetType {
         switch self {
         case .findAll,
              .findById,
-             .findByUserId:
+             .findByUserId,
+             .findPurchaseProductByUserId,
+             .findSellProductByUserId:
             return .get
-        case .productRegistration:
+        case .productRegistration, .purchaseProduct:
             return .post
         case .removeProduct:
             return .delete
@@ -63,6 +74,12 @@ extension ProductService: TargetType {
         case .productRegistration(description: let description, name: let name, price: let price, serialNumber: let serialNumber, useStatus: let useStatus):
             return .requestCompositeParameters(bodyParameters: ["fileInfoRequest": ["imageFiles" : [nil]], "productBasicInfoRequest":["description": description, "name": name, "price":price, "serialNumber":serialNumber, "useStatus":useStatus]], bodyEncoding: JSONEncoding.default, urlParameters: .init())
         case .removeProduct:
+            return .requestPlain
+        case .purchaseProduct:
+            return .requestCompositeParameters(bodyParameters: ["productId": DetailViewController.productId, "userId": MyPageViewController.userId], bodyEncoding: JSONEncoding.default, urlParameters: .init())
+        case .findPurchaseProductByUserId:
+            return .requestPlain
+        case .findSellProductByUserId:
             return .requestPlain
         }
     }

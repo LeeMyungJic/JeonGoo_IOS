@@ -59,6 +59,7 @@
 		DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80A525F2141D004D6E82 /* CustomView.swift */; };
 		DACB80AE25F21D02004D6E82 /* imageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80AD25F21D02004D6E82 /* imageCell.swift */; };
 		DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80B825F22730004D6E82 /* DetailViewController.swift */; };
+		DACC408626451A7F009FE775 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC408526451A7F009FE775 /* EditViewController.swift */; };
 		DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBC625FF466400C507BC /* JoinViewController.swift */; };
 		DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */; };
 		F2968F80AE36914304908103 /* Pods_JeonGoo_JeonGooUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66D1525DCF20B3EF2A78B4 /* Pods_JeonGoo_JeonGooUITests.framework */; };
@@ -147,6 +148,7 @@
 		DACB80A525F2141D004D6E82 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		DACB80AD25F21D02004D6E82 /* imageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCell.swift; sourceTree = "<group>"; };
 		DACB80B825F22730004D6E82 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DACC408526451A7F009FE775 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		DAF3DBC625FF466400C507BC /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		E0A82B63287690E669E50CA8 /* Pods-JeonGoo-JeonGooUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGoo-JeonGooUITests.release.xcconfig"; path = "Target Support Files/Pods-JeonGoo-JeonGooUITests/Pods-JeonGoo-JeonGooUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				DA55BE0325F89564007291B1 /* BuyingListViewController.swift */,
 				DA55BE0825F89572007291B1 /* WishListViewController.swift */,
 				DA00CDE8264279DD00D507D9 /* ModifyInformationViewController.swift */,
+				DACC408526451A7F009FE775 /* EditViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */,
 				DACB80A625F2141D004D6E82 /* CustomView.swift in Sources */,
 				DAB66E21263953920061959C /* UserDataService.swift in Sources */,
+				DACC408626451A7F009FE775 /* EditViewController.swift in Sources */,
 				DAB203BA2608731A00598357 /* CustomImageView.swift in Sources */,
 				DA8277EC25F74B56007520D5 /* Delegate.swift in Sources */,
 				DA55BE0425F89564007291B1 /* BuyingListViewController.swift in Sources */,

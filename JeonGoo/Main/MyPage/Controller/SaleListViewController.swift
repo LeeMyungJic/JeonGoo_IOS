@@ -8,16 +8,24 @@
 import UIKit
 import Moya
 class SaleListCell: UITableViewCell {
+   
+    
     
     var delete : (() -> ()) = {}
+    var edit : (() -> ()) = {}
     
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var deleteBtn: CustomButton!
+    @IBOutlet weak var editBtn: CustomButton!
+    
     @IBAction func didTapDelete(_ sender: Any) {
         delete()
+    }
+    @IBAction func didTapEdit(_ sender: Any) {
+        edit()
     }
 }
 
@@ -51,24 +59,17 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
             self.getProducts.remove(at: indexPath.row)
             self.TableMain.reloadData()
         }
-        
-//        let url = URL(string: getProduct.image)
-//        var image : UIImage?
-//        DispatchQueue.global().async {
-//            let data = try? Data(contentsOf: url!)
-//            DispatchQueue.main.async {
-//                //image = UIImage(data: data!)
-//                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
-//
-//            }
-//        }
+        cell.edit = { [unowned self] in
+            
+            
+        }
         return cell
     }
     
     func getData() {
         getProducts = [productData]()
-        productViewModel.findByUserId(id: MyPageViewController.userId!) { state in
-            
+        productViewModel.findSellProductByUserId { state in
+            print(state)
             self.getProducts = self.productViewModel.Products
             self.TableMain.reloadData()
         }
@@ -110,5 +111,11 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func didTapModifyBtn(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "adViewController") as? adViewController else {
+            return
+        }
+        self.present(vc, animated: true, completion: nil)
     }
 }

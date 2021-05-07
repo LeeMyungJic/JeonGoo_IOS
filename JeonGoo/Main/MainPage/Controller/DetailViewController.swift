@@ -28,7 +28,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var purchaseBtn: CustomButton!
     // MARK: --
+    static var productId = 0
+    
     var getId: Int?
     
     var productViewModel = ProductViewModel()
@@ -41,6 +44,8 @@ class DetailViewController: UIViewController {
     // MARK: --
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DetailViewController.productId = self.getId!
         
         pageControl.layer.zPosition = 999
         self.view.bringSubviewToFront(self.backButton)
@@ -97,10 +102,26 @@ class DetailViewController: UIViewController {
                 self.detail.text = getItem?.productDetailDto.description
                 self.grade.text = setGrade(value: getItem?.productDetailDto.productGrade ?? "Null")
                 self.id.setTitle(" \(getItem!.userShowResponse.name)", for: .normal)
-                
+                if getItem?.productDetailDto.salesStatus == "SOLD_OUT" {
+                    self.purchaseBtn.isEnabled = false
+                    self.purchaseBtn.setTitle("판매완료", for: .normal)
+                    self.purchaseBtn.backgroundColor = #colorLiteral(red: 0.6666144729, green: 0.6666962504, blue: 0.6665866375, alpha: 1)
+                }
             }
             
         }
+    }
+    
+    fileprivate func showPostErrorAlert() {
+        showAlertController(withTitle: "구매 실패", message: "서버가 불안정합니다.", completion: nil)
+    }
+    
+    fileprivate func showSuccessAlert() {
+        let msgalert = UIAlertController(title: "구매 성공", message: "상품을 구매하였습니다", preferredStyle: .alert)
+        
+        let YES = UIAlertAction(title: "확인", style: .default)
+        msgalert.addAction(YES)
+        present(msgalert, animated: true, completion: nil)
     }
     
     // MARK: --
@@ -135,5 +156,14 @@ class DetailViewController: UIViewController {
             self.likes.text = "관심 \(self.likeValue)"
         }
         self.present(popUp!, animated: false, completion: nil)
+    }
+    @IBAction func didTapPurchaseBtn(_ sender: Any) {
+        productViewModel.purchaseProduct { state in
+            switch state {
+            case .success: self.showSuccessAlert()
+            case .failure: self.showPostErrorAlert()
+            case .serverError: self.showPostErrorAlert()
+            }
+        }
     }
 }
