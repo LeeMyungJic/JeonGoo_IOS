@@ -52,12 +52,12 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
             self.productViewModel.removeProduct { state in
                 switch state {
                 case .success: self.showSuccessAlert()
+                    self.getProducts.remove(at: indexPath.row)
+                    self.TableMain.reloadData()
                 case .failure: self.showPostErrorAlert()
                 case .serverError: self.showPostErrorAlert()
                 }
             }
-            self.getProducts.remove(at: indexPath.row)
-            self.TableMain.reloadData()
         }
         cell.edit = { [unowned self] in
             
@@ -68,7 +68,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func getData() {
         getProducts = [productData]()
-        productViewModel.findSellProductByUserId { state in
+        productViewModel.findByUserId { state in
             print(state)
             self.getProducts = self.productViewModel.Products
             self.TableMain.reloadData()

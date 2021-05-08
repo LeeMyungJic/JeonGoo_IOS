@@ -29,8 +29,8 @@ class ProductViewModel {
         }
     }
     
-    func findByUserId(id: Int, completion: @escaping ((ViewModelState) -> Void)) {
-        service.requestProductsByUserId(id: id) { (productData, error) in
+    func findByUserId(completion: @escaping ((ViewModelState) -> Void)) {
+        service.requestProductsByUserId { (productData, error) in
             if let error = error {
                 self.message = error.localizedDescription
                 completion(.failure)

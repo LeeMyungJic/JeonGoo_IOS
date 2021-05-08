@@ -43,8 +43,8 @@ class ProductDataService {
     
     
     
-    func requestProductsByUserId(id: Int, completion: @escaping (([productData], Error?) -> Void)) {
-        provider.request(.findByUserId(UserId: id)) { result in
+    func requestProductsByUserId(completion: @escaping (([productData], Error?) -> Void)) {
+        provider.request(.findByUserId) { result in
             switch result {
             case .success(let response):
                 do {

@@ -5,7 +5,7 @@ import SwiftKeychainWrapper
 public enum ProductService {
     case findAll
     case findById(productId: Int)
-    case findByUserId(UserId: Int)
+    case findByUserId
     case productRegistration(description: String, name: String, price: String, serialNumber: String, useStatus: String)
     case removeProduct
     case purchaseProduct
@@ -29,8 +29,8 @@ extension ProductService: TargetType {
             return "/products"
         case let .findById(productId):
             return "/products/\(productId)"
-        case let .findByUserId(userId):
-            return "/products/users/\(userId)"
+        case let .findByUserId:
+            return "/products/users/\(MyPageViewController.userId!)"
         case let .productRegistration(userId):
             return "/products/users/\(MyPageViewController.userId!)"
         case let .removeProduct:
@@ -69,7 +69,7 @@ extension ProductService: TargetType {
             return .requestPlain
         case .findById(productId: let productId):
             return .requestPlain
-        case .findByUserId(UserId: let userId):
+        case .findByUserId:
             return .requestPlain
         case .productRegistration(description: let description, name: let name, price: let price, serialNumber: let serialNumber, useStatus: let useStatus):
             return .requestCompositeParameters(bodyParameters: ["fileInfoRequest": ["imageFiles" : [nil]], "productBasicInfoRequest":["description": description, "name": name, "price":price, "serialNumber":serialNumber, "useStatus":useStatus]], bodyEncoding: JSONEncoding.default, urlParameters: .init())
