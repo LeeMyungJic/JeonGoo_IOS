@@ -19,7 +19,6 @@ class BuyingListCell: UITableViewCell {
 
 class BuyingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     let productViewModel = ProductViewModel()
     var getProducts = [productData]()
     
@@ -48,22 +47,10 @@ class BuyingListViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
     }
-    
-    func getProduct() {
-        productViewModel.findPurchasedProductByUserId{ state in
-            self.getProducts = self.productViewModel.Products
-            self.TableMain.reloadData()
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        getProduct()
-    }
-    
-
-    @IBOutlet weak var TableMain: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getProduct()
         
         TableMain.delegate = self
         TableMain.dataSource = self
@@ -71,6 +58,16 @@ class BuyingListViewController: UIViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
     }
     
+    
+    func getProduct() {
+        productViewModel.findPurchasedProductByUserId{ state in
+            self.getProducts = self.productViewModel.Products
+            self.TableMain.reloadData()
+        }
+    }
+
+    @IBOutlet weak var TableMain: UITableView!
+
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

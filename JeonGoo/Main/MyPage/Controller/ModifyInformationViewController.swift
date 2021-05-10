@@ -8,7 +8,7 @@
 import UIKit
 
 class ModifyInformationViewController: UIViewController {
-
+    
     @IBOutlet weak var emailStr: UITextField!
     @IBOutlet weak var passStr: UITextField!
     @IBOutlet weak var passChkStr: UITextField!
@@ -28,8 +28,6 @@ class ModifyInformationViewController: UIViewController {
         
         userViewModel.getUserInfo(userId: MyPageViewController.userId!) { state in
             self.emailStr.text = self.userViewModel.user?.email
-            self.passStr.text = self.userViewModel.user?.password
-            self.passChkStr.text = self.userViewModel.user?.password
             self.nameStr.text = self.userViewModel.user?.name
             self.numberStr.text = self.userViewModel.user?.phoneNumber
             self.addressStr.text = self.userViewModel.user?.addressDto.city
@@ -47,16 +45,14 @@ class ModifyInformationViewController: UIViewController {
         else {
             womanBtn.isSelected = true
         }
-
+        
         // Do any additional setup after loading the view.
     }
     
     fileprivate func showPostErrorAlert() {
         showAlertController(withTitle: "정보 수정 실패", message: "서버가 불안정합니다.", completion: nil)
     }
-    fileprivate func showDuplicatedErrorAlert() {
-        showAlertController(withTitle: "정보 수정 실패", message: "이미 아이디가 존재합니다.", completion: nil)
-    }
+    
     fileprivate func showSuccessAlert() {
         let msgalert = UIAlertController(title: "정보 수정 성공", message: "회원 정보를 수정하였습니다", preferredStyle: .alert)
         
@@ -70,30 +66,38 @@ class ModifyInformationViewController: UIViewController {
         showAlertController(withTitle: "정보 수정 실패", message: "비밀번호가 일치하지 않습니다.", completion: nil)
     }
     
+    fileprivate func showValidError() {
+        showAlertController(withTitle: "정보 수정 실패", message: "올바른 이메일 형식이 아닙니다", completion: nil)
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
     @IBAction func didTapCompletion(_ sender: Any) {
-        if passStr.text == passChkStr.text {
+        if !isValidEmail(testStr: emailStr.text!) {
+            showValidError()
+        }
+        else if passStr.text != passChkStr.text {
+            self.showIncorrectErrorAlert()
+        }
+        else {
             if manBtn.isSelected {
                 gender = "MALE"
             }
             else {
                 gender = "FEMALE"
             }
-            userViewModel.signUpPost(email: self.emailStr.text!, password: self.passStr.text!, name: self.nameStr.text!, number: self.numberStr.text!, gender: self.gender, address: self.addressStr.text!, detailAddress: self.addressDetailStr.text!) { state in
+            userViewModel.chageUserInfo(email: self.emailStr.text!, password: self.passStr.text!, name: self.nameStr.text!, number: self.numberStr.text!, gender: self.gender, address: self.addressStr.text!, detailAddress: self.addressDetailStr.text!) { state in
                 switch state {
                 case .success: self.showSuccessAlert()
-                case .failure: if "\(MyPageViewController.userId!)" != self.emailStr.text {
-                    self.showDuplicatedErrorAlert()
-                }
-                else {
-                    self.showSuccessAlert()
-                }
+                case .failure: self.showPostErrorAlert()
                 case .serverError: self.showPostErrorAlert()
                 }
                 
             }
-        }
-        else {
-            self.showIncorrectErrorAlert()
         }
     }
     @IBAction func didTapCancel(_ sender: Any) {
@@ -101,13 +105,13 @@ class ModifyInformationViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -128,4 +128,16 @@ class ProductViewModel {
             completion(.success)
         }
     }
+    
+    func findInterestedProduct(completion: @escaping ((ViewModelState) -> Void)) {
+        service.requestFindInterestedProduct{ (productData, error) in
+            if let error = error {
+                self.message = error.localizedDescription
+                completion(.failure)
+                return
+            }
+            self.Products = productData
+            completion(.success)
+        }
+    }
 }

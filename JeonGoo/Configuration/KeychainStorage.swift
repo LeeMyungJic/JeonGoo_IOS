@@ -10,7 +10,7 @@ import Foundation
 enum KeychainStorage {
     
     static var accessToken: String {
-        return "accessToken"
+        return "Authorization"
     }
     
     static var isHost: String {

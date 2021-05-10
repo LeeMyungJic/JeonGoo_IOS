@@ -68,9 +68,12 @@ extension UserService: TargetType {
     
     public var headers: [String : String]? {
         switch self {
-        default:
+        case .findUser:
             return ["Content-Type": "application/json",
-                    "jwt": token]
+                    "Authorization": token]
+        default:
+            return ["Content-Type": "application/json"]
+            
         }
     }
     

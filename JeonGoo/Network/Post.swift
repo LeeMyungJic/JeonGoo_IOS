@@ -12,3 +12,14 @@ struct Post: Codable {
         case data = "data"
     }
 }
+
+struct LoginData: Codable {
+    let statusCode: Int
+    let message: String
+    let data: getData
+    
+    struct getData: Codable {
+        let id: Int
+        let token: String
+    }
+}

@@ -40,9 +40,7 @@ class ProductDataService {
             }
         }
     }
-    
-    
-    
+
     func requestProductsByUserId(completion: @escaping (([productData], Error?) -> Void)) {
         provider.request(.findByUserId) { result in
             switch result {
@@ -143,7 +141,7 @@ class ProductDataService {
             case .success(let response):
                 do {
                     let result = try! JSONDecoder().decode(ResponseArrayType<productData>.self, from: response.data)
-                    //self.getProducts = result.data!
+                    self.getProducts = result.data!
                     completion(self.getProducts, nil)
                 }
                 catch (let error) {
@@ -157,6 +155,24 @@ class ProductDataService {
     
     func requestFindSellProductByUserId(completion: @escaping(([productData], Error?) -> Void)) {
         provider.request(.findSellProductByUserId) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let result = try! JSONDecoder().decode(ResponseArrayType<productData>.self, from: response.data)
+                    self.getProducts = result.data!
+                    completion(self.getProducts, nil)
+                }
+                catch (let error) {
+                    completion([], error)
+                }
+            case .failure(let error):
+                completion([], error)
+            }
+        }
+    }
+    
+    func requestFindInterestedProduct(completion: @escaping(([productData], Error?) -> Void)) {
+        provider.request(.findInterestedProduct) { result in
             switch result {
             case .success(let response):
                 do {

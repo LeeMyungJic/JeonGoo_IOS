@@ -11,6 +11,7 @@ public enum ProductService {
     case purchaseProduct
     case findPurchaseProductByUserId
     case findSellProductByUserId
+    case findInterestedProduct
 }
 
 extension ProductService: TargetType {
@@ -41,6 +42,8 @@ extension ProductService: TargetType {
             return "/purchased/products/users/\(MyPageViewController.userId!)/purchased"
         case let .findSellProductByUserId:
             return "/purchased/products/users/\(MyPageViewController.userId!)/sell"
+        case let .findInterestedProduct:
+            return "interest/products/users/\(MyPageViewController.userId!)"
         }
     }
     
@@ -50,7 +53,8 @@ extension ProductService: TargetType {
              .findById,
              .findByUserId,
              .findPurchaseProductByUserId,
-             .findSellProductByUserId:
+             .findSellProductByUserId,
+             .findInterestedProduct:
             return .get
         case .productRegistration, .purchaseProduct:
             return .post
@@ -80,6 +84,8 @@ extension ProductService: TargetType {
         case .findPurchaseProductByUserId:
             return .requestPlain
         case .findSellProductByUserId:
+            return .requestPlain
+        case .findInterestedProduct:
             return .requestPlain
         }
     }

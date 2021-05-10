@@ -39,12 +39,11 @@ class JoinViewController: UIViewController {
         manButton?.alternateButton = [womanButton!]
         setEnabledButton(completeBtn)
     }
+    
     fileprivate func showPostErrorAlert() {
         showAlertController(withTitle: "가입 실패", message: "서버가 불안정합니다.", completion: nil)
     }
-    fileprivate func showDuplicatedErrorAlert() {
-        showAlertController(withTitle: "가입 실패", message: "이미 아이디가 존재합니다.", completion: nil)
-    }
+    
     fileprivate func showSuccessAlert() {
         let msgalert = UIAlertController(title: "회원가입 성공", message: "회원가입을 축하합니다!", preferredStyle: .alert)
         
@@ -54,13 +53,31 @@ class JoinViewController: UIViewController {
         msgalert.addAction(YES)
         present(msgalert, animated: true, completion: nil)
     }
+    
     fileprivate func showIncorrectErrorAlert() {
         showAlertController(withTitle: "가입 실패", message: "비밀번호가 일치하지 않습니다.", completion: nil)
     }
+    
+    fileprivate func showValidError() {
+        showAlertController(withTitle: "가입 실패", message: "올바른 이메일 형식이 아닙니다", completion: nil)
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
     // MARK: --
     @IBAction func join(_ sender: Any) {
-        
-        if passStr.text == passChkStr.text {
+//
+//        if !isValidEmail(testStr: idStr.text!) {
+//            showValidError()
+//        }
+        if passStr.text != passChkStr.text {
+            self.showIncorrectErrorAlert()
+        }
+        else {
             if manButton.isSelected {
                 gender = "MALE"
             }
@@ -70,14 +87,11 @@ class JoinViewController: UIViewController {
             userViewModel.signUpPost(email: self.idStr.text!, password: self.passStr.text!, name: self.nameStr.text!, number: self.numberStr.text!, gender: self.gender, address: self.addressStr.text!, detailAddress: self.detailAddressStr.text!) { state in
                 switch state {
                 case .success: self.showSuccessAlert()
-                case .failure: self.showDuplicatedErrorAlert()
+                case .failure: self.showPostErrorAlert()
                 case .serverError: self.showPostErrorAlert()
                 }
                 
             }
-        }
-        else {
-            self.showIncorrectErrorAlert()
         }
             
     }

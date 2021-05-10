@@ -1,4 +1,5 @@
 import Moya
+import SwiftKeychainWrapper
 
 class UserViewModel {
     fileprivate let service = UserDataService()
@@ -6,21 +7,25 @@ class UserViewModel {
     var post: Post?
     var get: Get?
     var user: User?
+    var loginData: LoginData?
     var message: String?
     
     func signInPost(email: String, pass: String, completion: @escaping ((ViewModelState) -> Void)) {
-        service.signInPost(email: email, pass: pass) { (post, error) in
+        service.signInPost(email: email, pass: pass) { (loginData, error) in
             if let error = error {
                 let message = error.localizedDescription
                 self.message = message
                 completion(.serverError)
                 return
             }
-            self.post = post
+            self.loginData = loginData
            
-            let statusCode = post?.statusCode
+            let statusCode = loginData!.statusCode
             if statusCode == 200 || statusCode == 201 {
-                MyPageViewController.userId = post?.data!
+                MyPageViewController.userId = loginData!.data.id
+                //loginData!.data.token
+                KeychainWrapper.standard.set("Bearer " + loginData!.data.token, forKey: KeychainStorage.accessToken)
+                print("\(loginData!.data)")
                 completion(.success)
             }
             else {

@@ -21,14 +21,16 @@ class UserDataService {
         }
     })
     
-    func signInPost(email: String, pass: String, completion: @escaping ((Post?, Error?) -> Void)) {
+    func signInPost(email: String, pass: String, completion: @escaping ((LoginData?, Error?) -> Void)) {
         provider.request(.signin(email: email, password: pass)) { result in
+            
+            print("result : \(result)")
             switch result {
             case .success(let response):
                 do {
                     let decoder = JSONDecoder()
-                    let post = try decoder.decode(Post.self, from: response.data)
-                    completion(post, nil)
+                    let loginData = try decoder.decode(LoginData.self, from: response.data)
+                    completion(loginData, nil)
                 }
                 catch (let error) {
                     completion(nil, error)

@@ -17,19 +17,21 @@ class WishListCell: UITableViewCell {
 }
 
 class WishListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var productViewModel = ProductViewModel()
+    var getProducts = [productData]()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return getProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
-        
         let cell = TableMain.dequeueReusableCell(withIdentifier: "WishListCell") as! WishListCell
-//        cell.name.text = getProduct.name
-//        cell.grade.text = getProduct.grade
-//        cell.price.text = "\(getProduct.price)원"
-//        cell.status.text = getProduct.status
-//
+        cell.name.text = getProducts[indexPath.row].productDetailDto.name
+        cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+        cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
+
 //        let url = URL(string: getProduct.image)
 //        var image : UIImage?
 //        DispatchQueue.global().async {
@@ -43,18 +45,24 @@ class WishListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-
-    @IBOutlet weak var TableMain: UITableView!
-    
+    func getProductsData() {
+        productViewModel.findInterestedProduct { state in
+            self.getProducts = self.productViewModel.Products
+            self.TableMain.reloadData()
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getProductsData()
+        
         TableMain.delegate = self
         TableMain.dataSource = self
-
-        // Do any additional setup after loading the view.
     }
+
+    @IBOutlet weak var TableMain: UITableView!
     
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
