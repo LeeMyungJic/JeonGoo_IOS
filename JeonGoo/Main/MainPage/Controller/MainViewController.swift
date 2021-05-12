@@ -77,6 +77,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.grade.text = setGrade(value: searchData[indexPath.row].productDetailDto.productGrade)
         cell.item.text = searchData[indexPath.row].productDetailDto.name
         cell.price.text = "\(searchData[indexPath.row].productDetailDto.price)원"
+        cell.like.text = "\(searchData[indexPath.row].interestCount)"
+        
         // cell.itemImage.image = ImageResize(getImage: UIImage(named: image[indexPath.row])!, size: 70)
         
         return cell
@@ -117,7 +119,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let id = segue.identifier, "detail" == id {
             if let controller = segue.destination as? DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
-                    controller.getId = searchData[indexPath.row].productDetailDto.id
+                    DetailViewController.productId = searchData[indexPath.row].productDetailDto.id
                     
                 }
             }

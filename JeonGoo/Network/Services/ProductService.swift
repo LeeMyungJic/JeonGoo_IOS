@@ -12,6 +12,8 @@ public enum ProductService {
     case findPurchaseProductByUserId
     case findSellProductByUserId
     case findInterestedProduct
+    case setInterestProduct(productId: Int)
+    case setDeleteInterestProduct(productId: Int)
 }
 
 extension ProductService: TargetType {
@@ -43,7 +45,11 @@ extension ProductService: TargetType {
         case let .findSellProductByUserId:
             return "/purchased/products/users/\(MyPageViewController.userId!)/sell"
         case let .findInterestedProduct:
-            return "interest/products/users/\(MyPageViewController.userId!)"
+            return "/interest/products/users/\(MyPageViewController.userId!)"
+        case let .setInterestProduct(productId):
+            return "/interrest/products/\(productId)/users/\(MyPageViewController.userId!)"
+        case let .setDeleteInterestProduct(productId):
+            return "/interrest/products/\(productId)/users/\(MyPageViewController.userId!)"
         }
     }
     
@@ -56,9 +62,12 @@ extension ProductService: TargetType {
              .findSellProductByUserId,
              .findInterestedProduct:
             return .get
-        case .productRegistration, .purchaseProduct:
+        case .productRegistration,
+             .purchaseProduct,
+             .setInterestProduct:
             return .post
-        case .removeProduct:
+        case .removeProduct,
+             .setDeleteInterestProduct:
             return .delete
         }
     }
@@ -86,6 +95,10 @@ extension ProductService: TargetType {
         case .findSellProductByUserId:
             return .requestPlain
         case .findInterestedProduct:
+            return .requestPlain
+        case .setInterestProduct(productId: let productId):
+            return .requestCompositeParameters(bodyParameters: ["productId": productId], bodyEncoding: JSONEncoding.default, urlParameters: .init())
+        case .setDeleteInterestProduct:
             return .requestPlain
         }
     }

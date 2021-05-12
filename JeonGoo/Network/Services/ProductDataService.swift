@@ -10,7 +10,7 @@ import Moya
 
 class ProductDataService {
     var getProducts = [productData]()
-    var getProduct = productData(userShowResponse: productData.userInfo(name: "Null", phoneNumber: "Null"), productDetailDto: productData.productInfo.init(id: -1, name: "Null", description: "Null", price: -1, useStatus: "Null", productGrade: "Null", salesStatus: "Null"))
+    var getProduct = productData.init(interestCount: 1, userShowResponse: productData.userInfo.init(name: "", phoneNumber: ""), productDetailDto: productData.productInfo.init(hitCount: 1, id: 1, name: "", description: "", price: 1, useStatus: "", productGrade: "", salesStatus: ""))
     
     fileprivate let provider = MoyaProvider<ProductService>(endpointClosure: { (target: ProductService) -> Endpoint in
         let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
@@ -185,6 +185,43 @@ class ProductDataService {
                 }
             case .failure(let error):
                 completion([], error)
+            }
+        }
+    }
+    
+    func requestSetInterestProductByProductId(productId: Int, completion: @escaping ((Post?, Error?) -> Void)) {
+        provider.request(.setInterestProduct(productId: productId)) { result in
+        
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let post = try decoder.decode(Post.self, from: response.data)
+                    completion(post, nil)
+                }
+                catch (let error) {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func requestDeleteInterestProduct(productId: Int,completion: @escaping((Get?, Error?) -> Void)) {
+        provider.request(.setDeleteInterestProduct(productId: productId)) { result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let get = try decoder.decode(Get.self, from: response.data)
+                    completion(get, nil)
+                }
+                catch (let error) {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
             }
         }
     }

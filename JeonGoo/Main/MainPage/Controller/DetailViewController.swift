@@ -35,7 +35,8 @@ class DetailViewController: UIViewController {
     var getId: Int?
     
     var productViewModel = ProductViewModel()
-    var isLiked = false
+    var newLiked = true
+    var oldLiked = true
     var likeValue: Int = 0
     var viewValue: Int = 0
     
@@ -44,8 +45,6 @@ class DetailViewController: UIViewController {
     // MARK: --
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        DetailViewController.productId = self.getId!
         
         pageControl.layer.zPosition = 999
         self.view.bringSubviewToFront(self.backButton)
@@ -82,6 +81,22 @@ class DetailViewController: UIViewController {
         getProductDetail()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        if self.oldLiked != self.newLiked {
+            switch newLiked{
+            case false:
+                productViewModel.removeInterestProduct(productId: DetailViewController.productId) { state in
+                    print("관심 해제 : \(state)")
+                }
+            case true:
+                productViewModel.setInterestProduct(productId: DetailViewController.productId) { state in
+                    print("관심 등록 : \(state)")
+                }
+                
+            }
+        }
+    }
+    
     @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         if (sender.direction == .left && pageControl.currentPage != imageStr.count-1) {
             self.pageControl.currentPage += 1
@@ -94,7 +109,7 @@ class DetailViewController: UIViewController {
     }
     
     func getProductDetail() {
-        productViewModel.findByProductId(id: self.getId!) { state in
+        productViewModel.findByProductId(id: DetailViewController.productId) { state in
             let getItem = self.productViewModel.Product
             DispatchQueue.main.async {
                 self.name.text = getItem?.productDetailDto.name
@@ -102,6 +117,8 @@ class DetailViewController: UIViewController {
                 self.detail.text = getItem?.productDetailDto.description
                 self.grade.text = setGrade(value: getItem?.productDetailDto.productGrade ?? "Null")
                 self.id.setTitle(" \(getItem!.userShowResponse.name)", for: .normal)
+                self.likes.text = "관심 \(getItem!.interestCount)"
+                self.count.text = "조회 \(getItem!.productDetailDto.hitCount)"
                 if getItem?.productDetailDto.salesStatus == "SOLD_OUT" {
                     self.purchaseBtn.isEnabled = false
                     self.purchaseBtn.setTitle("판매완료", for: .normal)
@@ -141,15 +158,15 @@ class DetailViewController: UIViewController {
         
         let temp = popUp as! LikePopUp
         
-        if isLiked {
-            isLiked = false
+        if newLiked {
+            newLiked = false
             likeBtn.setImage(UIImage(named: "like1"), for: .normal)
             temp.getString = "관심목록 제거"
             self.likeValue -= 1
             self.likes.text = "관심 \(self.likeValue)"
         }
         else {
-            isLiked = true
+            newLiked = true
             likeBtn.setImage(UIImage(named: "like2"), for: .normal)
             temp.getString = "관심목록 추가"
             self.likeValue += 1

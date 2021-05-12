@@ -140,4 +140,43 @@ class ProductViewModel {
             completion(.success)
         }
     }
+    
+    func setInterestProduct(productId: Int, completion: @escaping ((ViewModelState) -> Void)) {
+        service.requestSetInterestProductByProductId(productId: productId) { (post, error) in
+            if let error = error {
+                let message = error.localizedDescription
+                self.message = message
+                completion(.serverError)
+                return
+            }
+            self.post = post
+            let statusCode = post?.statusCode
+            if statusCode == 200 || statusCode == 201 {
+                completion(.success)
+            }
+            else {
+                completion(.failure)
+            }
+        }
+    }
+    
+    func removeInterestProduct(productId: Int,completion: @escaping ((ViewModelState) -> Void)) {
+        service.requestDeleteInterestProduct(productId: productId) { (get, error) in
+            if let error = error {
+                let message = error.localizedDescription
+                self.message = message
+                completion(.serverError)
+                return
+            }
+            self.get = get
+           
+            let statusCode = get?.statusCode
+            if statusCode == 200 || statusCode == 201 {
+                completion(.success)
+            }
+            else {
+                completion(.failure)
+            }
+        }
+    }
 }

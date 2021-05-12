@@ -101,7 +101,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
         if let id = segue.identifier, "detail" == id {
             if let controller = segue.destination as? DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
-                    controller.getId = getProducts[indexPath.row].productDetailDto.id
+                    DetailViewController.productId = getProducts[indexPath.row].productDetailDto.id
                 }
             }
         }

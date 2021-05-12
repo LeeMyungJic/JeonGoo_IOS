@@ -61,6 +61,16 @@ class WishListViewController: UIViewController, UITableViewDelegate, UITableView
         TableMain.delegate = self
         TableMain.dataSource = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier, "detail" == id {
+            if let controller = segue.destination as? DetailViewController {
+                if let indexPath = TableMain.indexPathForSelectedRow {
+                    DetailViewController.productId = getProducts[indexPath.row].productDetailDto.id
+                }
+            }
+        }
+    }
 
     @IBOutlet weak var TableMain: UITableView!
     
