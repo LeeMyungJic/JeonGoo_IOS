@@ -95,4 +95,23 @@ class UserDataService {
             
         }
     }
+    
+    func withdrawalUser(completion: @escaping ((Get?, Error?) -> Void)) {
+        provider.request(.withdrawalUser) { result in
+            print("USER DELETE RESULT : \(result)")
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let get = try decoder.decode(Get.self, from: response.data)
+                    completion(get, nil)
+                }
+                catch (let error) {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
 }

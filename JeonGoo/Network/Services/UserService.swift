@@ -13,6 +13,7 @@ public enum UserService {
     case signup(email: String, password: String, name: String, number: String, gender: String, address: String, detailAddress: String)
     case findUser(id: Int)
     case modifyInfo(email: String, password: String, name: String, number: String, gender: String, address: String, detailAddress: String)
+    case withdrawalUser
 }
 
 extension UserService: TargetType {
@@ -35,6 +36,8 @@ extension UserService: TargetType {
             return "/users/\(userId)"
         case let .modifyInfo:
             return "/users/\(MyPageViewController.userId!)"
+        case let .withdrawalUser:
+            return "/users/\(MyPageViewController.userId!)"
         }
     }
     
@@ -46,6 +49,8 @@ extension UserService: TargetType {
             return .get
         case .modifyInfo:
             return .put
+        case .withdrawalUser:
+            return .delete
         }
     }
     
@@ -63,12 +68,15 @@ extension UserService: TargetType {
             return .requestPlain
         case .modifyInfo(email: let email, password: let password, name: let name, number: let number, gender: let gender, address : let address, detailAddress : let detailAddress):
             return .requestPlain
+        case .withdrawalUser:
+            return .requestPlain
         }
     }
     
     public var headers: [String : String]? {
         switch self {
-        case .findUser:
+        case .findUser,
+             .withdrawalUser:
             return ["Content-Type": "application/json",
                     "Authorization": token]
         default:

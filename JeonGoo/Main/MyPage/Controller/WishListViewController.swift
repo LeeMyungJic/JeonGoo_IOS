@@ -31,6 +31,8 @@ class WishListViewController: UIViewController, UITableViewDelegate, UITableView
         cell.name.text = getProducts[indexPath.row].productDetailDto.name
         cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
         cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
+        cell.status.text =
+            setProductState(value: getProducts[indexPath.row].productDetailDto.salesStatus)
 
 //        let url = URL(string: getProduct.image)
 //        var image : UIImage?

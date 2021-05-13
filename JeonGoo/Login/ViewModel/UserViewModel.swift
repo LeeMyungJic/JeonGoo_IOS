@@ -84,4 +84,23 @@ class UserViewModel {
             }
         }
     }
+    
+    func withdrawalUser(completion: @escaping ((ViewModelState) -> Void)) {
+        service.withdrawalUser() { (get, error) in
+            if let error = error {
+                let message = error.localizedDescription
+                self.message = message
+                completion(.serverError)
+                return
+            }
+            self.get = get
+            let statusCode = get?.statusCode
+            if statusCode == 200 || statusCode == 201 {
+                completion(.success)
+            }
+            else {
+                completion(.failure)
+            }
+        }
+    }
 }

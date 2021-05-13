@@ -26,8 +26,8 @@ class ViewController: UIViewController {
             print("state : \(state)")
             switch state {
             case .success: self.nextVC()
-            case .failure: self.showIncoreectErrorAlert()
-            case .serverError: self.showPostErrorAlert()
+            case .failure: self.showPostErrorAlert()
+            case .serverError: self.showIncoreectErrorAlert()
             }
             
         }

@@ -74,7 +74,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
-        cell.grade.text = setGrade(value: searchData[indexPath.row].productDetailDto.productGrade)
+        if getProducts[indexPath.row].productDetailDto.productGrade == "NONE" {
+            cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.certificationStatus)
+        }
+        else {
+            cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+        }
         cell.item.text = searchData[indexPath.row].productDetailDto.name
         cell.price.text = "\(searchData[indexPath.row].productDetailDto.price)원"
         cell.like.text = "\(searchData[indexPath.row].interestCount)"

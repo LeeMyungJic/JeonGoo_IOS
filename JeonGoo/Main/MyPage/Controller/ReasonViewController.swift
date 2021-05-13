@@ -7,12 +7,21 @@
 
 import UIKit
 
-class EditViewController: UIViewController {
+class ReasonViewController: UIViewController {
 
+    @IBOutlet weak var reasonStr: UITextField!
+    
+    var getReason = "Null"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        reasonStr.text = getReason
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func didTapBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 

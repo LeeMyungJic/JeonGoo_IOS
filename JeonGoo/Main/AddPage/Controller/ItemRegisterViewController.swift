@@ -24,11 +24,6 @@ class ItemRegisterViewController: UIViewController, DeliveryDataProtocol, UINavi
         self.present(vc, animated: true, completion: nil)
         
     }
-    
-    func YesClick()
-    {
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

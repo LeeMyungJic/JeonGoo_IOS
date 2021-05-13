@@ -20,11 +20,17 @@ class ModifyInformationViewController: UIViewController {
     @IBOutlet weak var manBtn: RadioButton!
     @IBOutlet weak var womanBtn: RadioButton!
     
+    @IBOutlet weak var customView: UIView!
+    
     var userViewModel = UserViewModel()
     var gender = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        customView.layer.cornerRadius = 8.0
+        customView.layer.borderWidth = 1.0
+        customView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         
         userViewModel.getUserInfo(userId: MyPageViewController.userId!) { state in
             self.emailStr.text = self.userViewModel.user?.email
@@ -53,8 +59,8 @@ class ModifyInformationViewController: UIViewController {
         showAlertController(withTitle: "정보 수정 실패", message: "서버가 불안정합니다.", completion: nil)
     }
     
-    fileprivate func showSuccessAlert() {
-        let msgalert = UIAlertController(title: "정보 수정 성공", message: "회원 정보를 수정하였습니다", preferredStyle: .alert)
+    fileprivate func showSuccessAlert(title: String, detailMsg: String) {
+        let msgalert = UIAlertController(title: title, message: detailMsg, preferredStyle: .alert)
         
         let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
             self.navigationController?.popToRootViewController(animated: true)
@@ -92,7 +98,7 @@ class ModifyInformationViewController: UIViewController {
             }
             userViewModel.chageUserInfo(email: self.emailStr.text!, password: self.passStr.text!, name: self.nameStr.text!, number: self.numberStr.text!, gender: self.gender, address: self.addressStr.text!, detailAddress: self.addressDetailStr.text!) { state in
                 switch state {
-                case .success: self.showSuccessAlert()
+                case .success: self.showSuccessAlert(title: "수정완료", detailMsg: "회원 정보를 수정하였습니다.")
                 case .failure: self.showPostErrorAlert()
                 case .serverError: self.showPostErrorAlert()
                 }
@@ -104,14 +110,26 @@ class ModifyInformationViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    @IBAction func didTapWithdrawalBtn(_ sender: Any) {
+        let msg = UIAlertController(title: "경고", message: "정말로 탈퇴하시겠습니까?", preferredStyle: .alert)
+        let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
+            self.userViewModel.withdrawalUser() { state in
+                switch state {
+                case .success: let msg = UIAlertController(title: "탈퇴완료", message: "그동안 전구를 이용해주셔서 감사합니다.", preferredStyle: .alert)
+                    let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) in
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    })
+                    msg.addAction(YES)
+                    self.present(msg, animated: true, completion: nil)
+                case .failure: self.showPostErrorAlert()
+                case .serverError: self.showPostErrorAlert()
+                }
+            }
+        })
+        let CANCEL = UIAlertAction(title: "취소", style: .cancel)
+        msg.addAction(YES)
+        msg.addAction(CANCEL)
+        self.present(msg, animated: true, completion: nil)
+    }
 }

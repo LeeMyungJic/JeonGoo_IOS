@@ -608,14 +608,14 @@
                                                         <rect key="frame" x="50" y="0.0" width="86" height="95"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbI-0m-Zdn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="72"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="73"/>
                                                                 <state key="normal" image="list"/>
                                                                 <connections>
                                                                     <segue destination="vMM-JT-PVa" kind="show" id="fBN-3I-MVh"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="판매목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noO-Uh-red">
-                                                                <rect key="frame" x="0.0" y="75" width="86" height="20"/>
+                                                                <rect key="frame" x="0.0" y="76" width="86" height="19"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -626,14 +626,14 @@
                                                         <rect key="frame" x="141" y="0.0" width="86" height="95"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xi3-3O-zXJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="72"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="73"/>
                                                                 <state key="normal" image="sale"/>
                                                                 <connections>
                                                                     <segue destination="cXq-rT-PtL" kind="show" id="QEX-3q-aAz"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtM-9f-9s3">
-                                                                <rect key="frame" x="0.0" y="75" width="86" height="20"/>
+                                                                <rect key="frame" x="0.0" y="76" width="86" height="19"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -644,14 +644,14 @@
                                                         <rect key="frame" x="232" y="0.0" width="86" height="95"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEi-jF-0FP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="72"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="86" height="73"/>
                                                                 <state key="normal" image="like2"/>
                                                                 <connections>
                                                                     <segue destination="K0f-QS-5SM" kind="show" id="2OC-du-zfc"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="관심목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lta-T9-QM0">
-                                                                <rect key="frame" x="0.0" y="75" width="86" height="20"/>
+                                                                <rect key="frame" x="0.0" y="76" width="86" height="19"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -777,22 +777,22 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="36j-VD-2e1">
-                                                            <rect key="frame" x="128" y="0.0" width="197" height="118.5"/>
+                                                            <rect key="frame" x="138" y="0.0" width="256" height="118.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQ5-ix-nH1">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="38"/>
                                                                     <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOP-aP-Q9q">
-                                                                    <rect key="frame" x="0.0" y="38" width="197" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="38" width="256" height="38"/>
                                                                     <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                     <color key="textColor" red="0.95428627730000004" green="0.6987760663" blue="0.28222572800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vam-Tv-SjM">
-                                                                    <rect key="frame" x="0.0" y="76" width="197" height="42.5"/>
+                                                                    <rect key="frame" x="0.0" y="76" width="256" height="42.5"/>
                                                                     <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -803,15 +803,9 @@
                                                                 <constraint firstItem="AQ5-ix-nH1" firstAttribute="height" secondItem="36j-VD-2e1" secondAttribute="height" multiplier="0.32" id="aj8-aa-Pko"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="state" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD3-i8-8ng">
-                                                            <rect key="frame" x="335" y="0.0" width="59" height="118.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="36j-VD-2e1" firstAttribute="width" secondItem="ntE-cV-MQV" secondAttribute="width" multiplier="0.5" id="6ei-ag-K9R"/>
+                                                        <constraint firstItem="36j-VD-2e1" firstAttribute="width" secondItem="ntE-cV-MQV" secondAttribute="width" multiplier="0.65" id="6ei-ag-K9R"/>
                                                         <constraint firstItem="feJ-SV-en2" firstAttribute="width" secondItem="ntE-cV-MQV" secondAttribute="width" multiplier="0.3" id="weX-55-0NI"/>
                                                     </constraints>
                                                 </stackView>
@@ -832,7 +826,6 @@
                                             <outlet property="name" destination="AQ5-ix-nH1" id="7WR-lz-wcT"/>
                                             <outlet property="price" destination="vam-Tv-SjM" id="x1f-rW-qmZ"/>
                                             <outlet property="productImage" destination="feJ-SV-en2" id="1Ba-2E-GKM"/>
-                                            <outlet property="status" destination="tD3-i8-8ng" id="UNA-nS-uu1"/>
                                             <segue destination="Oe4-BF-SxN" kind="show" identifier="detail" id="8Ob-FX-0AZ"/>
                                         </connections>
                                     </tableViewCell>
@@ -869,11 +862,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S17-oE-7NL" customClass="CustomView" customModule="JeonGoo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S17-oE-7NL">
                                 <rect key="frame" x="20" y="194" width="374" height="618"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-On-qpw">
-                                        <rect key="frame" x="10" y="30" width="354" height="327"/>
+                                        <rect key="frame" x="10" y="30" width="354" height="367"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FU6-Dl-YMd">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
@@ -1044,6 +1037,16 @@
                                                     <constraint firstItem="DV1-2e-d6f" firstAttribute="width" secondItem="cUX-Ff-5cf" secondAttribute="width" multiplier="0.22" id="umv-EQ-d2G"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdZ-cP-1Gc">
+                                                <rect key="frame" x="0.0" y="337" width="354" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="회원탈퇴">
+                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapWithdrawalBtn:" destination="TxU-hV-Xer" eventType="touchUpInside" id="gJW-rY-vhH"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-8m-wAx">
@@ -1095,6 +1098,7 @@
                     <connections>
                         <outlet property="addressDetailStr" destination="Iaw-L8-r6l" id="3WS-My-b4p"/>
                         <outlet property="addressStr" destination="DKs-y3-BAu" id="VPd-n9-WZH"/>
+                        <outlet property="customView" destination="S17-oE-7NL" id="XiW-e9-RTa"/>
                         <outlet property="emailStr" destination="ipl-gG-U7K" id="BN3-W4-BSo"/>
                         <outlet property="manBtn" destination="N2t-BB-Q6X" id="gsD-Mh-zqx"/>
                         <outlet property="nameStr" destination="f2u-sL-Jef" id="9W3-5b-a2r"/>
@@ -1199,7 +1203,7 @@
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="state" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u88-4x-cz2">
                                                             <rect key="frame" x="335" y="0.0" width="59" height="118.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1328,14 +1332,21 @@
                                                                     <rect key="frame" x="0.0" y="38" width="269" height="35"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PT3-dm-cDK">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="35"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="35"/>
                                                                             <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                             <color key="textColor" red="0.95428627730000004" green="0.6987760663" blue="0.28222572800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxz-Iy-uaq">
-                                                                            <rect key="frame" x="49" y="0.0" width="102.5" height="35"/>
+                                                                            <rect key="frame" x="51.5" y="0.0" width="41" height="35"/>
                                                                         </stackView>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmH-T3-UDw" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
+                                                                            <rect key="frame" x="97.5" y="0.0" width="54" height="35"/>
+                                                                            <state key="normal" title="사유"/>
+                                                                            <connections>
+                                                                                <action selector="didTapReason:" destination="Q5Y-DL-q5g" eventType="touchUpInside" id="jd9-gb-hRt"/>
+                                                                            </connections>
+                                                                        </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9V-D2-g0K" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
                                                                             <rect key="frame" x="156.5" y="0.0" width="53.5" height="35"/>
                                                                             <state key="normal" title="수정"/>
@@ -1354,6 +1365,7 @@
                                                                     </subviews>
                                                                     <constraints>
                                                                         <constraint firstItem="9Zo-Fx-ht6" firstAttribute="width" secondItem="eso-Sf-hLC" secondAttribute="width" multiplier="0.2" id="amD-9q-V4h"/>
+                                                                        <constraint firstItem="MmH-T3-UDw" firstAttribute="width" secondItem="eso-Sf-hLC" secondAttribute="width" multiplier="0.2" id="gAM-x5-abN"/>
                                                                         <constraint firstItem="A9V-D2-g0K" firstAttribute="width" secondItem="eso-Sf-hLC" secondAttribute="width" multiplier="0.2" id="rbV-qe-Pi2"/>
                                                                     </constraints>
                                                                 </stackView>
@@ -1384,6 +1396,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="certificationFailedBtn" destination="MmH-T3-UDw" id="ZoM-kr-0zq"/>
                                             <outlet property="deleteBtn" destination="9Zo-Fx-ht6" id="qc5-bg-rR3"/>
                                             <outlet property="editBtn" destination="A9V-D2-g0K" id="vUf-gi-CUc"/>
                                             <outlet property="grade" destination="PT3-dm-cDK" id="x7O-Hy-wNZ"/>
@@ -1418,17 +1431,57 @@
             </objects>
             <point key="canvasLocation" x="328" y="698"/>
         </scene>
-        <!--Edit View Controller-->
+        <!--Reason View Controller-->
         <scene sceneID="72O-sR-pQ6">
             <objects>
-                <viewController id="7rc-mC-FDe" customClass="EditViewController" customModule="JeonGoo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReasonViewController" id="7rc-mC-FDe" customClass="ReasonViewController" customModule="JeonGoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QE2-uM-1XH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGN-ZT-Lei" customClass="CustomView" customModule="JeonGoo" customModuleProvider="target">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="RRl-59-NXH">
+                                        <rect key="frame" x="10" y="10" width="180" height="180"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jri-6G-fjg">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="110"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyQ-ad-4T7" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="150" width="180" height="30"/>
+                                                <state key="normal" title="확인"/>
+                                                <connections>
+                                                    <action selector="didTapBtn:" destination="7rc-mC-FDe" eventType="touchUpInside" id="lp4-PG-6GR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RRl-59-NXH" secondAttribute="trailing" constant="10" id="I2s-gR-Fua"/>
+                                    <constraint firstAttribute="width" constant="200" id="Oq1-19-c1w"/>
+                                    <constraint firstAttribute="bottom" secondItem="RRl-59-NXH" secondAttribute="bottom" constant="10" id="ieQ-Jo-XRr"/>
+                                    <constraint firstItem="RRl-59-NXH" firstAttribute="top" secondItem="nGN-ZT-Lei" secondAttribute="top" constant="10" id="k6k-YP-Ckw"/>
+                                    <constraint firstAttribute="height" constant="200" id="p4r-hr-Zgy"/>
+                                    <constraint firstItem="RRl-59-NXH" firstAttribute="leading" secondItem="nGN-ZT-Lei" secondAttribute="leading" constant="10" id="wrL-Yg-owy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Fgh-1R-ABs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.21798644403014522" green="0.21798644403014522" blue="0.21798644403014522" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="nGN-ZT-Lei" firstAttribute="centerX" secondItem="QE2-uM-1XH" secondAttribute="centerX" id="13x-eu-SjU"/>
+                            <constraint firstItem="nGN-ZT-Lei" firstAttribute="centerY" secondItem="QE2-uM-1XH" secondAttribute="centerY" id="eMN-ML-7fO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lF6-m8-iMn"/>
+                    <connections>
+                        <outlet property="reasonStr" destination="Jri-6G-fjg" id="dRI-TE-pfI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFf-h3-nF3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1642,7 +1695,7 @@
                                                 </connections>
                                             </pageControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bmf-r8-Cdf">
-                                                <rect key="frame" x="10" y="269" width="394" height="105"/>
+                                                <rect key="frame" x="10" y="269" width="394" height="103"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sjh-8S-pZ5">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
@@ -1665,16 +1718,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CTz-ZP-miv">
-                                                        <rect key="frame" x="0.0" y="60" width="394" height="45"/>
+                                                        <rect key="frame" x="0.0" y="60" width="394" height="43"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ5-xH-frL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="20"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="19"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KS-pF-SLh">
-                                                                <rect key="frame" x="0.0" y="25" width="394" height="20"/>
+                                                                <rect key="frame" x="0.0" y="24" width="394" height="19"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                 <color key="textColor" red="0.95428627730000004" green="0.6987760663" blue="0.28222572800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
@@ -1684,16 +1737,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rpc-YS-QRL">
-                                                <rect key="frame" x="10" y="394" width="394" height="140"/>
+                                                <rect key="frame" x="10" y="392" width="394" height="139"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF5-g9-3BN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="19"/>
                                                         <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HxW-dj-QNP">
-                                                        <rect key="frame" x="0.0" y="30" width="394" height="110"/>
+                                                        <rect key="frame" x="0.0" y="29" width="394" height="110"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="관심 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4e-jB-Jao">
                                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="110"/>
