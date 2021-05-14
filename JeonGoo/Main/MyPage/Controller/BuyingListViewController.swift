@@ -30,7 +30,19 @@ class BuyingListViewController: UIViewController, UITableViewDataSource, UITable
         let cell = TableMain.dequeueReusableCell(withIdentifier: "BuyingListCell") as! BuyingListCell
         
         cell.name.text = getProducts[indexPath.row].productDetailDto.name
-        cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+        if getProducts[indexPath.row].productDetailDto.productGrade == "NONE" {
+            cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.certificationStatus)
+        }
+        else {
+            if getProducts[indexPath.row].productDetailDto.useStatus == "DISUSED" {
+                cell.grade.text = "새상품"
+                cell.grade.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                
+            }
+            else {
+                cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+            }
+        }
         cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
         
 //        let url = URL(string: getProduct.image)

@@ -9,11 +9,12 @@ import Foundation
 
 struct productData: Codable {
     var interestCount: Int
+    let interested: Bool
     let userShowResponse: userInfo
     let productDetailDto: productInfo
     
     private enum CodingKeys: String, CodingKey {
-        case interestCount, userShowResponse, productDetailDto
+        case interestCount, userShowResponse, productDetailDto, interested
     }
 }
 
@@ -45,6 +46,7 @@ extension productData {
         interestCount = (try? values.decode(Int.self, forKey: .interestCount)) ?? -1
         userShowResponse = (try? values.decode(userInfo.self, forKey: .userShowResponse)) ?? userInfo.init(name: "Null", phoneNumber: "Null")
         productDetailDto = (try? values.decode(productInfo.self, forKey: .productDetailDto)) ?? productInfo.init(certificationFailedReason: "Null" ,certificationStatus: "Null" ,hitCount: 1, id: 1, name: "Null", description: "Null", price: 1, useStatus: "Null", productGrade: "Null", salesStatus: "Null")
+        interested = (try? values.decode(Bool.self, forKey: .interestCount)) ?? false
     }
 }
 

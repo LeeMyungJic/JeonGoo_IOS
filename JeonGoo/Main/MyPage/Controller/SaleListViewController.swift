@@ -54,12 +54,16 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
         
         if getProducts[indexPath.row].productDetailDto.productGrade == "NONE" {
             cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.certificationStatus)
-            if getProducts[indexPath.row].productDetailDto.certificationStatus == "FAILED" {
-                cell.certificationFailedBtn.isHidden = false
-            }
         }
         else {
-            cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+            if getProducts[indexPath.row].productDetailDto.useStatus == "DISUSED" {
+                cell.grade.text = "새상품"
+                cell.grade.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                
+            }
+            else {
+                cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+            }
         }
         
         cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"

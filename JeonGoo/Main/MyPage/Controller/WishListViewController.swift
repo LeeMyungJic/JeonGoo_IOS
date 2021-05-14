@@ -29,20 +29,23 @@ class WishListViewController: UIViewController, UITableViewDelegate, UITableView
       
         let cell = TableMain.dequeueReusableCell(withIdentifier: "WishListCell") as! WishListCell
         cell.name.text = getProducts[indexPath.row].productDetailDto.name
-        cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+        if getProducts[indexPath.row].productDetailDto.productGrade == "NONE" {
+            cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.certificationStatus)
+        }
+        else {
+            if getProducts[indexPath.row].productDetailDto.useStatus == "DISUSED" {
+                cell.grade.text = "새상품"
+                cell.grade.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                
+            }
+            else {
+                cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+            }
+        }
         cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
         cell.status.text =
             setProductState(value: getProducts[indexPath.row].productDetailDto.salesStatus)
 
-//        let url = URL(string: getProduct.image)
-//        var image : UIImage?
-//        DispatchQueue.global().async {
-//            let data = try? Data(contentsOf: url!)
-//            DispatchQueue.main.async {
-//                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
-//
-//            }
-//        }
         
         return cell
     }

@@ -110,16 +110,31 @@ class DetailViewController: UIViewController {
     
     func getProductDetail() {
         productViewModel.findByProductId(id: DetailViewController.productId) { state in
-            let getItem = self.productViewModel.Product
+            guard let getItem = self.productViewModel.Product else {
+                return
+            }
             DispatchQueue.main.async {
-                self.name.text = getItem?.productDetailDto.name
-                self.price.text = "\(getItem!.productDetailDto.price)원"
-                self.detail.text = getItem?.productDetailDto.description
-                self.grade.text = setGrade(value: getItem?.productDetailDto.productGrade ?? "Null")
-                self.id.setTitle(" \(getItem!.userShowResponse.name)", for: .normal)
-                self.likes.text = "관심 \(getItem!.interestCount)"
-                self.count.text = "조회 \(getItem!.productDetailDto.hitCount)"
-                if getItem?.productDetailDto.salesStatus == "SOLD_OUT" {
+                
+                self.name.text = getItem.productDetailDto.name
+                self.price.text = "\(getItem.productDetailDto.price)원"
+                self.detail.text = getItem.productDetailDto.description
+                if getItem.productDetailDto.productGrade == "NONE" {
+                    self.grade.text = setGrade(value: getItem.productDetailDto.certificationStatus)
+                }
+                else {
+                    if getItem.productDetailDto.useStatus == "DISUSED" {
+                        self.grade.text = "새상품"
+                        self.grade.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                        
+                    }
+                    else {
+                        self.grade.text = setGrade(value: getItem.productDetailDto.productGrade)
+                    }
+                }
+                self.id.setTitle(" \(getItem.userShowResponse.name)", for: .normal)
+                self.likes.text = "관심 \(getItem.interestCount)"
+                self.count.text = "조회 \(getItem.productDetailDto.hitCount)"
+                if getItem.productDetailDto.salesStatus == "SOLD_OUT" {
                     self.purchaseBtn.isEnabled = false
                     self.purchaseBtn.setTitle("판매완료", for: .normal)
                     self.purchaseBtn.backgroundColor = #colorLiteral(red: 0.6666144729, green: 0.6666962504, blue: 0.6665866375, alpha: 1)
