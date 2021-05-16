@@ -31,7 +31,7 @@ extension ProductService: TargetType {
         case .findAll:
             return "/products"
         case let .findById(productId):
-            return "/products/\(productId)"
+            return "/products/\(productId)/users/\(MyPageViewController.userId!)"
         case let .findByUserId:
             return "/products/users/\(MyPageViewController.userId!)"
         case let .productRegistration(userId):

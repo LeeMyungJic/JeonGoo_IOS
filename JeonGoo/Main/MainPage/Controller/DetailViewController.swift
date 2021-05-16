@@ -38,13 +38,14 @@ class DetailViewController: UIViewController {
     var newLiked = true
     var oldLiked = true
     var likeValue: Int = 0
-    var viewValue: Int = 0
-    
     var imageStr = ["macbookPro", "macbookAir", "photo"]
     
     // MARK: --
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        getProductDetail()
         
         pageControl.layer.zPosition = 999
         self.view.bringSubviewToFront(self.backButton)
@@ -75,10 +76,6 @@ class DetailViewController: UIViewController {
         images.addGestureRecognizer(left)
         images.addGestureRecognizer(right)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        getProductDetail()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -134,6 +131,15 @@ class DetailViewController: UIViewController {
                 self.id.setTitle(" \(getItem.userShowResponse.name)", for: .normal)
                 self.likes.text = "관심 \(getItem.interestCount)"
                 self.count.text = "조회 \(getItem.productDetailDto.hitCount)"
+                self.likeValue = getItem.interestCount
+                
+                self.oldLiked = getItem.interested
+                self.newLiked = getItem.interested
+                switch getItem.interested {
+                case false : self.likeBtn.setImage(UIImage(named: "like1"), for: .normal)
+                case true : self.likeBtn.setImage(UIImage(named: "like2"), for: .normal)
+                }
+                
                 if getItem.productDetailDto.salesStatus == "SOLD_OUT" {
                     self.purchaseBtn.isEnabled = false
                     self.purchaseBtn.setTitle("판매완료", for: .normal)
