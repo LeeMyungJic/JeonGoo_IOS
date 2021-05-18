@@ -23,7 +23,7 @@ class ItemRegister2ViewController: UIViewController {
     
     @IBOutlet weak var errorStr: UILabel!
     
-    
+    var imageDatas = [UIImage]()
     let productViewModel = ProductViewModel()
     // MARK: --
     override func viewDidLoad() {
@@ -36,6 +36,8 @@ class ItemRegister2ViewController: UIViewController {
         newButton?.alternateButton = [oldButton!]
         oldButton?.alternateButton = [newButton!]
         setEnabledButton(nextButton)
+        
+        imageDatas.append(UIImage(named: "like1")!)
     }
     
     // MARK: --
@@ -63,7 +65,7 @@ class ItemRegister2ViewController: UIViewController {
         if newButton.isSelected {
             productStatus = "DISUSED"
         }
-        productViewModel.registerProduct(description: self.detailStr.text, name: self.nameStr.text!, price: self.priceStr.text!, serialNumber: "29", useStatus: productStatus) { state in
+        productViewModel.registerProduct(description: self.detailStr.text, name: self.nameStr.text!, price: self.priceStr.text!, serialNumber: "29", useStatus: productStatus, images: self.imageDatas) { state in
             print(state)
         }
     }

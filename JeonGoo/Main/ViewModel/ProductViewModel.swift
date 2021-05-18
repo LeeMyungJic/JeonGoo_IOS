@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ProductViewModel {
     fileprivate let service = ProductDataService()
@@ -53,8 +54,8 @@ class ProductViewModel {
         }
     }
     
-    func registerProduct(description: String, name: String, price: String, serialNumber: String, useStatus: String, completion: @escaping ((ViewModelState) -> Void)) {
-        service.requestProductRegister(description: description, name: name, price: price, serialNumber: serialNumber, useStatus: useStatus) { (productData, error) in
+    func registerProduct(description: String, name: String, price: String, serialNumber: String, useStatus: String, images: [UIImage], completion: @escaping ((ViewModelState) -> Void)) {
+        service.requestProductRegister(description: description, name: name, price: price, serialNumber: serialNumber, useStatus: useStatus, images: images) { (productData, error) in
             if let error = error {
                 self.message = error.localizedDescription
                 completion(.failure)

@@ -81,8 +81,8 @@ class ProductDataService {
         }
     }
     
-    func requestProductRegister(description: String, name: String, price: String, serialNumber: String, useStatus: String, completion: @escaping ((Post?, Error?) -> Void)) {
-        provider.request(.productRegistration(description: description, name: name, price: price, serialNumber: serialNumber, useStatus: useStatus)) { result in
+    func requestProductRegister(description: String, name: String, price: String, serialNumber: String, useStatus: String, images: [UIImage] ,completion: @escaping ((Post?, Error?) -> Void)) {
+        provider.request(.productRegistration(description: description, name: name, price: price, serialNumber: serialNumber, useStatus: useStatus, images: images)) { result in
             switch result {
             case .success(let response):
                 do {

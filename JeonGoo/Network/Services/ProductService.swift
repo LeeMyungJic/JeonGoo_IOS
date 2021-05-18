@@ -6,7 +6,7 @@ public enum ProductService {
     case findAll
     case findById(productId: Int)
     case findByUserId
-    case productRegistration(description: String, name: String, price: String, serialNumber: String, useStatus: String)
+    case productRegistration(description: String, name: String, price: String, serialNumber: String, useStatus: String, images: [UIImage])
     case removeProduct
     case purchaseProduct
     case findPurchaseProductByUserId
@@ -76,6 +76,9 @@ extension ProductService: TargetType {
         return Data()
     }
     
+    //    case .productRegistration(description: let description, name: let name, price: let price, serialNumber: let serialNumber, useStatus: let useStatus, images: let images):
+    //        return .requestCompositeParameters(bodyParameters: ["fileInfoRequest": ["imageFiles" : [nil]], "productBasicInfoRequest":["description": description, "name": name, "price":price, "serialNumber":serialNumber, "useStatus":useStatus]], bodyEncoding: JSONEncoding.default, urlParameters: .init())
+    
     public var task: Task {
         switch self {
         case .findAll:
@@ -84,8 +87,16 @@ extension ProductService: TargetType {
             return .requestPlain
         case .findByUserId:
             return .requestPlain
-        case .productRegistration(description: let description, name: let name, price: let price, serialNumber: let serialNumber, useStatus: let useStatus):
-            return .requestCompositeParameters(bodyParameters: ["fileInfoRequest": ["imageFiles" : [nil]], "productBasicInfoRequest":["description": description, "name": name, "price":price, "serialNumber":serialNumber, "useStatus":useStatus]], bodyEncoding: JSONEncoding.default, urlParameters: .init())
+        case .productRegistration(description: let description, name: let name, price: let price, serialNumber: let serialNumber, useStatus: let useStatus, images: let images):
+            var formData = [Moya.MultipartFormData]()
+            for imageItem in images {
+                let imageData = imageItem.jpegData(compressionQuality: 1.0)
+                let memberIdData = "\(MyPageViewController.userId!)".data(using: String.Encoding.utf8) ?? Data()
+                var formData: [Moya.MultipartFormData] = [Moya.MultipartFormData(provider: .data(imageData!), name: "image", fileName: "asdas.png", mimeType: "image/jpeg")]
+                formData.append(Moya.MultipartFormData(provider: .data(memberIdData), name: "user_id"))
+            }
+            
+            return .requestCompositeParameters(bodyParameters: ["fileInfoRequest": ["imageFiles" : formData], "productBasicInfoRequest":["description": description, "name": name, "price":price, "serialNumber":serialNumber, "useStatus":useStatus]], bodyEncoding: JSONEncoding.default, urlParameters: .init())
         case .removeProduct:
             return .requestPlain
         case .purchaseProduct:
