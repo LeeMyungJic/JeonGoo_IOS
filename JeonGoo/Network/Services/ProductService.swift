@@ -47,9 +47,9 @@ extension ProductService: TargetType {
         case let .findInterestedProduct:
             return "/interest/products/users/\(MyPageViewController.userId!)"
         case let .setInterestProduct(productId):
-            return "/interrest/products/\(productId)/users/\(MyPageViewController.userId!)"
+            return "/interest/products/\(productId)/users/\(MyPageViewController.userId!)"
         case let .setDeleteInterestProduct(productId):
-            return "/interrest/products/\(productId)/users/\(MyPageViewController.userId!)"
+            return "/interest/products/registered/products/\(productId)/users/\(MyPageViewController.userId!)"
         }
     }
     
@@ -76,9 +76,6 @@ extension ProductService: TargetType {
         return Data()
     }
     
-    //    case .productRegistration(description: let description, name: let name, price: let price, serialNumber: let serialNumber, useStatus: let useStatus, images: let images):
-    //        return .requestCompositeParameters(bodyParameters: ["fileInfoRequest": ["imageFiles" : [nil]], "productBasicInfoRequest":["description": description, "name": name, "price":price, "serialNumber":serialNumber, "useStatus":useStatus]], bodyEncoding: JSONEncoding.default, urlParameters: .init())
-    
     public var task: Task {
         switch self {
         case .findAll:
@@ -100,7 +97,7 @@ extension ProductService: TargetType {
         case .removeProduct:
             return .requestPlain
         case .purchaseProduct:
-            return .requestCompositeParameters(bodyParameters: ["productId": DetailViewController.productId, "userId": MyPageViewController.userId], bodyEncoding: JSONEncoding.default, urlParameters: .init())
+            return .requestCompositeParameters(bodyParameters: ["productId": DetailViewController.productId, "userId": MyPageViewController.userId!], bodyEncoding: JSONEncoding.default, urlParameters: .init())
         case .findPurchaseProductByUserId:
             return .requestPlain
         case .findSellProductByUserId:
