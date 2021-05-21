@@ -16,6 +16,7 @@
 		DA0AA313263A8A5200D6C206 /* ProductDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA312263A8A5200D6C206 /* ProductDataService.swift */; };
 		DA0AA318263A8BBB00D6C206 /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA317263A8BBB00D6C206 /* Get.swift */; };
 		DA0AA322263A8DE600D6C206 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA321263A8DE600D6C206 /* ProductViewModel.swift */; };
+		DA1C1A9526565BAA00E128ED /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C1A9426565BAA00E128ED /* CustomStackView.swift */; };
 		DA55BDFC25F89553007291B1 /* SaleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BDFB25F89553007291B1 /* SaleListViewController.swift */; };
 		DA55BE0425F89564007291B1 /* BuyingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE0325F89564007291B1 /* BuyingListViewController.swift */; };
 		DA55BE0925F89572007291B1 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE0825F89572007291B1 /* WishListViewController.swift */; };
@@ -60,6 +61,7 @@
 		DACB80AE25F21D02004D6E82 /* imageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80AD25F21D02004D6E82 /* imageCell.swift */; };
 		DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB80B825F22730004D6E82 /* DetailViewController.swift */; };
 		DACC408626451A7F009FE775 /* ReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC408526451A7F009FE775 /* ReasonViewController.swift */; };
+		DADC0F2A2657BBC0002BEC9B /* SetTextUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADC0F292657BBC0002BEC9B /* SetTextUI.swift */; };
 		DAF3DBC725FF466400C507BC /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBC625FF466400C507BC /* JoinViewController.swift */; };
 		DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */; };
 		F2968F80AE36914304908103 /* Pods_JeonGoo_JeonGooUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66D1525DCF20B3EF2A78B4 /* Pods_JeonGoo_JeonGooUITests.framework */; };
@@ -98,6 +100,7 @@
 		DA0AA312263A8A5200D6C206 /* ProductDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataService.swift; sourceTree = "<group>"; };
 		DA0AA317263A8BBB00D6C206 /* Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
 		DA0AA321263A8DE600D6C206 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		DA1C1A9426565BAA00E128ED /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		DA55BDFB25F89553007291B1 /* SaleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleListViewController.swift; sourceTree = "<group>"; };
 		DA55BE0325F89564007291B1 /* BuyingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingListViewController.swift; sourceTree = "<group>"; };
 		DA55BE0825F89572007291B1 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		DACB80AD25F21D02004D6E82 /* imageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCell.swift; sourceTree = "<group>"; };
 		DACB80B825F22730004D6E82 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DACC408526451A7F009FE775 /* ReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonViewController.swift; sourceTree = "<group>"; };
+		DADC0F292657BBC0002BEC9B /* SetTextUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTextUI.swift; sourceTree = "<group>"; };
 		DAF3DBC625FF466400C507BC /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		E0A82B63287690E669E50CA8 /* Pods-JeonGoo-JeonGooUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JeonGoo-JeonGooUITests.release.xcconfig"; path = "Target Support Files/Pods-JeonGoo-JeonGooUITests/Pods-JeonGoo-JeonGooUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -451,6 +455,8 @@
 				DAB203FC2610737300598357 /* MakeUnderLine.swift */,
 				DAA0DB20261D92F10042A50F /* setButton.swift */,
 				DAA0DB25261D94F20042A50F /* RadioButton.swift */,
+				DA1C1A9426565BAA00E128ED /* CustomStackView.swift */,
+				DADC0F292657BBC0002BEC9B /* SetTextUI.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -734,6 +740,7 @@
 				DA00CDE9264279DD00D507D9 /* ModifyInformationViewController.swift in Sources */,
 				DAF3DBCF25FF48DE00C507BC /* PersonalInformationViewController.swift in Sources */,
 				DA00CDC7263FE87A00D507D9 /* ResponseTypes.swift in Sources */,
+				DADC0F2A2657BBC0002BEC9B /* SetTextUI.swift in Sources */,
 				DA626FB92604CF0900B35794 /* CustomLabel.swift in Sources */,
 				DA8277E725F74113007520D5 /* adViewController.swift in Sources */,
 				DA55BE0925F89572007291B1 /* WishListViewController.swift in Sources */,
@@ -754,6 +761,7 @@
 				DACB80B925F22730004D6E82 /* DetailViewController.swift in Sources */,
 				DACB806A25F0DD7A004D6E82 /* ItemRegisterViewController.swift in Sources */,
 				DAB66E162639532B0061959C /* UserViewModel.swift in Sources */,
+				DA1C1A9526565BAA00E128ED /* CustomStackView.swift in Sources */,
 				DA0AA313263A8A5200D6C206 /* ProductDataService.swift in Sources */,
 				DAB66E26263953DE0061959C /* Post.swift in Sources */,
 				DAB66DB4263696260061959C /* KeychainStorage.swift in Sources */,

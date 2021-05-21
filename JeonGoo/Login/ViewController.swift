@@ -11,15 +11,17 @@ import Moya
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var idLabel: UITextField!
-    @IBOutlet weak var passLabel: UITextField!
+    @IBOutlet weak var idLabel: SetTextUI!
+    @IBOutlet weak var passLabel: SetTextUI!
     @IBOutlet weak var loginBtn: CustomButton!
     
     fileprivate let userViewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
+    
     
     @IBAction func Login(_ sender: Any) {
         userViewModel.signInPost(email: self.idLabel.text!, pass: passLabel.text!) { state in

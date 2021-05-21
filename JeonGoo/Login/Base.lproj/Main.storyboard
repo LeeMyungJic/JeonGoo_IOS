@@ -54,7 +54,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWx-d6-xH9">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWx-d6-xH9" customClass="SetTextUI" customModule="JeonGoo" customModuleProvider="target">
                                                         <rect key="frame" x="54" y="0.0" width="240" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquare_acR" family="NanumSquare_ac" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -73,7 +73,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EX2-zF-ita">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EX2-zF-ita" customClass="SetTextUI" customModule="JeonGoo" customModuleProvider="target">
                                                         <rect key="frame" x="54" y="0.0" width="240" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquare_acR" family="NanumSquare_ac" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>

@@ -29,9 +29,6 @@ class MyPageViewController: UIViewController {
             self.userName.text = "\(String(describing: self.userViewModel.user!.name)) 님"
         
         }
-
-        self.firstView.addSubview(MakeUnderLineInView(target: firstView))
-        self.secondView.addSubview(MakeUnderLineInView(target: secondView))
         
         setImage(name: "list", button: sale)
         setImage(name: "sale", button: buying)

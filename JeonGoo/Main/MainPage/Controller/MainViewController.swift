@@ -74,6 +74,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
+        
         if getProducts[indexPath.row].productDetailDto.productGrade == "NONE" {
             cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.certificationStatus)
         }
@@ -90,8 +91,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.item.text = searchData[indexPath.row].productDetailDto.name
         cell.price.text = "\(searchData[indexPath.row].productDetailDto.price)원"
         cell.like.text = "\(searchData[indexPath.row].interestCount)"
-        
-        // cell.itemImage.image = ImageResize(getImage: UIImage(named: image[indexPath.row])!, size: 70)
         
         return cell
     }
@@ -132,7 +131,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let controller = segue.destination as? DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
                     DetailViewController.productId = searchData[indexPath.row].productDetailDto.id
-                    
                 }
             }
         }
