@@ -10,7 +10,7 @@ import Moya
 
 class ProductDataService {
     var getProducts = [productData]()
-    var getProduct = productData.init(interestCount: 1, interested: false, userShowResponse: userInfo.init(name: "", phoneNumber: ""), productDetailDto: productInfo.init(certificationFailedReason: "", certificationStatus: "", hitCount: 1, id: 1, name: "", description: "", price: 1, useStatus: "", productGrade: "", salesStatus: ""))
+    var getProduct = productData.init(interestCount: 1, interested: false, userShowResponse: userInfo.init(name: "", phoneNumber: ""), productDetailDto: productInfo.init(certificationFailedReason: "", certificationStatus: "", hitCount: 1, id: 1, name: "", description: "", price: 1, useStatus: "", productGrade: "", salesStatus: "", fileList: [mediaData(filePath: "", fileType: "")]))
     
     fileprivate let provider = MoyaProvider<ProductService>(endpointClosure: { (target: ProductService) -> Endpoint in
         let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)

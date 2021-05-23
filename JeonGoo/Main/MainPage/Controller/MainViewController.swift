@@ -48,7 +48,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getData() {
         getProducts = [productData]()
         productViewModel.findAll() { state in
-            
             self.getProducts = self.productViewModel.Products
             self.searchData = self.getProducts
             self.TableMain.reloadData()
@@ -75,11 +74,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "ItemsCell") as! ItemsCell
         
-        if getProducts[indexPath.row].productDetailDto.productGrade == "NONE" {
-            cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.certificationStatus)
+        if searchData[indexPath.row].productDetailDto.productGrade == "NONE" {
+            cell.grade.text = setGrade(value: searchData[indexPath.row].productDetailDto.certificationStatus)
         }
         else {
-            if getProducts[indexPath.row].productDetailDto.useStatus == "DISUSED" {
+            if searchData[indexPath.row].productDetailDto.useStatus == "DISUSED" {
                 cell.grade.text = "새상품"
                 cell.grade.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
                 
@@ -92,6 +91,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.price.text = "\(searchData[indexPath.row].productDetailDto.price)원"
         cell.like.text = "\(searchData[indexPath.row].interestCount)"
         
+        cell.itemImage.layer.cornerRadius = 10
+        for i in searchData[indexPath.row].productDetailDto.fileList {
+            if i.filePath != "" && i.fileType == "IMAGE" {
+                let url = URL(string: i.filePath)
+                do {
+                    let data = try Data(contentsOf: url!)
+                    cell.itemImage.image = UIImage(data: data)
+                    break
+                }
+                catch {
+                    
+                }
+            }
+        }
         return cell
     }
     

@@ -89,7 +89,7 @@ extension ProductService: TargetType {
             for imageItem in images {
                 let imageData = imageItem.jpegData(compressionQuality: 1.0)
                 let memberIdData = "\(MyPageViewController.userId!)".data(using: String.Encoding.utf8) ?? Data()
-                var formData: [Moya.MultipartFormData] = [Moya.MultipartFormData(provider: .data(imageData!), name: "image", fileName: "asdas.png", mimeType: "image/jpeg")]
+                var formData: [Moya.MultipartFormData] = [Moya.MultipartFormData(provider: .data(imageData!), name: "like1", fileName: "asdas.png", mimeType: "image/jpeg")]
                 formData.append(Moya.MultipartFormData(provider: .data(memberIdData), name: "user_id"))
             }
             

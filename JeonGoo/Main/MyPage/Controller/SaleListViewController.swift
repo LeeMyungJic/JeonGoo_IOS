@@ -84,6 +84,21 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
             
             self.present(popUp!, animated: true, completion: nil)
         }
+        
+        cell.productImage.layer.cornerRadius = 10
+        for i in getProducts[indexPath.row].productDetailDto.fileList {
+            if i.filePath != "" && i.fileType == "IMAGE" {
+                let url = URL(string: i.filePath)
+                do {
+                    let data = try Data(contentsOf: url!)
+                    cell.productImage.image = UIImage(data: data)
+                    break
+                }
+                catch {
+                    
+                }
+            }
+        }
         return cell
     }
     

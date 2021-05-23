@@ -34,18 +34,23 @@ struct productInfo: Codable {
     let useStatus: String
     let productGrade: String
     let salesStatus: String
+    let fileList: [mediaData]
     
     private enum CodingKeys: String, CodingKey {
-        case hitCount, id, name, description, price, useStatus, productGrade, salesStatus, certificationFailedReason,certificationStatus
+        case hitCount, id, name, description, price, useStatus, productGrade, salesStatus, certificationFailedReason,certificationStatus, fileList
     }
 }
 
+struct mediaData: Codable {
+    let filePath: String
+    let fileType: String
+}
 extension productData {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         interestCount = (try? values.decode(Int.self, forKey: .interestCount)) ?? -1
         userShowResponse = (try? values.decode(userInfo.self, forKey: .userShowResponse)) ?? userInfo.init(name: "Null", phoneNumber: "Null")
-        productDetailDto = (try? values.decode(productInfo.self, forKey: .productDetailDto)) ?? productInfo.init(certificationFailedReason: "Null" ,certificationStatus: "Null" ,hitCount: 1, id: 1, name: "Null", description: "Null", price: 1, useStatus: "Null", productGrade: "Null", salesStatus: "Null")
+        productDetailDto = (try? values.decode(productInfo.self, forKey: .productDetailDto)) ?? productInfo.init(certificationFailedReason: "Null" ,certificationStatus: "Null" ,hitCount: 1, id: 1, name: "Null", description: "Null", price: 1, useStatus: "Null", productGrade: "Null", salesStatus: "Null", fileList: [mediaData(filePath: "Null", fileType: "Null")])
         interested = (try? values.decode(Bool.self, forKey: .interested)) ?? false
     }
 }
@@ -63,6 +68,7 @@ extension productInfo {
         useStatus = (try? values.decode(String.self, forKey: .useStatus)) ?? "Null"
         productGrade = (try? values.decode(String.self, forKey: .productGrade)) ?? "Null"
         salesStatus = (try? values.decode(String.self, forKey: .salesStatus)) ?? "Null"
+        fileList = (try? values.decode([mediaData].self, forKey: .fileList)) ?? [mediaData(filePath: "", fileType: "Null")]
     }
 }
 

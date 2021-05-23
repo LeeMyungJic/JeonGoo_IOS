@@ -38,6 +38,7 @@ class ItemRegister2ViewController: UIViewController {
         setEnabledButton(nextButton)
         
         imageDatas.append(UIImage(named: "like1")!)
+        imageDatas.append(UIImage(named: "like2")!)
     }
     
     // MARK: --

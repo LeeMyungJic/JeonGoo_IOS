@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
     var newLiked = true
     var oldLiked = true
     var likeValue: Int = 0
-    var imageStr = ["macbookPro", "macbookAir", "photo"]
+    var imageStr = [UIImage]()
     
     // MARK: --
     override func viewDidLoad() {
@@ -64,7 +64,6 @@ class DetailViewController: UIViewController {
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.black
-        images.image = UIImage(named: imageStr[0])
         
         images.isUserInteractionEnabled = true
         
@@ -102,7 +101,7 @@ class DetailViewController: UIViewController {
         if (sender.direction == .right && pageControl.currentPage != 0) {
             self.pageControl.currentPage -= 1
         }
-        images.image = UIImage(named: imageStr[pageControl.currentPage])
+        images.image = imageStr[pageControl.currentPage]
     }
     
     func getProductDetail() {
@@ -111,6 +110,25 @@ class DetailViewController: UIViewController {
                 return
             }
             DispatchQueue.main.async {
+                
+                for i in getItem.productDetailDto.fileList {
+                    if i.filePath != "" && i.fileType == "IMAGE" {
+                        let url = URL(string: i.filePath)
+                        do {
+                            let data = try Data(contentsOf: url!)
+                            self.imageStr.append(UIImage(data: data)!)
+                        }
+                        catch {
+                            
+                        }
+                        
+                    }
+                }
+                if self.imageStr.count == 0 {
+                    self.imageStr.append(UIImage(named: "defaultImage")!)
+                }
+                self.images.image = self.imageStr[0]
+                self.pageControl.numberOfPages = self.imageStr.count
                 
                 self.name.text = getItem.productDetailDto.name
                 self.price.text = "\(getItem.productDetailDto.price)원"
@@ -168,7 +186,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func pageChanged(_ sender: Any) {
-        images.image = UIImage(named: imageStr[pageControl.currentPage])
+        images.image = imageStr[pageControl.currentPage]
     }
     @IBAction func clickLike(_ sender: Any) {
         
