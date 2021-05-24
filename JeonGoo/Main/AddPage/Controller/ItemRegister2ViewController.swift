@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ItemRegister2ViewController: UIViewController {
 
@@ -66,8 +67,52 @@ class ItemRegister2ViewController: UIViewController {
         if newButton.isSelected {
             productStatus = "DISUSED"
         }
-        productViewModel.registerProduct(description: self.detailStr.text, name: self.nameStr.text!, price: self.priceStr.text!, serialNumber: "29", useStatus: productStatus, images: self.imageDatas) { state in
-            print(state)
+        let header: HTTPHeaders = ["Content-Type": "multipart/form-data"]
+        
+        let url = URL(string: NetworkController.baseURL + "/products/users/\(MyPageViewController.userId!)")
+        let fileType: String
+        
+        var images = [UIImage]()
+    
+        let parameters = ["description": detailStr.text!, "name": nameStr.text!, "price": priceStr.text!, "serialNumber": "serial", "useStatus": productStatus] as [String : Any]
+        
+        images.append(UIImage(named: "like2")!)
+        images.append(UIImage(named: "like1")!)
+        
+        var data = [Data]()
+        for image in images {
+            let imageData = image.jpegData(compressionQuality: 0.5)
+            data.append(imageData!)
         }
+        
+        AF.upload(multipartFormData: { multipart in
+            
+            for (key, value) in parameters {
+                multipart.append("\(value)".data(using: .utf8)!, withName: key, mimeType: "text/plain")
+                
+            }
+            for item in data {
+                multipart.append(item, withName: "imageFiles", fileName: "File_name", mimeType: "image/jpg")
+            }
+            
+            multipart.append(data[0], withName: "videoFile", fileName: "image.jpg", mimeType: "image/jpg")
+            
+            
+        }, to: url!
+        , headers: header).uploadProgress(queue: .main, closure: { progress in
+            
+            
+        }).responseJSON(completionHandler: { data in
+            switch data.result {
+            case .success(_):
+                do {
+                    print("success")
+                }
+                
+            case .failure(_):
+                print("ERROR")
+            }
+            
+        })
     }
 }

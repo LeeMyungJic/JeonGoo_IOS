@@ -72,6 +72,8 @@ extension ProductService: TargetType {
         }
     }
     
+
+    
     public var sampleData: Data {
         return Data()
     }
@@ -85,15 +87,12 @@ extension ProductService: TargetType {
         case .findByUserId:
             return .requestPlain
         case .productRegistration(description: let description, name: let name, price: let price, serialNumber: let serialNumber, useStatus: let useStatus, images: let images):
-            var formData = [Moya.MultipartFormData]()
-            for imageItem in images {
-                let imageData = imageItem.jpegData(compressionQuality: 1.0)
-                let memberIdData = "\(MyPageViewController.userId!)".data(using: String.Encoding.utf8) ?? Data()
-                var formData: [Moya.MultipartFormData] = [Moya.MultipartFormData(provider: .data(imageData!), name: "like1", fileName: "asdas.png", mimeType: "image/jpeg")]
-                formData.append(Moya.MultipartFormData(provider: .data(memberIdData), name: "user_id"))
-            }
-            
-            return .requestCompositeParameters(bodyParameters: ["fileInfoRequest": ["imageFiles" : formData], "productBasicInfoRequest":["description": description, "name": name, "price":price, "serialNumber":serialNumber, "useStatus":useStatus]], bodyEncoding: JSONEncoding.default, urlParameters: .init())
+            let imageData = images[0].jpegData(compressionQuality: 1.0)!
+
+                  return .uploadMultipart([MultipartFormData(provider: .data(imageData),
+                                                             name: "image",
+                                                             fileName: "card.jpg",
+                                                             mimeType: "image/jpg")])
         case .removeProduct:
             return .requestPlain
         case .purchaseProduct:
@@ -113,11 +112,15 @@ extension ProductService: TargetType {
     
     public var headers: [String : String]? {
         switch self {
+//                case .productRegistration:
+//                    return ["Content-Type": "multipart/form-data"]
         default:
             return ["Content-Type": "application/json",
                     "jwt": token]
         }
     }
+    
+    
     
     public var validationType: ValidationType {
         .successCodes
