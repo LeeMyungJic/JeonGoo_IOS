@@ -608,14 +608,14 @@
                                                         <rect key="frame" x="51" y="0.0" width="88.5" height="94.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbI-0m-Zdn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="71.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="72.5"/>
                                                                 <state key="normal" image="list"/>
                                                                 <connections>
                                                                     <segue destination="vMM-JT-PVa" kind="show" id="fBN-3I-MVh"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="판매목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noO-Uh-red">
-                                                                <rect key="frame" x="0.0" y="74.5" width="88.5" height="20"/>
+                                                                <rect key="frame" x="0.0" y="75.5" width="88.5" height="19"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -626,14 +626,14 @@
                                                         <rect key="frame" x="144.5" y="0.0" width="88" height="94.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xi3-3O-zXJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="71.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="72.5"/>
                                                                 <state key="normal" image="sale"/>
                                                                 <connections>
                                                                     <segue destination="cXq-rT-PtL" kind="show" id="QEX-3q-aAz"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtM-9f-9s3">
-                                                                <rect key="frame" x="0.0" y="74.5" width="88" height="20"/>
+                                                                <rect key="frame" x="0.0" y="75.5" width="88" height="19"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -644,14 +644,14 @@
                                                         <rect key="frame" x="237.5" y="0.0" width="88.5" height="94.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEi-jF-0FP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="71.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="72.5"/>
                                                                 <state key="normal" image="like2"/>
                                                                 <connections>
                                                                     <segue destination="K0f-QS-5SM" kind="show" id="2OC-du-zfc"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="관심목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lta-T9-QM0">
-                                                                <rect key="frame" x="0.0" y="74.5" width="88.5" height="20"/>
+                                                                <rect key="frame" x="0.0" y="75.5" width="88.5" height="19"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1563,7 +1563,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-2O-tyN">
                                                             <rect key="frame" x="15" y="7.5" width="364" height="109"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="gDF-yY-eXO">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="gDF-yY-eXO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="gDF-yY-eXO" secondAttribute="height" multiplier="1:1" id="7rD-uD-FoP"/>
@@ -1806,13 +1806,14 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drj-c1-GJY">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drj-c1-GJY">
                                                 <rect key="frame" x="0.0" y="-1" width="414" height="269"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Bmf-r8-Cdf" secondAttribute="trailing" constant="10" id="0bF-1G-GFV"/>
+                                            <constraint firstItem="drj-c1-GJY" firstAttribute="width" secondItem="fK1-g3-rcd" secondAttribute="width" id="0gD-Hw-MWa"/>
                                             <constraint firstItem="Rpc-YS-QRL" firstAttribute="top" secondItem="Bmf-r8-Cdf" secondAttribute="bottom" constant="20" id="8Qm-mQ-oVq"/>
                                             <constraint firstAttribute="height" constant="1200" id="DdG-6r-2Y5"/>
                                             <constraint firstItem="drj-c1-GJY" firstAttribute="leading" secondItem="fK1-g3-rcd" secondAttribute="leading" id="Gle-5c-5UK"/>
@@ -2009,7 +2010,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qWo-kr-3v8"/>
+        <segue reference="VCe-x5-2dm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.uturn.backward" catalog="system" width="128" height="112"/>

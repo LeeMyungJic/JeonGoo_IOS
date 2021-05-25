@@ -76,8 +76,8 @@ class ItemRegister2ViewController: UIViewController {
     
         let parameters = ["description": detailStr.text!, "name": nameStr.text!, "price": priceStr.text!, "serialNumber": "serial", "useStatus": productStatus] as [String : Any]
         
-        images.append(UIImage(named: "like2")!)
-        images.append(UIImage(named: "like1")!)
+        images.append(UIImage(named: "macbookAir")!)
+        images.append(UIImage(named: "macbookPro")!)
         
         var data = [Data]()
         for image in images {
@@ -89,12 +89,12 @@ class ItemRegister2ViewController: UIViewController {
             
             for (key, value) in parameters {
                 multipart.append("\(value)".data(using: .utf8)!, withName: key, mimeType: "text/plain")
-                
             }
+            var cnt = 1
             for item in data {
-                multipart.append(item, withName: "imageFiles", fileName: "File_name", mimeType: "image/jpg")
+                multipart.append(item, withName: "imageFiles", fileName: "File_name\(cnt)", mimeType: "image/jpg")
+                cnt += 1
             }
-            
             multipart.append(data[0], withName: "videoFile", fileName: "image.jpg", mimeType: "image/jpg")
             
             

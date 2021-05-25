@@ -30,6 +30,7 @@ class BuyingListViewController: UIViewController, UITableViewDataSource, UITable
         let cell = TableMain.dequeueReusableCell(withIdentifier: "BuyingListCell") as! BuyingListCell
         
         cell.name.text = getProducts[indexPath.row].productDetailDto.name
+        
         if getProducts[indexPath.row].productDetailDto.productGrade == "NONE" {
             cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.certificationStatus)
         }
@@ -45,32 +46,25 @@ class BuyingListViewController: UIViewController, UITableViewDataSource, UITable
         }
         cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
         
-//        let url = URL(string: getProduct.image)
-//        var image : UIImage?
-//
-//        DispatchQueue.global().async {
-//            let data = try? Data(contentsOf: url!)
-//            DispatchQueue.main.async {
-//                //image = UIImage(data: data!)
-//                cell.productImage.image = ImageResize(getImage: UIImage(data: data!)!, size: 70)
-//
-//            }
-//        }
         cell.productImage.layer.cornerRadius = 10
-        for i in getProducts[indexPath.row].productDetailDto.fileList {
-            if i.filePath != "" && i.fileType == "IMAGE" {
-                let url = URL(string: i.filePath)
-                do {
-                    let data = try Data(contentsOf: url!)
-                    cell.productImage.image = UIImage(data: data)
-                    break
+        DispatchQueue.main.async {
+            for i in self.getProducts[indexPath.row].productDetailDto.fileList {
+                if i.filePath != "" && i.fileType == "IMAGE" {
+                    let url = URL(string: i.filePath)
+                    do {
+                        let data = try Data(contentsOf: url!)
+                        cell.productImage.image = UIImage(data: data)
+                        break
+                    }
+                    catch {
+                        
+                    }
                 }
-                catch {
-                    
+                else {
+                    cell.productImage.image = UIImage(named: "defaultImage")
                 }
             }
         }
-        
         return cell
     }
     override func viewDidLoad() {

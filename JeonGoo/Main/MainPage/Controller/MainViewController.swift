@@ -32,7 +32,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchBar.delegate = self
         
         self.searchData = self.getProducts
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,24 +83,30 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             }
             else {
-                cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
+                cell.grade.text = setGrade(value: searchData[indexPath.row].productDetailDto.productGrade)
             }
         }
+    
         cell.item.text = searchData[indexPath.row].productDetailDto.name
         cell.price.text = "\(searchData[indexPath.row].productDetailDto.price)원"
         cell.like.text = "\(searchData[indexPath.row].interestCount)"
         
         cell.itemImage.layer.cornerRadius = 10
-        for i in searchData[indexPath.row].productDetailDto.fileList {
-            if i.filePath != "" && i.fileType == "IMAGE" {
-                let url = URL(string: i.filePath)
-                do {
-                    let data = try Data(contentsOf: url!)
-                    cell.itemImage.image = UIImage(data: data)
-                    break
+        DispatchQueue.main.async {
+            for i in self.searchData[indexPath.row].productDetailDto.fileList {
+                if i.filePath != "" && i.fileType == "IMAGE" {
+                    let url = URL(string: i.filePath)
+                    do {
+                        let data = try Data(contentsOf: url!)
+                        cell.itemImage.image = UIImage(data: data)
+                        break
+                    }
+                    catch {
+                        
+                    }
                 }
-                catch {
-                    
+                else {
+                    cell.itemImage.image = UIImage(named: "defaultImage")
                 }
             }
         }

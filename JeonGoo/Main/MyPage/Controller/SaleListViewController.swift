@@ -86,16 +86,21 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         cell.productImage.layer.cornerRadius = 10
-        for i in getProducts[indexPath.row].productDetailDto.fileList {
-            if i.filePath != "" && i.fileType == "IMAGE" {
-                let url = URL(string: i.filePath)
-                do {
-                    let data = try Data(contentsOf: url!)
-                    cell.productImage.image = UIImage(data: data)
-                    break
+        DispatchQueue.main.async {
+            for i in self.getProducts[indexPath.row].productDetailDto.fileList {
+                if i.filePath != "" && i.fileType == "IMAGE" {
+                    let url = URL(string: i.filePath)
+                    do {
+                        let data = try Data(contentsOf: url!)
+                        cell.productImage.image = UIImage(data: data)
+                        break
+                    }
+                    catch {
+                        
+                    }
                 }
-                catch {
-                    
+                else {
+                    cell.productImage.image = UIImage(named: "defaultImage")
                 }
             }
         }
