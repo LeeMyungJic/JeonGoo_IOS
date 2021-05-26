@@ -8,11 +8,10 @@
 import UIKit
 
 class ReasonViewController: UIViewController {
-
-    @IBOutlet weak var reasonStr: UITextField!
     
     var getReason = "Null"
     
+    @IBOutlet weak var reasonStr: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         

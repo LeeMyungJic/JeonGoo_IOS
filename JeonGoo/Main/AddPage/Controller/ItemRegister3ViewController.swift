@@ -175,8 +175,8 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
             serialIsClick = false
         }
         else if mediaType.isEqual(to: kUTTypeMovie as NSString as String){
-            if let url = info[.mediaURL] as? URL {
-                videoURL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
+            if (info[.mediaURL] as? URL) != nil {
+                videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL
                 UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, self, nil, nil)
                 DispatchQueue.main.async {
                     self.videoCountLabel.text = "1 / 1"
@@ -211,7 +211,6 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     
     func resize(getImage:UIImage, size:Double) -> UIImage {
         
-        let wif = 70
         var new_image : UIImage!
         let size = CGSize(width:  size  , height: size )
         

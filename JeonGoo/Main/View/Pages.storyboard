@@ -607,16 +607,16 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="0Lf-A9-w6y">
                                                         <rect key="frame" x="51" y="0.0" width="88.5" height="94.5"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbI-0m-Zdn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="72.5"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbI-0m-Zdn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="76"/>
                                                                 <state key="normal" image="list"/>
                                                                 <connections>
                                                                     <segue destination="vMM-JT-PVa" kind="show" id="fBN-3I-MVh"/>
                                                                 </connections>
                                                             </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="판매목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noO-Uh-red">
-                                                                <rect key="frame" x="0.0" y="75.5" width="88.5" height="19"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="판매목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noO-Uh-red">
+                                                                <rect key="frame" x="0.0" y="79" width="88.5" height="15.5"/>
+                                                                <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -626,15 +626,15 @@
                                                         <rect key="frame" x="144.5" y="0.0" width="88" height="94.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xi3-3O-zXJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="72.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="88" height="76"/>
                                                                 <state key="normal" image="sale"/>
                                                                 <connections>
                                                                     <segue destination="cXq-rT-PtL" kind="show" id="QEX-3q-aAz"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtM-9f-9s3">
-                                                                <rect key="frame" x="0.0" y="75.5" width="88" height="19"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
+                                                                <rect key="frame" x="0.0" y="79" width="88" height="15.5"/>
+                                                                <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -644,15 +644,15 @@
                                                         <rect key="frame" x="237.5" y="0.0" width="88.5" height="94.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEi-jF-0FP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="72.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="76"/>
                                                                 <state key="normal" image="like2"/>
                                                                 <connections>
                                                                     <segue destination="K0f-QS-5SM" kind="show" id="2OC-du-zfc"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="관심목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lta-T9-QM0">
-                                                                <rect key="frame" x="0.0" y="75.5" width="88.5" height="19"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
+                                                                <rect key="frame" x="0.0" y="79" width="88.5" height="15.5"/>
+                                                                <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1355,10 +1355,11 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxz-Iy-uaq">
-                                                                                    <rect key="frame" x="51.5" y="0.0" width="31.5" height="32.5"/>
+                                                                                    <rect key="frame" x="51.5" y="0.0" width="85.5" height="32.5"/>
                                                                                 </stackView>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmH-T3-UDw" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="88" y="0.0" width="49" height="32.5"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmH-T3-UDw" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="139.5" y="0.0" width="49" height="32.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                     <state key="normal" title="사유"/>
                                                                                     <connections>
                                                                                         <action selector="didTapReason:" destination="Q5Y-DL-q5g" eventType="touchUpInside" id="jd9-gb-hRt"/>
@@ -1366,6 +1367,7 @@
                                                                                 </button>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9V-D2-g0K" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
                                                                                     <rect key="frame" x="142" y="0.0" width="49" height="32.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                     <state key="normal" title="수정"/>
                                                                                     <connections>
                                                                                         <action selector="didTapEdit:" destination="Q5Y-DL-q5g" eventType="touchUpInside" id="aE7-6j-BJA"/>
@@ -1374,6 +1376,7 @@
                                                                                 </button>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zo-Fx-ht6" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
                                                                                     <rect key="frame" x="196" y="0.0" width="49" height="32.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                     <state key="normal" title="삭제"/>
                                                                                     <connections>
                                                                                         <action selector="didTapDelete:" destination="Q5Y-DL-q5g" eventType="touchUpInside" id="sz0-6P-IFQ"/>
@@ -1467,32 +1470,31 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGN-ZT-Lei" customClass="CustomView" customModule="JeonGoo" customModuleProvider="target">
                                 <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="RRl-59-NXH">
-                                        <rect key="frame" x="10" y="10" width="180" height="180"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jri-6G-fjg">
-                                                <rect key="frame" x="0.0" y="0.0" width="180" height="110"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyQ-ad-4T7" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="150" width="180" height="30"/>
-                                                <state key="normal" title="확인"/>
-                                                <connections>
-                                                    <action selector="didTapBtn:" destination="7rc-mC-FDe" eventType="touchUpInside" id="lp4-PG-6GR"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChH-Uy-FRD">
+                                        <rect key="frame" x="10" y="10" width="180" height="140"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyQ-ad-4T7" customClass="CustomButton" customModule="JeonGoo" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="160" width="180" height="30"/>
+                                        <state key="normal" title="확인"/>
+                                        <connections>
+                                            <action selector="didTapBtn:" destination="7rc-mC-FDe" eventType="touchUpInside" id="lp4-PG-6GR"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="RRl-59-NXH" secondAttribute="trailing" constant="10" id="I2s-gR-Fua"/>
+                                    <constraint firstItem="ChH-Uy-FRD" firstAttribute="top" secondItem="nGN-ZT-Lei" secondAttribute="top" constant="10" id="AEZ-eX-voI"/>
+                                    <constraint firstAttribute="trailing" secondItem="ChH-Uy-FRD" secondAttribute="trailing" constant="10" id="N0Y-Ai-frh"/>
                                     <constraint firstAttribute="width" constant="200" id="Oq1-19-c1w"/>
-                                    <constraint firstAttribute="bottom" secondItem="RRl-59-NXH" secondAttribute="bottom" constant="10" id="ieQ-Jo-XRr"/>
-                                    <constraint firstItem="RRl-59-NXH" firstAttribute="top" secondItem="nGN-ZT-Lei" secondAttribute="top" constant="10" id="k6k-YP-Ckw"/>
+                                    <constraint firstItem="ChH-Uy-FRD" firstAttribute="leading" secondItem="nGN-ZT-Lei" secondAttribute="leading" constant="10" id="aJn-IR-XUr"/>
+                                    <constraint firstItem="GyQ-ad-4T7" firstAttribute="leading" secondItem="nGN-ZT-Lei" secondAttribute="leading" constant="10" id="ei5-6r-MeB"/>
+                                    <constraint firstAttribute="bottom" secondItem="GyQ-ad-4T7" secondAttribute="bottom" constant="10" id="hgu-rp-ipd"/>
+                                    <constraint firstItem="ChH-Uy-FRD" firstAttribute="height" secondItem="nGN-ZT-Lei" secondAttribute="height" multiplier="0.7" id="lHO-75-hH5"/>
+                                    <constraint firstAttribute="trailing" secondItem="GyQ-ad-4T7" secondAttribute="trailing" constant="10" id="nPp-aN-PDj"/>
                                     <constraint firstAttribute="height" constant="200" id="p4r-hr-Zgy"/>
-                                    <constraint firstItem="RRl-59-NXH" firstAttribute="leading" secondItem="nGN-ZT-Lei" secondAttribute="leading" constant="10" id="wrL-Yg-owy"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1505,7 +1507,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lF6-m8-iMn"/>
                     <connections>
-                        <outlet property="reasonStr" destination="Jri-6G-fjg" id="dRI-TE-pfI"/>
+                        <outlet property="reasonStr" destination="ChH-Uy-FRD" id="0QS-zP-o3r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFf-h3-nF3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

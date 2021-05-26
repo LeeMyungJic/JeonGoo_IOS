@@ -1,10 +1,3 @@
-//
-//  SetLabelUI.swift
-//  JeonGoo
-//
-//  Created by 이명직 on 2021/05/21.
-//
-
 import Foundation
 import UIKit
 

@@ -21,7 +21,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var getProducts = [productData]()
     var productViewModel = ProductViewModel()
     
-    // MARK: --
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

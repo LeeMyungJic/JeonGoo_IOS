@@ -8,6 +8,8 @@
 import UIKit
 import Alamofire
 
+import Photos
+
 class ItemRegister2ViewController: UIViewController {
 
     // MARK: --
@@ -26,6 +28,8 @@ class ItemRegister2ViewController: UIViewController {
     
     var imageDatas = [UIImage]()
     let productViewModel = ProductViewModel()
+    
+    var getData : NSData?
     // MARK: --
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,27 @@ class ItemRegister2ViewController: UIViewController {
         oldButton?.alternateButton = [newButton!]
         setEnabledButton(nextButton)
         
-        imageDatas.append(UIImage(named: "like1")!)
-        imageDatas.append(UIImage(named: "like2")!)
+        // sample video test URL
+        let videoImageUrl = "http://techslides.com/demos/sample-videos/small.mp4"
+
+        DispatchQueue.global(qos: .background).async {
+            if let url = URL(string: videoImageUrl),
+                let urlData = NSData(contentsOf: url) {
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
+                let filePath="\(documentsPath)/tempFile.mp4"
+                DispatchQueue.main.async {
+                    urlData.write(toFile: filePath, atomically: true)
+                    PHPhotoLibrary.shared().performChanges({
+                        PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL(fileURLWithPath: filePath))
+                    }) { completed, error in
+                        if completed {
+                            print("Video is saved!")
+                        }
+                    }
+                }
+                self.getData = urlData
+            }
+        }
     }
     
     // MARK: --
@@ -62,6 +85,8 @@ class ItemRegister2ViewController: UIViewController {
     @IBAction func Cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    // 다음 페이지는 카메라를 사용하는데 시뮬레이터라 에러발생으로 일단 next 버튼 누르면 상품을 등록하도록 구현
     @IBAction func next(_ sender: Any) {
         var productStatus = "USED"
         if newButton.isSelected {
@@ -70,17 +95,15 @@ class ItemRegister2ViewController: UIViewController {
         let header: HTTPHeaders = ["Content-Type": "multipart/form-data"]
         
         let url = URL(string: NetworkController.baseURL + "/products/users/\(MyPageViewController.userId!)")
-        let fileType: String
         
-        var images = [UIImage]()
     
         let parameters = ["description": detailStr.text!, "name": nameStr.text!, "price": priceStr.text!, "serialNumber": "serial", "useStatus": productStatus] as [String : Any]
         
-        images.append(UIImage(named: "macbookAir")!)
-        images.append(UIImage(named: "macbookPro")!)
+        imageDatas.append(UIImage(named: "macbookAir")!)
+        imageDatas.append(UIImage(named: "macbookPro")!)
         
         var data = [Data]()
-        for image in images {
+        for image in imageDatas {
             let imageData = image.jpegData(compressionQuality: 0.5)
             data.append(imageData!)
         }
@@ -90,14 +113,14 @@ class ItemRegister2ViewController: UIViewController {
             for (key, value) in parameters {
                 multipart.append("\(value)".data(using: .utf8)!, withName: key, mimeType: "text/plain")
             }
-            var cnt = 1
             for item in data {
-                multipart.append(item, withName: "imageFiles", fileName: "File_name\(cnt)", mimeType: "image/jpg")
-                cnt += 1
+                let randomNo: UInt32 = arc4random_uniform(100000000) + 1;
+
+                multipart.append(item, withName: "imageFiles", fileName: "File_name\(randomNo)", mimeType: "image/jpg")
             }
-            multipart.append(data[0], withName: "videoFile", fileName: "image.jpg", mimeType: "image/jpg")
             
-            
+            let randomNo: UInt32 = arc4random_uniform(100000000) + 1;
+            multipart.append(self.getData! as Data, withName: "videoFile", fileName: "\(randomNo).mp4", mimeType: "video/mp4")
         }, to: url!
         , headers: header).uploadProgress(queue: .main, closure: { progress in
             
@@ -112,7 +135,6 @@ class ItemRegister2ViewController: UIViewController {
             case .failure(_):
                 print("ERROR")
             }
-            
         })
     }
 }

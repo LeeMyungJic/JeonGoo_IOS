@@ -55,11 +55,6 @@ class DetailViewController: UIViewController {
         self.priceStackView.addSubview(MakeUnderLineInStackView(target: priceStackView))
         
         
-        grade.attributedText = CustomLabel.init().setLabel(text: self.grade.text!, code: 1).attributedText
-        
-        name.attributedText = CustomLabel.init().setLabel(text: self.name.text!, code: 2).attributedText
-        
-        
         pageControl.numberOfPages = imageStr.count
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.lightGray

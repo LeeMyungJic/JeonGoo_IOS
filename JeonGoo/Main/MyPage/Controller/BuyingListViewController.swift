@@ -13,7 +13,6 @@ class BuyingListCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var status: UILabel!
     
 }
 
@@ -78,7 +77,7 @@ class BuyingListViewController: UIViewController, UITableViewDataSource, UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier, "detail" == id {
-            if let controller = segue.destination as? DetailViewController {
+            if segue.destination is DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
                     DetailViewController.productId = getProducts[indexPath.row].productDetailDto.id
                 }

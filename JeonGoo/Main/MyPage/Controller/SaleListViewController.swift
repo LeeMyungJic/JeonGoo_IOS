@@ -1,10 +1,3 @@
-//
-//  SaleListViewController.swift
-//  JeonGoo
-//
-//  Created by 이명직 on 2021/03/10.
-//
-
 import UIKit
 import Moya
 class SaleListCell: UITableViewCell {
@@ -21,7 +14,7 @@ class SaleListCell: UITableViewCell {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var deleteBtn: CustomButton!
     @IBOutlet weak var editBtn: CustomButton!
-    @IBOutlet weak var certificationFailedBtn: UIButton!
+    @IBOutlet weak var certificationFailedBtn: CustomButton!
     
     @IBAction func didTapDelete(_ sender: Any) {
         delete()
@@ -49,7 +42,12 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = TableMain.dequeueReusableCell(withIdentifier: "SaleListCell") as! SaleListCell
+        
         cell.certificationFailedBtn.isHidden = true
+        if getProducts[indexPath.row].productDetailDto.certificationStatus == "FAILED" {
+            print("HIDDEN")
+            cell.certificationFailedBtn.isHidden = false
+        }
         cell.name.text = getProducts[indexPath.row].productDetailDto.name
         
         if getProducts[indexPath.row].productDetailDto.productGrade == "NONE" {
@@ -188,7 +186,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier, "detail" == id {
-            if let controller = segue.destination as? DetailViewController {
+            if segue.destination is DetailViewController {
                 if let indexPath = TableMain.indexPathForSelectedRow {
                     DetailViewController.productId = getProducts[indexPath.row].productDetailDto.id
                 }

@@ -34,15 +34,15 @@ class PersonalInformationViewController: UIViewController {
         nextBtn.isEnabled = false
         
         var attributedStr = NSMutableAttributedString(string: self.label1.text!)
-        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1), range: (self.label1.text as! NSString).range(of: "(필수)"))
+        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1), range: (self.label1.text! as NSString).range(of: "(필수)"))
         label1.attributedText = attributedStr
         
         attributedStr = NSMutableAttributedString(string: self.label2.text!)
-        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1), range: (self.label2.text as! NSString).range(of: "(필수)"))
+        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1), range: (self.label2.text! as NSString).range(of: "(필수)"))
         label2.attributedText = attributedStr
         
         attributedStr = NSMutableAttributedString(string: self.label3.text!)
-        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), range: (self.label3.text as! NSString).range(of: "(선택)"))
+        attributedStr.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), range: (self.label3.text! as NSString).range(of: "(선택)"))
         label3.attributedText = attributedStr
         // Do any additional setup after loading the view.
     }

@@ -10,7 +10,6 @@ import UIKit
 
 func ImageResize(getImage:UIImage, size:Double) -> UIImage {
     
-    let wif = 70
     var new_image : UIImage!
     let size = CGSize(width:  size  , height: size )
     

@@ -1,10 +1,3 @@
-//
-//  UserService.swift
-//  JeonGoo
-//
-//  Created by 이명직 on 2021/04/26.
-//
-
 import Moya
 import SwiftKeychainWrapper
 
@@ -34,9 +27,9 @@ extension UserService: TargetType {
             return "/users/signup"
         case let .findUser(userId):
             return "/users/\(userId)"
-        case let .modifyInfo:
+        case .modifyInfo:
             return "/users/\(MyPageViewController.userId!)"
-        case let .withdrawalUser:
+        case .withdrawalUser:
             return "/users/\(MyPageViewController.userId!)"
         }
     }
@@ -64,9 +57,9 @@ extension UserService: TargetType {
             return .requestCompositeParameters(bodyParameters: ["email": email, "password": password], bodyEncoding: JSONEncoding.default, urlParameters: .init())
         case .signup(email: let email, password: let password, name: let name, number: let number, gender: let gender, address : let address, detailAddress : let detailAddress):
             return .requestCompositeParameters(bodyParameters: ["addressDto" : ["city" : address, "detailed" : detailAddress], "email" : email, "gender" : gender, "name" : name, "password" : password, "phoneNumber" : number], bodyEncoding: JSONEncoding.default, urlParameters: .init())
-        case .findUser(id: let userId):
+        case .findUser(_):
             return .requestPlain
-        case .modifyInfo(email: let email, password: let password, name: let name, number: let number, gender: let gender, address : let address, detailAddress : let detailAddress):
+        case .modifyInfo(_, _, _, _, _, _, _):
             return .requestPlain
         case .withdrawalUser:
             return .requestPlain

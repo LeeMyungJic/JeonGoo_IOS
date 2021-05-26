@@ -1,10 +1,3 @@
-//
-//  PDataService.swift
-//  JeonGoo
-//
-//  Created by 이명직 on 2021/04/29.
-//
-
 import Foundation
 import Moya
 
@@ -25,22 +18,17 @@ class ProductDataService {
         provider.request(.findAll) { result in
             switch result {
             case .success(let response):
-                do {
-                    //self.getProducts = [productData]()
-                    
-                    let result = try! JSONDecoder().decode(ResponseArrayType<productData>.self, from: response.data)
-                    self.getProducts = result.data!
-                    completion(self.getProducts, nil)
-                }
-                catch (let error) {
-                    completion([], error)
-                }
+                
+                let result = try! JSONDecoder().decode(ResponseArrayType<productData>.self, from: response.data)
+                self.getProducts = result.data!
+                completion(self.getProducts, nil)
+                
             case .failure(let error):
                 completion([], error)
             }
         }
     }
-
+    
     func requestProductsByUserId(completion: @escaping (([productData], Error?) -> Void)) {
         provider.request(.findByUserId) { result in
             switch result {
@@ -67,14 +55,10 @@ class ProductDataService {
             
             switch result {
             case .success(let response):
-                do {
-                    let result = try! JSONDecoder().decode(ResponseType<productData>.self, from: response.data)
-                    self.getProduct = result.data!
-                    completion(self.getProduct, nil)
-                }
-                catch (let error) {
-                    completion(self.getProduct, error)
-                }
+                let result = try! JSONDecoder().decode(ResponseType<productData>.self, from: response.data)
+                self.getProduct = result.data!
+                completion(self.getProduct, nil)
+                
             case .failure(let error):
                 completion(self.getProduct, error)
             }
@@ -191,7 +175,7 @@ class ProductDataService {
     
     func requestSetInterestProductByProductId(productId: Int, completion: @escaping ((Post?, Error?) -> Void)) {
         provider.request(.setInterestProduct(productId: productId)) { result in
-        
+            
             switch result {
             case .success(let response):
                 do {

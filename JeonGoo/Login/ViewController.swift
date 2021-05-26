@@ -8,6 +8,8 @@
 import UIKit
 import Alamofire
 
+import Photos
+
 import Moya
 
 class ViewController: UIViewController {
@@ -20,11 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
     }
-    
     
     @IBAction func Login(_ sender: Any) {
         userViewModel.signInPost(email: self.idLabel.text!, pass: passLabel.text!) { state in
@@ -37,6 +35,7 @@ class ViewController: UIViewController {
             
         }
     }
+    
     
     func nextVC() {
         let storyboard = UIStoryboard.init(name: "Pages", bundle: nil)

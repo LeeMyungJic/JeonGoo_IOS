@@ -32,19 +32,19 @@ extension ProductService: TargetType {
             return "/products"
         case let .findById(productId):
             return "/products/\(productId)/users/\(MyPageViewController.userId!)"
-        case let .findByUserId:
+        case .findByUserId:
             return "/products/users/\(MyPageViewController.userId!)"
-        case let .productRegistration(userId):
+        case .productRegistration(_, _, _, _, _, _):
             return "/products/users/\(MyPageViewController.userId!)"
-        case let .removeProduct:
+        case .removeProduct:
             return "/products/\(SaleListViewController.selectedId)"
-        case let .purchaseProduct:
+        case .purchaseProduct:
             return "/products/\(DetailViewController.productId)/purchase/\(MyPageViewController.userId!)"
-        case let .findPurchaseProductByUserId:
+        case .findPurchaseProductByUserId:
             return "/purchased/products/users/\(MyPageViewController.userId!)/purchased"
-        case let .findSellProductByUserId:
+        case .findSellProductByUserId:
             return "/purchased/products/users/\(MyPageViewController.userId!)/sell"
-        case let .findInterestedProduct:
+        case .findInterestedProduct:
             return "/interest/products/users/\(MyPageViewController.userId!)"
         case let .setInterestProduct(productId):
             return "/interest/products/\(productId)/users/\(MyPageViewController.userId!)"
@@ -82,7 +82,7 @@ extension ProductService: TargetType {
         switch self {
         case .findAll:
             return .requestPlain
-        case .findById(productId: let productId):
+        case .findById(_):
             return .requestPlain
         case .findByUserId:
             return .requestPlain
