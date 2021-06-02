@@ -508,6 +508,7 @@
     oldButton?.alternateButton = [newButton!]
     ~~~
 
+
 ---
 
 ## 2021 04 14
@@ -569,6 +570,7 @@
   }
   ~~~
 
+
 ---
 
 ## 2021 05 24
@@ -579,7 +581,6 @@
   let header: HTTPHeaders = ["Content-Type": "multipart/form-data"]
           
           let url = URL(string: NetworkController.baseURL + "/products/users/\(MyPageViewController.userId!)")
-          let fileType: String
           
           var images = [UIImage]()
       
@@ -629,6 +630,111 @@
           })
   ~~~
 
+---
+
+## 2021 05 26
+
+- ###### 상품 등록 페이지 - video 업로드 구현 / 미디어 이름 중복을 방지하기 위해 파일 이름에 random 값 부여
+
+  - 시뮬레이터로 영상을 촬영할 수 없기 때문에 URL로 영상 다운로드 -> 다운로드한 영상을 업로드 하는 방식으로 구현
+
+  ~~~ swift
+  import Alamofire
+  import Photos
+  
+  class ItemRegister2ViewController: UIViewController {
+   
+      // 이미지를 담을 배열
+      var imageDatas = [UIImage]()
+      let productViewModel = ProductViewModel()
+      
+      // URL로 영상 저장 후 getData에 넣기
+      var getData : NSData?
+    
+      override func viewDidLoad() {
+    
+          // sample video test URL
+          let videoImageUrl = "http://techslides.com/demos/sample-videos/small.mp4"
+  
+          // URL로 부터 동영상 저장 후 getData에 넣어줌
+          DispatchQueue.global(qos: .background).async {
+              if let url = URL(string: videoImageUrl),
+                  let urlData = NSData(contentsOf: url) {
+                  let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
+                  let filePath="\(documentsPath)/tempFile.mp4"
+                  DispatchQueue.main.async {
+                      urlData.write(toFile: filePath, atomically: true)
+                      PHPhotoLibrary.shared().performChanges({
+                          PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL(fileURLWithPath: filePath))
+                      }) { completed, error in
+                          if completed {
+                              print("Video is saved!")
+                          }
+                      }
+                  }
+                  self.getData = urlData
+              }
+          }
+          
+      }
+      @IBAction func next(_ sender: Any) {
+          var productStatus = "USED"
+          if newButton.isSelected {
+              productStatus = "DISUSED"
+          }
+          let header: HTTPHeaders = ["Content-Type": "multipart/form-data"]
+          
+          let url = URL(string: NetworkController.baseURL + "/products/users/\(MyPageViewController.userId!)")
+          
+      
+          let parameters = ["description": detailStr.text!, "name": nameStr.text!, "price": priceStr.text!, "serialNumber": "serial", "useStatus": productStatus] as [String : Any]
+          
+          // 임의의 사진 넣기
+          imageDatas.append(UIImage(named: "macbookAir")!)
+          imageDatas.append(UIImage(named: "macbookPro")!)
+          
+          var data = [Data]()
+          for image in imageDatas {
+              let imageData = image.jpegData(compressionQuality: 0.5)
+              data.append(imageData!)
+          }
+          
+          AF.upload(multipartFormData: { multipart in
+              
+              for (key, value) in parameters {
+                  multipart.append("\(value)".data(using: .utf8)!, withName: key, mimeType: "text/plain")
+              }
+              for item in data {
+                  // 이름이 겹치지 않게 random 값을 넣어줌
+                  let randomNo: UInt32 = arc4random_uniform(100000000) + 1;
+  
+                  multipart.append(item, withName: "imageFiles", fileName: "File_name\(randomNo)", mimeType: "image/jpg")
+              }
+              
+              let randomNo: UInt32 = arc4random_uniform(100000000) + 1;
+                                        
+              // 저장한 동영상을 업로드                          
+              multipart.append(self.getData! as Data, withName: "videoFile", fileName: "\(randomNo).mp4", mimeType: "video/mp4")
+          }, to: url!
+          , headers: header).uploadProgress(queue: .main, closure: { progress in
+              
+              
+          }).responseJSON(completionHandler: { data in
+              switch data.result {
+              case .success(_):
+                  do {
+                      print("success")
+                  }
+                  
+              case .failure(_):
+                  print("ERROR")
+              }
+          })
+      }
+  }
+  
+  ~~~
+
   
 
 ## Trouble Shooting
@@ -655,24 +761,7 @@
   - else 문에 디폴트 이미지값을 넣어주는 코드 추가 
 
     ~~~ swift
-    DispatchQueue.main.async {
-                for i in self.searchData[indexPath.row].productDetailDto.fileList {
-                    if i.filePath != "" && i.fileType == "IMAGE" {
-                        let url = URL(string: i.filePath)
-                        do {
-                            let data = try Data(contentsOf: url!)
-                            cell.itemImage.image = UIImage(data: data)
-                            break
-                        }
-                        catch {
-                            
-                        }
-                    }
-                    else {
-                        cell.itemImage.image = UIImage(named: "defaultImage")
-                    }
-                }
-            }
+    DispatchQueue.main.async {            for i in self.searchData[indexPath.row].productDetailDto.fileList {                if i.filePath != "" && i.fileType == "IMAGE" {                    let url = URL(string: i.filePath)                    do {                        let data = try Data(contentsOf: url!)                        cell.itemImage.image = UIImage(data: data)                        break                    }                    catch {                                            }                }                else {                    cell.itemImage.image = UIImage(named: "defaultImage")                }            }        }
     ~~~
 
     
