@@ -134,7 +134,7 @@ class DetailViewController: UIViewController {
                 else {
                     if getItem.productDetailDto.useStatus == "DISUSED" {
                         self.grade.text = "새상품"
-                        self.grade.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                        self.grade.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
                         
                     }
                     else {
@@ -163,17 +163,6 @@ class DetailViewController: UIViewController {
         }
     }
     
-    fileprivate func showPostErrorAlert() {
-        showAlertController(withTitle: "구매 실패", message: "서버가 불안정합니다.", completion: nil)
-    }
-    
-    fileprivate func showSuccessAlert() {
-        let msgalert = UIAlertController(title: "구매 성공", message: "상품을 구매하였습니다", preferredStyle: .alert)
-        
-        let YES = UIAlertAction(title: "확인", style: .default)
-        msgalert.addAction(YES)
-        present(msgalert, animated: true, completion: nil)
-    }
     
     // MARK: --
     @IBAction func back(_ sender: Any) {
@@ -207,14 +196,5 @@ class DetailViewController: UIViewController {
             self.likes.text = "관심 \(self.likeValue)"
         }
         self.present(popUp!, animated: false, completion: nil)
-    }
-    @IBAction func didTapPurchaseBtn(_ sender: Any) {
-        productViewModel.purchaseProduct { state in
-            switch state {
-            case .success: self.showSuccessAlert()
-            case .failure: self.showPostErrorAlert()
-            case .serverError: self.showPostErrorAlert()
-            }
-        }
     }
 }

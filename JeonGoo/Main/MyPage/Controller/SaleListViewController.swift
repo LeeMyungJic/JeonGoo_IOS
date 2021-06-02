@@ -56,7 +56,7 @@ class SaleListViewController: UIViewController, UITableViewDelegate, UITableView
         else {
             if getProducts[indexPath.row].productDetailDto.useStatus == "DISUSED" {
                 cell.grade.text = "새상품"
-                cell.grade.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                cell.grade.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
                 
             }
             else {

@@ -43,8 +43,9 @@ class ItemRegister2ViewController: UIViewController {
         setEnabledButton(nextButton)
         
         // sample video test URL
-        let videoImageUrl = "http://techslides.com/demos/sample-videos/small.mp4"
+        let videoImageUrl = ""
 
+        print("DownLoad ...")
         DispatchQueue.global(qos: .background).async {
             if let url = URL(string: videoImageUrl),
                 let urlData = NSData(contentsOf: url) {
@@ -57,6 +58,9 @@ class ItemRegister2ViewController: UIViewController {
                     }) { completed, error in
                         if completed {
                             print("Video is saved!")
+                        }
+                        else {
+                            print("Video Save Error")
                         }
                     }
                 }
@@ -120,10 +124,10 @@ class ItemRegister2ViewController: UIViewController {
             }
             
             let randomNo: UInt32 = arc4random_uniform(100000000) + 1;
-            multipart.append(self.getData! as Data, withName: "videoFile", fileName: "\(randomNo).mp4", mimeType: "video/mp4")
+            //multipart.append(self.getData! as Data, withName: "videoFile", fileName: "\(randomNo).mp4", mimeType: "video/mp4")
+            multipart.append(data[0], withName: "videoFile", fileName: "\(randomNo).mp4", mimeType: "video/mp4")
         }, to: url!
         , headers: header).uploadProgress(queue: .main, closure: { progress in
-            
             
         }).responseJSON(completionHandler: { data in
             switch data.result {

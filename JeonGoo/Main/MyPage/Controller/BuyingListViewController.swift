@@ -13,6 +13,7 @@ class BuyingListCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var genuin: UILabel!
     
 }
 
@@ -36,12 +37,16 @@ class BuyingListViewController: UIViewController, UITableViewDataSource, UITable
         else {
             if getProducts[indexPath.row].productDetailDto.useStatus == "DISUSED" {
                 cell.grade.text = "새상품"
-                cell.grade.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                cell.grade.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
                 
             }
             else {
                 cell.grade.text = setGrade(value: getProducts[indexPath.row].productDetailDto.productGrade)
             }
+        }
+        if getProducts[indexPath.row].productDetailDto.certificationStatus == "COMPLETED" {
+            cell.genuin.text = "정품"
+            cell.genuin.textColor = #colorLiteral(red: 0.2930094004, green: 0.270149976, blue: 0.9494245648, alpha: 1)
         }
         cell.price.text = "\(getProducts[indexPath.row].productDetailDto.price)원"
         

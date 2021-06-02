@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             switch state {
             case .success: self.nextVC()
             case .failure: self.showPostErrorAlert()
-            case .serverError: self.showIncoreectErrorAlert()
+            case .serverError: self.showPostErrorAlert()
             }
             
         }
