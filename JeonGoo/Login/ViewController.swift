@@ -7,8 +7,9 @@
 
 import UIKit
 import Alamofire
-
+import SwiftyJSON
 import Photos
+
 
 import Moya
 
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     @IBAction func Login(_ sender: Any) {
@@ -35,7 +37,6 @@ class ViewController: UIViewController {
             
         }
     }
-    
     
     func nextVC() {
         let storyboard = UIStoryboard.init(name: "Pages", bundle: nil)
@@ -52,6 +53,10 @@ class ViewController: UIViewController {
     }
     fileprivate func showIncoreectErrorAlert() {
         showAlertController(withTitle: "로그인 실패", message: "아이디와 패스워드를 확인하세요", completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
 }
 

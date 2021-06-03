@@ -16,9 +16,13 @@
 		DA0AA313263A8A5200D6C206 /* ProductDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA312263A8A5200D6C206 /* ProductDataService.swift */; };
 		DA0AA318263A8BBB00D6C206 /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA317263A8BBB00D6C206 /* Get.swift */; };
 		DA0AA322263A8DE600D6C206 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AA321263A8DE600D6C206 /* ProductViewModel.swift */; };
+		DA0EF49A2667B41B000D1165 /* KakaoCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0EF4972667B41A000D1165 /* KakaoCommon.framework */; };
+		DA0EF49B2667B41B000D1165 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0EF4982667B41B000D1165 /* KakaoOpenSDK.framework */; };
+		DA0EF49C2667B41B000D1165 /* KakaoLink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0EF4992667B41B000D1165 /* KakaoLink.framework */; };
 		DA1C1A9526565BAA00E128ED /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C1A9426565BAA00E128ED /* CustomStackView.swift */; };
 		DA3615BA26675B66005E90E6 /* PurchaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3615B926675B66005E90E6 /* PurchaseDetailViewController.swift */; };
 		DA3615BC26676C5E005E90E6 /* drawLineInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3615BB26676C5E005E90E6 /* drawLineInView.swift */; };
+		DA3615BE26677900005E90E6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3615BD26677900005E90E6 /* TestViewController.swift */; };
 		DA55BDFC25F89553007291B1 /* SaleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BDFB25F89553007291B1 /* SaleListViewController.swift */; };
 		DA55BE0425F89564007291B1 /* BuyingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE0325F89564007291B1 /* BuyingListViewController.swift */; };
 		DA55BE0925F89572007291B1 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE0825F89572007291B1 /* WishListViewController.swift */; };
@@ -101,9 +105,13 @@
 		DA0AA312263A8A5200D6C206 /* ProductDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataService.swift; sourceTree = "<group>"; };
 		DA0AA317263A8BBB00D6C206 /* Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
 		DA0AA321263A8DE600D6C206 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		DA0EF4972667B41A000D1165 /* KakaoCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoCommon.framework; sourceTree = "<group>"; };
+		DA0EF4982667B41B000D1165 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		DA0EF4992667B41B000D1165 /* KakaoLink.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoLink.framework; sourceTree = "<group>"; };
 		DA1C1A9426565BAA00E128ED /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		DA3615B926675B66005E90E6 /* PurchaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDetailViewController.swift; sourceTree = "<group>"; };
 		DA3615BB26676C5E005E90E6 /* drawLineInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawLineInView.swift; sourceTree = "<group>"; };
+		DA3615BD26677900005E90E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		DA55BDFB25F89553007291B1 /* SaleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleListViewController.swift; sourceTree = "<group>"; };
 		DA55BE0325F89564007291B1 /* BuyingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingListViewController.swift; sourceTree = "<group>"; };
 		DA55BE0825F89572007291B1 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +173,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA0EF49C2667B41B000D1165 /* KakaoLink.framework in Frameworks */,
 				B19005EF780CC99BD0226353 /* Pods_JeonGoo.framework in Frameworks */,
+				DA0EF49A2667B41B000D1165 /* KakaoCommon.framework in Frameworks */,
+				DA0EF49B2667B41B000D1165 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +215,9 @@
 		56F94F53880A5EC7DCD851FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA0EF4972667B41A000D1165 /* KakaoCommon.framework */,
+				DA0EF4992667B41B000D1165 /* KakaoLink.framework */,
+				DA0EF4982667B41B000D1165 /* KakaoOpenSDK.framework */,
 				68AE2A590AEE4093599C2B63 /* Pods_JeonGoo.framework */,
 				8D66D1525DCF20B3EF2A78B4 /* Pods_JeonGoo_JeonGooUITests.framework */,
 				387C9FDFFB4DE3804F32E2E6 /* Pods_JeonGooTests.framework */,
@@ -486,6 +500,7 @@
 				DACB801D25F0D82B004D6E82 /* ViewController.swift */,
 				DAF3DBC625FF466400C507BC /* JoinViewController.swift */,
 				DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */,
+				DA3615BD26677900005E90E6 /* TestViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -753,6 +768,7 @@
 				DAB66E2B263954860061959C /* ViewModelState.swift in Sources */,
 				DA0AA318263A8BBB00D6C206 /* Get.swift in Sources */,
 				DAB66DCA2636AB050061959C /* ProductService.swift in Sources */,
+				DA3615BE26677900005E90E6 /* TestViewController.swift in Sources */,
 				DA626F392601F8A200B35794 /* NetworkController.swift in Sources */,
 				DACB806F25F0DD88004D6E82 /* MyPageViewController.swift in Sources */,
 				DA00CDCF263FE90D00D507D9 /* product.swift in Sources */,
@@ -965,6 +981,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L96BVXND6V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = JeonGoo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -985,6 +1005,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L96BVXND6V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = JeonGoo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
