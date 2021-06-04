@@ -22,7 +22,6 @@
 		DA1C1A9526565BAA00E128ED /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C1A9426565BAA00E128ED /* CustomStackView.swift */; };
 		DA3615BA26675B66005E90E6 /* PurchaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3615B926675B66005E90E6 /* PurchaseDetailViewController.swift */; };
 		DA3615BC26676C5E005E90E6 /* drawLineInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3615BB26676C5E005E90E6 /* drawLineInView.swift */; };
-		DA3615BE26677900005E90E6 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3615BD26677900005E90E6 /* TestViewController.swift */; };
 		DA55BDFC25F89553007291B1 /* SaleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BDFB25F89553007291B1 /* SaleListViewController.swift */; };
 		DA55BE0425F89564007291B1 /* BuyingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE0325F89564007291B1 /* BuyingListViewController.swift */; };
 		DA55BE0925F89572007291B1 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55BE0825F89572007291B1 /* WishListViewController.swift */; };
@@ -46,6 +45,7 @@
 		DAB66E26263953DE0061959C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66E25263953DE0061959C /* Post.swift */; };
 		DAB66E2B263954860061959C /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66E2A263954860061959C /* ViewModelState.swift */; };
 		DAB66E34263954C30061959C /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB66E33263954C30061959C /* UIViewController+Alert.swift */; };
+		DAB772A6266A198C00BD8853 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB772A5266A198C00BD8853 /* PaymentViewController.swift */; };
 		DACB801A25F0D82B004D6E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801925F0D82B004D6E82 /* AppDelegate.swift */; };
 		DACB801C25F0D82B004D6E82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801B25F0D82B004D6E82 /* SceneDelegate.swift */; };
 		DACB801E25F0D82B004D6E82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB801D25F0D82B004D6E82 /* ViewController.swift */; };
@@ -111,7 +111,6 @@
 		DA1C1A9426565BAA00E128ED /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		DA3615B926675B66005E90E6 /* PurchaseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDetailViewController.swift; sourceTree = "<group>"; };
 		DA3615BB26676C5E005E90E6 /* drawLineInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawLineInView.swift; sourceTree = "<group>"; };
-		DA3615BD26677900005E90E6 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		DA55BDFB25F89553007291B1 /* SaleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleListViewController.swift; sourceTree = "<group>"; };
 		DA55BE0325F89564007291B1 /* BuyingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyingListViewController.swift; sourceTree = "<group>"; };
 		DA55BE0825F89572007291B1 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +135,7 @@
 		DAB66E25263953DE0061959C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DAB66E2A263954860061959C /* ViewModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelState.swift; sourceTree = "<group>"; };
 		DAB66E33263954C30061959C /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		DAB772A5266A198C00BD8853 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		DACB801625F0D82B004D6E82 /* JeonGoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeonGoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACB801925F0D82B004D6E82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DACB801B25F0D82B004D6E82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -319,6 +319,7 @@
 				DACB806425F0DD68004D6E82 /* MainViewController.swift */,
 				DACB80B825F22730004D6E82 /* DetailViewController.swift */,
 				DA3615B926675B66005E90E6 /* PurchaseDetailViewController.swift */,
+				DAB772A5266A198C00BD8853 /* PaymentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -500,7 +501,6 @@
 				DACB801D25F0D82B004D6E82 /* ViewController.swift */,
 				DAF3DBC625FF466400C507BC /* JoinViewController.swift */,
 				DAF3DBCE25FF48DE00C507BC /* PersonalInformationViewController.swift */,
-				DA3615BD26677900005E90E6 /* TestViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -768,9 +768,9 @@
 				DAB66E2B263954860061959C /* ViewModelState.swift in Sources */,
 				DA0AA318263A8BBB00D6C206 /* Get.swift in Sources */,
 				DAB66DCA2636AB050061959C /* ProductService.swift in Sources */,
-				DA3615BE26677900005E90E6 /* TestViewController.swift in Sources */,
 				DA626F392601F8A200B35794 /* NetworkController.swift in Sources */,
 				DACB806F25F0DD88004D6E82 /* MyPageViewController.swift in Sources */,
+				DAB772A6266A198C00BD8853 /* PaymentViewController.swift in Sources */,
 				DA00CDCF263FE90D00D507D9 /* product.swift in Sources */,
 				DACB807425F0DFDE004D6E82 /* ItemRegister2ViewController.swift in Sources */,
 				DACB801A25F0D82B004D6E82 /* AppDelegate.swift in Sources */,

@@ -38,15 +38,6 @@
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Mg-95-ahn">
                                 <rect key="frame" x="0.0" y="44" width="414" height="286.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90R-NX-Smv">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="286.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="ark-Do-aYZ" kind="show" id="2Nf-wZ-lbc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0E6-JQ-ECz" customClass="CustomView" customModule="JeonGoo" customModuleProvider="target">
                                 <rect key="frame" x="30" y="330.5" width="354" height="358.5"/>
@@ -152,63 +143,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="14" y="89"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="3M7-wF-Ccr">
-            <objects>
-                <viewController id="ark-Do-aYZ" customClass="TestViewController" customModule="JeonGoo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QKl-P7-uOe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbw-TT-5he">
-                                <rect key="frame" x="0.0" y="44" width="414" height="762.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2H-Cu-Fj4">
-                                <rect key="frame" x="0.0" y="806.5" width="414" height="89.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehi-Rp-Kvd">
-                                        <rect key="frame" x="0.0" y="0.0" width="194.5" height="89.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="reloadTab:" destination="ark-Do-aYZ" eventType="touchUpInside" id="aG4-pU-0fI"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMz-sv-MJy">
-                                        <rect key="frame" x="194.5" y="0.0" width="219.5" height="89.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="backTab:" destination="ark-Do-aYZ" eventType="touchUpInside" id="3m0-FL-tpH"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ehi-Rp-Kvd" firstAttribute="width" secondItem="Z2H-Cu-Fj4" secondAttribute="width" multiplier="0.47" id="tbA-k6-8zY"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="svT-hF-mNH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="svT-hF-mNH" firstAttribute="trailing" secondItem="Z2H-Cu-Fj4" secondAttribute="trailing" id="BdN-9K-Ta4"/>
-                            <constraint firstItem="mbw-TT-5he" firstAttribute="leading" secondItem="svT-hF-mNH" secondAttribute="leading" id="BiY-OH-hph"/>
-                            <constraint firstItem="mbw-TT-5he" firstAttribute="top" secondItem="svT-hF-mNH" secondAttribute="top" id="LAL-ls-n6I"/>
-                            <constraint firstItem="svT-hF-mNH" firstAttribute="trailing" secondItem="mbw-TT-5he" secondAttribute="trailing" id="Ute-Jo-Vzy"/>
-                            <constraint firstAttribute="bottom" secondItem="Z2H-Cu-Fj4" secondAttribute="bottom" id="VTy-6P-yek"/>
-                            <constraint firstItem="Z2H-Cu-Fj4" firstAttribute="leading" secondItem="svT-hF-mNH" secondAttribute="leading" id="W0q-n2-Zl9"/>
-                            <constraint firstItem="Z2H-Cu-Fj4" firstAttribute="top" secondItem="mbw-TT-5he" secondAttribute="bottom" id="gdd-jN-9Yy"/>
-                            <constraint firstItem="Z2H-Cu-Fj4" firstAttribute="height" secondItem="QKl-P7-uOe" secondAttribute="height" multiplier="0.1" id="ii5-7U-uVE"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="OHl-Fn-4ba"/>
-                    <connections>
-                        <outlet property="subView" destination="mbw-TT-5he" id="rS4-oJ-KPZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3KB-bP-a5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="11.594202898550726" y="784.82142857142856"/>
         </scene>
         <!--Personal Information View Controller-->
         <scene sceneID="151-7e-cdh">
