@@ -9,25 +9,37 @@ import XCTest
 @testable import JeonGoo
 
 class JeonGooTests: XCTestCase {
-
+    
+    private var userViewModel = UserViewModel()
+    private var state: ViewModelState?
+    private var id = "a@a.a"
+    private var pass = "1"
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        userViewModel.signInPost(email: self.id, pass: self.pass) { state in
+            self.state = state
+        }
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        id = "a@a.a"
+        pass = "1"
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_로그인성공() {
+        
+        XCTAssertEqual(state, .success)
     }
-
+    
+    func test_로그인실패() {
+        XCTAssertEqual(state, .failure)
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
 }

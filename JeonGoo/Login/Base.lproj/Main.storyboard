@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NanumSquareB.ttf">
+            <string>NanumSquareB</string>
+        </array>
         <array key="NanumSquare_acR.ttf">
             <string>NanumSquare_acR</string>
         </array>
@@ -31,7 +34,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JeonGoo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="JeonGoo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,39 +51,39 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1bA-PV-d0H">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="34"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amf-4K-TYZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="34"/>
-                                                        <fontDescription key="fontDescription" name="NanumSquare_acR" family="NanumSquare_ac" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amf-4K-TYZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="34"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWx-d6-xH9" customClass="SetTextUI" customModule="JeonGoo" customModuleProvider="target">
-                                                        <rect key="frame" x="54" y="0.0" width="240" height="34"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a@a.a" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWx-d6-xH9" customClass="SetTextUI" customModule="JeonGoo" customModuleProvider="target">
+                                                        <rect key="frame" x="83.5" y="0.0" width="210.5" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquare_acR" family="NanumSquare_ac" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="amf-4K-TYZ" firstAttribute="width" secondItem="1bA-PV-d0H" secondAttribute="width" multiplier="0.15" id="wZA-EO-Ghz"/>
+                                                    <constraint firstItem="amf-4K-TYZ" firstAttribute="width" secondItem="1bA-PV-d0H" secondAttribute="width" multiplier="0.25" id="wZA-EO-Ghz"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v0I-Df-eug">
                                                 <rect key="frame" x="0.0" y="44" width="294" height="34"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqQ-Pc-xTJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="34"/>
-                                                        <fontDescription key="fontDescription" name="NanumSquare_acR" family="NanumSquare_ac" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqQ-Pc-xTJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="34"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareB" family="NanumSquare" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EX2-zF-ita" customClass="SetTextUI" customModule="JeonGoo" customModuleProvider="target">
-                                                        <rect key="frame" x="54" y="0.0" width="240" height="34"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EX2-zF-ita" customClass="SetTextUI" customModule="JeonGoo" customModuleProvider="target">
+                                                        <rect key="frame" x="83.5" y="0.0" width="210.5" height="34"/>
                                                         <fontDescription key="fontDescription" name="NanumSquare_acR" family="NanumSquare_ac" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="nqQ-Pc-xTJ" firstAttribute="width" secondItem="v0I-Df-eug" secondAttribute="width" multiplier="0.15" id="JzO-hb-8GK"/>
+                                                    <constraint firstItem="nqQ-Pc-xTJ" firstAttribute="width" secondItem="v0I-Df-eug" secondAttribute="width" multiplier="0.25" id="JzO-hb-8GK"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>

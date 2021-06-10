@@ -85,60 +85,23 @@ class ItemRegister2ViewController: UIViewController {
         }
     }
     
-    // MARK: --
-    @IBAction func Cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    // 다음 페이지는 카메라를 사용하는데 시뮬레이터라 에러발생으로 일단 next 버튼 누르면 상품을 등록하도록 구현
-    @IBAction func next(_ sender: Any) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var productStatus = "USED"
         if newButton.isSelected {
             productStatus = "DISUSED"
         }
-        let header: HTTPHeaders = ["Content-Type": "multipart/form-data"]
-        
-        let url = URL(string: NetworkController.baseURL + "/products/users/\(MyPageViewController.userId!)")
-        
-    
-        let parameters = ["description": detailStr.text!, "name": nameStr.text!, "price": priceStr.text!, "serialNumber": "serial", "useStatus": productStatus] as [String : Any]
-        
-        imageDatas.append(UIImage(named: "macbookAir")!)
-        imageDatas.append(UIImage(named: "macbookPro")!)
-        
-        var data = [Data]()
-        for image in imageDatas {
-            let imageData = image.jpegData(compressionQuality: 0.5)
-            data.append(imageData!)
+        if let id = segue.identifier, "lastAdd" == id {
+            if let controller = segue.destination as? ItemRegister3ViewController {
+                controller.getName = self.nameStr.text
+                controller.getPrice = Int(self.priceStr.text!)
+                controller.getDescription = self.detailStr.text
+                controller.getUseStatus = productStatus
+            }
         }
-        
-        AF.upload(multipartFormData: { multipart in
-            
-            for (key, value) in parameters {
-                multipart.append("\(value)".data(using: .utf8)!, withName: key, mimeType: "text/plain")
-            }
-            for item in data {
-                let randomNo: UInt32 = arc4random_uniform(100000000) + 1;
-
-                multipart.append(item, withName: "imageFiles", fileName: "File_name\(randomNo)", mimeType: "image/jpg")
-            }
-            
-            let randomNo: UInt32 = arc4random_uniform(100000000) + 1;
-            //multipart.append(self.getData! as Data, withName: "videoFile", fileName: "\(randomNo).mp4", mimeType: "video/mp4")
-            multipart.append(data[0], withName: "videoFile", fileName: "\(randomNo).mp4", mimeType: "video/mp4")
-        }, to: url!
-        , headers: header).uploadProgress(queue: .main, closure: { progress in
-            
-        }).responseJSON(completionHandler: { data in
-            switch data.result {
-            case .success(_):
-                do {
-                    print("success")
-                }
-                
-            case .failure(_):
-                print("ERROR")
-            }
-        })
+    }
+    
+    // MARK: --
+    @IBAction func Cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

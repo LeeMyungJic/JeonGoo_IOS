@@ -8,6 +8,7 @@
 import UIKit
 import MobileCoreServices
 import Kingfisher
+import Alamofire
 
 class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -20,9 +21,11 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet weak var videoCountLabel: UILabel!
     
     // MARK: --
-    var videoURL: URL!
+    var getVideoData: Data?
+    
     var imageData = [UIImage]()
     var serialData = [UIImage]()
+    var presentImages = [UIImage]()
     
     var imageIsClick = false
     var serialIsClick = false
@@ -32,21 +35,28 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     
     let imagePicker = UIImagePickerController()
     
+    var getDescription : String?
+    var getName : String?
+    var getPrice : Int?
+    var getSerialNumber = ""
+    var getUseStatus : String?
+    
     // MARK: --
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageData.count
+        return presentImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = TableMain.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! imageCell
-        cell.image.image = imageData[indexPath.row]
+        cell.image.image = presentImages[indexPath.row]
         
         // 콜백 클로저로 셀 삭제
         cell.delete = { [unowned self] in
             
+            self.presentImages.remove(at: indexPath.row)
             self.imageData.remove(at: indexPath.row)
             self.TableMain.reloadData()
-            self.countLabel.text = "\(imageData.count) / 8"
+            self.countLabel.text = "\(presentImages.count) / 8"
         }
         return cell
     }
@@ -63,20 +73,62 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         
         TableMain.delegate = self
         TableMain.dataSource = self
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func Complete(_ sender: Any) {
-        let msg = UIAlertController(title: "등록완료", message: "상품등록을 완료하였습니다", preferredStyle: .alert)
         
+        let header: HTTPHeaders = ["Content-Type": "multipart/form-data"]
         
-        let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
+        let url = URL(string: NetworkController.baseURL + "/products/users/\(MyPageViewController.userId!)")
+        
+    
+        let parameters = ["description": getDescription!, "name": getName!, "price": getPrice!, "serialNumber": getSerialNumber, "useStatus": getUseStatus!] as [String : Any]
+        
+        var data = [Data]()
+        for image in self.imageData {
+            let imageData = image.jpegData(compressionQuality: 0.5)
+            data.append(imageData!)
+        }
+        
+        for image in self.serialData {
+            let imageData = image.jpegData(compressionQuality: 0.5)
+            data.append(imageData!)
+        }
+        AF.upload(multipartFormData: { multipart in
             
-            self.YesClick()
+            for (key, value) in parameters {
+                multipart.append("\(value)".data(using: .utf8)!, withName: key, mimeType: "text/plain")
+            }
+            for item in data {
+                let randomNo: UInt32 = arc4random_uniform(100000000) + 1
+
+                multipart.append(item, withName: "imageFiles", fileName: "File_name\(randomNo)", mimeType: "image/jpg")
+            }
+            
+            let randomNo: UInt32 = arc4random_uniform(100000000) + 1
+            multipart.append(self.getVideoData! as Data, withName: "videoFile", fileName: "\(randomNo).mp4", mimeType: "video/mp4")
+            
+        }, to: url!
+        , headers: header).uploadProgress(queue: .main, closure: { progress in
+            
+        }).responseJSON(completionHandler: { data in
+            switch data.result {
+            case .success(_):
+                do {
+                    print("success")
+                    let msg = UIAlertController(title: "등록완료", message: "상품등록을 완료하였습니다", preferredStyle: .alert)
+                    let YES = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
+                        
+                        self.YesClick()
+                    })
+                    msg.addAction(YES)
+                    self.present(msg, animated: true, completion: nil)
+                }
+                
+            case .failure(_):
+                print("ERROR")
+            }
         })
-        msg.addAction(YES)
-        self.present(msg, animated: true, completion: nil)
     }
     
     func YesClick() {
@@ -96,10 +148,6 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
     }
     
     @IBAction func clickVideo(_ sender: Any) {
-        var cnt = 0
-        if flagVideoSave {
-            cnt = 1
-        }
         if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
             flagVideoSave = true
             
@@ -159,7 +207,8 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
             // 사진을 가져옴
             let captureImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
             if imageIsClick {
-                imageData.append(resize(getImage: captureImage, size: 70))
+                imageData.append(captureImage)
+                presentImages.append(resize(getImage: captureImage, size: 70))
                 DispatchQueue.main.async {
                     self.countLabel.text = "\(self.imageData.count) / 8"
                     self.TableMain.reloadData()
@@ -169,6 +218,8 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
                 DispatchQueue.main.async {
                     self.countLabel.text = "1 / 1"
                     self.serialImage.image = self.resize(getImage: captureImage, size: 70)
+                    self.serialData.append(captureImage)
+                    print("시리얼 추가")
                 }
             }
             imageIsClick = false
@@ -176,17 +227,23 @@ class ItemRegister3ViewController: UIViewController, UICollectionViewDataSource,
         }
         else if mediaType.isEqual(to: kUTTypeMovie as NSString as String){
             if (info[.mediaURL] as? URL) != nil {
-                videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL
-                UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, self, nil, nil)
-                DispatchQueue.main.async {
-                    self.videoCountLabel.text = "1 / 1"
-                    self.videoData.kf.setImage(with: self.videoURL!)
+                guard let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL else {
+                    print("VIDEO URL NIL")
+                    return
+                }
+                do {
+                    self.getVideoData = try Data(contentsOf: videoURL, options: .mappedRead)
+                }
+                catch{
                     
                 }
                 
-                
+                UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, self, nil, nil)
+                DispatchQueue.main.async {
+                    self.videoCountLabel.text = "1 / 1"
+                    self.videoData.kf.setImage(with: videoURL)
+                }
             }
-            
         }
         // 현재의 뷰(이미지 피커) 제거
         self.dismiss(animated: true, completion: nil)
