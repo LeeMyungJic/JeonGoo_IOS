@@ -1,18 +1,35 @@
 # 전구 (전자기기를 구매하다)
 
-💡 제품 상태 검증을 통한 전자기기 구매 플랫폼
 ---
 
-- #### 제품 상태 검증을 통한 전자기기 구매 플랫폼
+서비스 소개
+---
 
-- #### 기술 스택
+- 제품 상태 검증을 통한 전자기기 구매 플랫폼
 
-  - `Swift 5`,  `Xcode 12`
+## 사용기술
 
-  - `Callback Closure`, `Delegate Pattern`, `MobileCoreServices`, `MVVM Pattern`
+- `Swift 5`,  `Xcode 12`
+- `RxSwift`, `Moya`, `Alamofire`, `multipart/form-data`
+- `MVVM Pattern`, `Delegate Pattern`
+- `kakaoPay`, `kakaoLocalAPI`
 
-    
+## 수행 역할
 
+- API 호출 후 처리되는 로직을 비동기화 하여 상황에 맞게 응답 값을 UI에 출력
+- 카카오페이를 연동하여 결제 진행
+
+## 개발 기간
+
+- 2021.03.05 ~ 2021.06.08
+
+## 주요 기능
+
+- #### 상품 등록
+
+- #### 카카오페이를 이용한 상품 구매
+
+- #### 관심 상품 등록 및 해제
 ---
 
 ## 2021 03 04
