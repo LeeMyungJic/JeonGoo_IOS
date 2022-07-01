@@ -12,7 +12,7 @@
 ## 사용기술
 
 - `Swift 5`,  `Xcode 12`
-- `RxSwift`, `Moya`, `Alamofire`, `multipart/form-data`
+- `Moya`, `Alamofire`, `multipart/form-data`
 - `MVVM Pattern`, `Delegate Pattern`
 - `kakaoPay`, `kakaoLocalAPI`
 
